@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    var v_arr = [9,5,4,7,4,6,1,0];
+    var min = v_arr[0];
+    for (var i = 0; i < v_arr.length; i++) {
+        console.log("i:",i,"var[i]:",v_arr[i]);
+        if (min > v_arr[i]) {
+            console.log("입력",v_arr[i],":in");
+            min =v_arr[i];
+        }
+    }
+    alert(min);
+</script>

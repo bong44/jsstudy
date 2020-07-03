@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //document의 부모? 은: window (document는 hrml문서를 가르키고, window는 브라우저를 가르킴) (탑시크릿)
+        //브라우저 기반(화면) 자바스크립트의 최상위 객체는 window (최상위 객체여서 지금 껏 생략하고 썻었음)
+        //document -> window.document (실제로 인식되는 모습) 
+
+        //변수 선언 -> 실제는 속성 선언이었음
+        // var myName = "정봉경";
+        window.myName = "정봉경"; //객체지향적 프로그래밍
+        alert(window.myName);
+
+        // function myFunc(msg) {
+        //     alert(msg);
+        // }
+
+        var myFunc = function(msg){ // 또 다른 함수 선업법
+            alert(msg);             // 오랑캐들은 이걸 더 좋아함
+        }
+
+        window.myFunc("얄루"); // 실제로 window객체의 메소드를 작성하고 있었던 거임 //window의 실체!
+        
+    </script>
+</body>
+</html>

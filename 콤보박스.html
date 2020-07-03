@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="id_sel" onchange="f_chg()"> <!-- onchange는 select(콤보,체크박스)에서 주로(항상) 씀 -->
+        <option value="apache">아파치(LINUX)</option>
+        <option value="tomcat">톰켓(JAVA)</option>
+        <option value="iis">Internet Information Server(MS)</option>
+        <option value="ngicx">엔진박스(LightAPP)</option>
+        <option value="0" selected>선택하셩</option> <!--디폴트로 선택되게 : selected-->
+    </select>
+
+    <!--모바일에서 자주 쓰는 패턴-->
+    <select id="id_sel2" size=3 onchange="f_chg()"> <!--모바일에선 펼쳐서 보여주는게 편함-->
+        <option value="apache">아파치(LINUX)</option>
+        <option value="tomcat">톰켓(JAVA)</option>
+        <option value="iis">Internet Information Server(MS)</option>
+        <option value="ngicx">엔진박스(LightAPP)</option>
+        <option value="0" selected>선택하셩</option> <!--디폴트로 선택되게 : selected-->
+    </select>
+
+    <script>
+        var v_sel = document.getElementById("id_sel");
+        var v_opts = v_sel.options; //options까지 써야 되는 것을 별칭을 줘서 줄여서 씀
+        function f_chg() {
+            // //정석먼저 배웁시다.
+            // alert(v_sel.options[0].value); // options란 select와 연동하여 쓸 수 있는 미리 구현되있는 배열
+            // for (let i = 0; i < v_opts.length; i++) {
+            //     if (v_opts[i].selected) { // 체크박스나 라디오버튼은 checked고, 콤보박스는 selected다 (얘넨 자동완성기능이 없기에 외워야함!)
+            //         alert("선택된 값: " + v_opts[i].value);
+            //     }
+            // }
+            //select는 모든 소스가 위 같이 하도 자주 쓰다보니 편하게 바꿔줌 (밑에)
+            alert(v_sel.value); //select에서만 지원
+        }
+    </script>
+</body>
+</html>

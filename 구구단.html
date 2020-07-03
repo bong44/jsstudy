@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="id_disp"></div>
+    <table id="id_tasp"></table>
+    <script>
+        var v_disp = document.getElementById("id_disp");//body 엘리먼트의 아이디에 접근하여 엘리먼트를 가져와 담음
+        // prompt("단을 입력해주삼");//사용자 입력창을 출력
+        var v_dan = prompt("단을 입력해주삼");
+        alert(v_dan);//취소를 눌렀을때 무슨 값인지 확인//null
+        if (v_dan) {
+        var v_str = "";
+        for (let i = 0; i <= 9; i++) {
+            v_str = v_str + v_dan + " X " + i + " = " + (v_dan*i) + "<br>";
+        } 
+        v_disp.innerHTML = v_str;
+        }else{
+            alert("취소를 눌렀습니다.");
+        }
+
+        var v_tasp = document.getElementById("id_tasp");
+        
+        var v_dan2 = prompt("단을 입력해주삼");
+        if (v_dan2) {
+        var v_str2 = "";
+        for (let i = 0; i <= 9; i++) {
+            v_str2 = v_str2 + v_dan2 + " X " + i + " = " + (v_dan2*i) + "<br>";
+        } 
+        v_tasp.innerHTML = v_str2;
+        }else{
+            alert("취소를 눌렀습니다.");
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h1></h1>
+        <input type="button" value="write in dox" onclick="f_wrt()">
+    <script>
+        
+        function f_wrt() {
+        document.write("<h1>Im the best in coding!</h1>");
+        //이미닫힌 문서에 적용하면 새문서를 작성하게 됨!
+        }
+
+        // document.write() 권장되지 않음 : 이유 개발자들이 잘 못써서
+        // 잘쓰면 장점 있음, 최근 엔진들은 내부적으로 자동 체크하는게 
+        // 많아서잘못 쓸거면 쓰지 마 분위기
+        
+        for(var i=1;i<=10;i++) {
+        document.write("<h1>Im the best in coding!</h1>");
+        }
+        
+        
+
+    </script>
+</body>
+</html> <!--문서(document) 가 닫힘, 문서작성 끝났음 (스크립트는 한번만 실행되고 document가 들어있는 함수를 실행하면 새로운 도큐먼트가 생김)-->

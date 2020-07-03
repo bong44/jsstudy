@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrapper {
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper" onmouseover="f_over()" onmouseout="f_out()">
+
+    </div>
+    <script>
+            v_wrapper = document.getElementById("wrapper"); 
+            v_wrapper.style.width = "50px"; //초기화를 안 해주면 NAN으로 뜸
+            v_wrapper.style.height = "50px"; //초기화를 안 해주면 NAN으로 뜸
+            var v_st2 = "";
+            var v_st = "";
+        function f_over() {
+                clearTimeout(v_st2);
+            v_wrapper.style.width = (parseInt(v_wrapper.style.width) + 1) + "px";
+            v_wrapper.style.height = (parseInt(v_wrapper.style.height) + 1) + "px";
+            v_wrapper.style.background = "blue";
+            console.log("마우스가 올라왔어요!");
+            v_st = setTimeout(f_over,1); //타이머 ID를 리턴해줌 //리턴값이 있는 함수
+        }
+        function f_out() {
+                clearTimeout(v_st);
+            // console.log("pppp"+v_wrapper.style.width+"pppp"); // div가 값이 없을 때 공백일 때 형태를 확인
+            // if(!v_wrapper.style.width){ //문자열에서 아무것도 없는 공백은 false값을 가지고있다
+            //     v_wrapper.style.width = "50px";
+            //     v_wrapper.style.height = "50px";
+            // }
+            v_wrapper.style.background = "red";
+            if (parseInt(v_wrapper.style.width) > 50) {
+            v_wrapper.style.width = (parseInt(v_wrapper.style.width) - 30) + "px";
+            v_wrapper.style.height = (parseInt(v_wrapper.style.height) - 30) + "px";
+            }
+            console.log("마우스가 떠났어요!");
+            v_st2 = setTimeout(f_out,10);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+<script>
+    //함수속에서 함수 리턴
+    function f_cal(p_op) {
+        if (p_op == "+") {
+            return function (p_arg1, p_arg2) { //익명함수
+                return p_arg1 + p_arg2;
+            }
+        }
+        if (p_op == "-") {
+            return function (p_arg1, p_arg2) { //함수 이름을 줄 수는 있지만 밖에서는 특정이름으로 접근이 불가능 함
+                return p_arg1 - p_arg2;
+            }
+        }
+        if (p_op == "*") {
+            return function (p_arg1, p_arg2) {
+                return p_arg1 * p_arg2;
+            }
+        }
+        if (p_op == "/") {
+            return function (p_arg1, p_arg2) {
+                return p_arg1 / p_arg2;
+            }
+        }
+    }
+    alert(f_cal("+")(8,3)); //함수안의 함수는()옆에 () 하나더 해줌
+    alert(f_cal("-")(8,3));
+    alert(f_cal("*")(8,3));
+    alert(f_cal("/")(8,3));
+    alert(f_cal("*")(8,f_cal("+")(8,3)));
+</script>

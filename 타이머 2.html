@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="고고" onclick="f_go()">
+    <input type="button" value="스탑" onclick="f_stop()">
+    <div id="id_disp"></div>
+    <script>
+        var v_timer1;
+        var v_disp = document.getElementById("id_disp");
+        function f_dami() {
+            v_disp.innerHTML += "다미 넘 귀여웡<br>";
+            v_timer1 = setTimeout(f_dami,1000); // 재귀호출        
+        }
+
+        function f_go() {
+            f_dami();
+        }
+
+        function f_stop() {
+            clearTimeout(v_timer1); // setTimeout으로 생성된 타임 객체를 변수에 넣어서 clear까지 시켜줌
+        }
+    </script>
+</body>
+</html>

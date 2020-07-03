@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #id_ball{
+           
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 200px;
+            top: 200px;
+            border-radius: 100px 100px;
+            background-color: violet;          
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="움직여봐" onclick="f_timeout()">
+    <div id="id_ball" style="left: 100px;top: 60px; background-image: url('./image/sin0.jpg');
+    background-size: 200px, 200px;"></div> 
+    <script>
+        //새로운 키워드 javascript 브라우저를 참조하는 식별자 wimdow
+        var v_ball = document.getElementById("id_ball"); //window.document인데 window생략 되있음 (window최상위 객체)
+        
+        alert(v_ball.style.backgroundImage);
+        alert(v_ball.style.backgroundSize); // 다른 프로그래밍언어에서 '-'으로 된 것들은 스크립트에서 하이폰은 빠지고 다음 글자가 대문자로 바뀐다.
+        alert(v_ball.style["background-image"]); 
+        alert(v_ball.style["background-size"]); // 하이폰 써서 접근하고 싶다면, 배열식 접근으로 가능
+
+        var v_width = window.innerWidth;
+        var v_Hidth = window.innerHeight;
+        var v_mvW = 1; 
+        var v_mvH = 1; 
+        var run = false;
+        var imageNum = 1;
+        var v_gak = 0;
+        function f_mv1() {
+            var v_left = parseInt(v_ball.style.left);
+            var v_top = parseInt(v_ball.style.top);
+            v_ball.style.left = v_left + v_mvW + "px";
+            v_ball.style.top = v_top + v_mvH + "px";
+            v_left = parseInt(v_ball.style.left);
+            v_top = parseInt(v_ball.style.top);
+            if ((v_left + 200) >= v_width||v_left==0) {
+                v_mvW = -v_mvW;
+            }
+            if ((v_top + 200) >= v_Hidth||v_top==0) {
+                v_mvH = -v_mvH;
+            }
+
+            var v_path = "./image/sin"+imageNum+".jpg";
+            v_ball.style.backgroundImage =  "url("+v_path+")";
+            imageNum++;
+            v_gak = (v_gak + 20) % 360;
+            v_ball.style.transform = "rotate("+v_gak+"deg)";
+            if (imageNum > 4) {
+                imageNum = 1;
+            }
+
+            setTimeout(f_mv1,300);
+        }
+
+        function f_timeout() {
+            if (!run) {
+                f_mv1();
+                run = !run;
+            }
+        }
+    </script>
+</body>
+</html>

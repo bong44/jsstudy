@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="id_na">
+        <div>흥</div>
+        <div>치</div>
+        <div>피</div>
+    </div>
+    <script>
+        //권장되는 스크립트 태그 위치(바디 태그 닫기 직전위치)
+        //document로 시작하는 것들은 클라이언트에서 가장 중요함 html에서 모든문서 뜻 함
+        var v_divl = document.getElementById("id_na");
+        console.log(v_divl); //구조 자체를 가져오고 
+        console.log(v_divl.innerHTML); //구조안(<></>태그 안)의 내용을 문자형식(?)으로 가져옴
+            
+        v_divl.innerHTML = '<img src="./image/sin.jpg">';
+
+        v_divl.innerHTML = "다지웡";
+        console.log(v_divl);
+        
+    </script>
+</body>
+</html>

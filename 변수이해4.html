@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+<script>
+    //Json javaScript object notation 엄청 x 100000중요!
+    //bigdata에서 data포멧으로 많이 사용됨!, xml물러가라!
+    //그동안 xml에서 하던 것들이, json으로 넘어오는 추세
+    
+    // 자바의 hashmap이랑 비슷 (키 값과 밸유값 연결)
+    // var v_json = {"name":"정종안","age":"100","easy":["A","B","C","D"]}; // 객체 생성 //배열하고 json하고 막 섞어서 씀
+    var v_jsun ={};
+    var v_jsunEx = [];
+
+    if (v_jsun) {//객체는 자체가 참과 같은 값
+        alert("뜰까요?"); //o
+    }
+
+    if (v_jsunEx) { //json과 똑같이 생각해도 댐 (배열은 기본적으로 인덱스를 주고 json은 알아서 키 값을 줘야되는것 차이)
+        alert("뜹니당");
+    }
+
+    v_jsun.name="정종안";
+    v_jsun.age = 10;
+    v_jsun.easy = ["A","B","C","D"];//위처럼 한줄 코딩보다 가독성을 위해 로우는 길지만 이렇게 해주면 좋음
+
+    alert(v_json.name); //정종안
+    alert(v_jsun["name"]);//정종안 위와 같은 결과값 출력(둘다 알아두면 좋음) == 배열식접근법
+
+    alert(v_json.age); //100
+    alert(v_json.easy[3]);
+</script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="UTF-8">
+<script>
+    //this 우리말로 하면 나! context라는 용어 '문맥상'
+console.log(this); //누구? --> 최상위객체 window를 가르킴
+    function f_check(){
+        console.log(this); //역시 window //함수가 만들어지면 window객체안에 만들어짐
+    }
+    f_check();
+
+    var v_lty = {};
+    v_lty.myMath = function (p_msg) {
+        console.log(this);
+        return this; //자기 자신을 계속 돌려주기 때문에 계속 쓸 수 있음. == 메소드체인잉
+    }
+    // v_lty.myMath("A").myMath("B").myMath("C");
+    var v_csj = v_lty.myMath;
+    v_csj("뭐얌");
+    // 해당 속성을 가지고 있는 객체가 this! (문맥상)
+</script>

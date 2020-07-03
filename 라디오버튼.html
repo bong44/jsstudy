@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    남<input type="radio" name="nn_sb" id="" value="M" checked> <!--라디오버튼의 그룹은 name을 같게 주는 것으로 묶어줌-->
+    여<input type="radio" name="nn_sb" id="" value="F">
+    <input type="button" value="당신의 성별은" onclick="f_sb()">
+    <script>
+        var v_rdios = document.getElementsByName("nn_sb"); //!!중요 라디오는 배열로 가져오고 elementsbyname으로 가져오고 배열 변수는s를 보통 붙여줌
+        function f_sb() {
+            alert(v_rdios[0]);
+            alert(v_rdios[1]);
+            if (v_rdios[0].checked) {
+                alert(v_rdios[0].value);
+            }
+        }
+    </script>
+</body>
+</html>

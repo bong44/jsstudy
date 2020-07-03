@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="눌렁" onclick="f_ta()">
+    <textarea id="id_ta" rows=20 cols=80>난 여기에 써야 보여용</textarea> <!--그냥 text는 value에 써줘야 나오는데 얘는 다름(근데 또 값을 불러올 때는 value로 취급함)-->
+    <script>
+        var v_ta = document.getElementById("id_ta");
+        function f_ta() {
+        alert(v_ta.value); //value로 태그안에 있는 텍스트를 취급
+        v_ta.value += "안녕 난 세경이라고 행"+"\n"; //\n을 사용해야 댐 <br>같은 태그는 인식하지 않음
+        }
+    </script>
+</body>
+</html>

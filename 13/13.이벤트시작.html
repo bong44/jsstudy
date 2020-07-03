@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: inline-block;
+        }
+        #id_menu,#id_menu2 {
+            width: 100px;
+            border: 1px solid black;
+        } 
+        #id_sub,#id_sub2 {
+            display: none; /*공간도 차지 안하고, 보이지도 않음*/
+        }
+    </style>
+</head>
+<body>
+    <!-- div>div*2 -->
+    <div id="id_menu" onmouseover="f_show()" onmouseout="f_none()">
+        <div>메인메뉴</div>
+        <div id="id_sub">
+            <a href="#">네이버</a><br>
+            <a href="#">다음</a><br>
+            <a href="#">넥스트</a><br>
+        </div>
+    </div>
+    <div id="id_menu2" onmousedown="f_down()">
+        <div>메인메뉴</div>
+        <div id="id_sub2">
+            <a href="#">네이버</a><br>
+            <a href="#">다음</a><br>
+            <a href="#">넥스트</a><br>
+        </div>
+    </div>
+    <script>
+        var v_sub = document.getElementById("id_sub");
+        var v_sub2 = document.getElementById("id_sub2");
+        var falg = true; 
+        function f_none() {
+            v_sub.style.display="none";
+        }
+        function f_show() {
+            v_sub.style.display="inline-block";
+        }
+        function f_down() {
+            if (falg) {
+                v_sub2.style.display="inline-block";
+            }else{
+                v_sub2.style.display="none";
+            }
+                falg = !falg
+            // alert(event.button); // <-- 왼쪽버튼시 0, 휠 1, 오른쪽버튼 2 를 리턴값으로 주는 이벤트
+            
+        }
+    </script>
+</body>
+</html>

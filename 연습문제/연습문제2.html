@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #id_disp{
+            width: fit-content;
+            height: fit-content;
+            border: 2px solid black;
+        }
+        div *{ /*선택자 사용 (div안의 모든 개체들)*/
+            border : 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="구구단 전부 출력(테이블)"
+            onclick="f_gugu()">
+    <div id="id_disp"></div>
+    <script>
+        var v_table = document.getElementById("id_disp");
+
+        var v_intable = "";
+
+        function f_gugu() {
+            for (let i = 2; i <= 9; i++) {
+                v_intable += "<tr>";
+                for (let j = 2; j <= 9; j++) {
+                    v_intable = v_intable+"<td>"+i+" X "+j+" = "+i*j+"</td>";
+                }
+                v_intable += "</tr>";
+            }
+
+            return v_table.innerHTML = '<table>'+v_intable+"</table>";
+        }
+
+    </script>
+</body>
+</html>

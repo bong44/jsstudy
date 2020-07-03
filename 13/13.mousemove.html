@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #lty{
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-image: url("../image/nara3.jpeg") ;
+        }
+
+        #wrapper {
+            width: 98vw;
+            height: 96vh;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="lty"></div>
+    <div id="wrapper" onmousemove="f_move()">
+
+    </div>
+    <script>
+        var v_wrapper = document.getElementById("wrapper");
+        var v_lty = document.getElementById("lty");
+        function f_move() {
+            console.log("마우스X좌표",event.clientX);
+            console.log("마우스Y좌표",event.clientY);
+        v_lty.style.left = event.clientX + "px";
+        v_lty.style.top = event.clientY + "px";
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <script>
+        //반복문 한번만 사용해서 결과 도출
+        // for (let i = 1; i <= 6; i++) {
+        //     document.write("<h"+i+">Im best programer whole world</h"+i+">");
+        // }
+        // for (let i = 5; i >= 1; i--) {
+        //     document.write("<h"+i+">Im best programer whole world</h"+i+">");
+        // }
+        var i = 1;
+        var v_flag = true;
+        for (;i>=1 && i<=6;) {
+            document.write("<h"+i+">Im best programer whole world</h"+i+">");
+            if (i==6) {
+                v_flag = false;
+            }if (v_flag) {
+                i++;
+            } else {
+                i--;
+            }
+        }
+        </script>
+    </center>
+</body>
+</html>

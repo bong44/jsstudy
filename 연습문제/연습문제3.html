@@ -1,0 +1,36 @@
+<script>
+    //재활용 가능하게 함수로서 저장
+    function f_arrSort(p_arr) {
+        for (let j = 0; j < p_arr.length; j++) {
+            for (let i = j + 1; i < p_arr.length; i++) {
+                if (p_arr[j] > p_arr[i]) {
+                    var temp = p_arr[j];
+                    p_arr[j] = p_arr[i];
+                    p_arr[i] = temp;
+                }
+            }
+        }
+    }
+
+    var v_arrFunc = [8,5,4,4,7,5,2,4,6];
+    
+    f_arrSort(v_arrFunc);
+
+    alert(v_arrFunc); //값이 들어가면 안에서 다 만들어져서 나오네?
+
+    var v_arr = [4, 9, 8, 3, 5, 7]; 
+    
+    // 첫번째에 가장 작은 값이 오도록 하기!
+    //버블정렬!! - 면접때 꽤 많이 묻고 잘 답변하면 거의 합격
+    //첫번째에 가장 작은 값이 오도록 하기
+    for (let j = 1; j < v_arr.length; j++) {
+        for (let i = j + 1; i < v_arr.length; i++) {
+            if (v_arr[j] > v_arr[i]) {
+                var temp = v_arr[j];
+                v_arr[j] = v_arr[i];
+                v_arr[i] = temp;
+            }
+        }
+    }
+    alert(v_arr);
+</script>

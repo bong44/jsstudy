@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="id_img" src="image/sin.jpg" width=100 height=100><br>
+    <input type="button" value="따움" onclick="f_next()">
+    <script>
+        var v_img = document.getElementById("id_img");
+        var v_imgs = []; // 빈 배열 생성 (번외. {}는 json)
+        for (let i = 0; i < 5; i++) {
+            v_imgs[v_imgs.length] = "image/sin" +i+".jpg";
+        }
+        // alert(v_imgs);
+        var v_startIndex = 1;
+        function f_next() {
+            var v_index = v_startIndex++;
+            v_img.src = "image/sin"+v_index%5+".jpg";
+            alert(v_imgs[v_index%5]);
+            // v_img.width = v_img.width*3;
+            // v_img.height = v_img.height*3;
+        }
+    </script>
+</body>
+</html>

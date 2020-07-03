@@ -1,0 +1,18 @@
+<meta charset = "UTF-8">
+<script>
+    var v_aaa ="흥"; // 밖에 선언한 값 == 전역변수
+    function f_scope(p_arg) {
+        v_aaa = "치!";  //치흥
+        // var v_aaa = "치";  //치치 
+        alert(v_aaa);
+        for (let i = 1; i <= 3; i++) {
+            var v_out = "김영훈";
+        }
+        alert("for문 밖의 i" + i); //밖에서도 쓸 수 있음!!!
+        alert("for안의 문자"+ v_out);
+        //func안에서 선언된건 어디에 묶여있든 함수 안에서는 사용가능
+        //간단히, 함수 안에는 지역변수, 밖은 전역변수 
+    }
+    f_scope();
+    alert(v_aaa); 
+</script>

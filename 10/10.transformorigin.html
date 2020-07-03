@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #id_bar {
+        position: absolute;
+        left: 150px;
+        top: 185px;
+        width: 10px;
+        height: 150px;
+        background-color: black;
+        transform-origin: center top; /*기본값 center center*/
+    }
+    #id_bar2 {
+        position: absolute;
+        left: 150px;
+        top: 185px;
+        width: 10px;
+        height: 150px;
+        background-color: black;
+        transform-origin: center top; /*기본값 center center*/
+    }
+    #id_circle {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border: 2px dashed black;
+        border-radius: 150px 150px;
+    }
+    .heart {
+            position: relative;
+            display: inline-block; 
+            /*div는 기본적으로 display block상태이다*/
+            left: 135px;
+            top: 135px;
+            width: 150px;
+            height: 150px;
+            margin: 15px 15px;
+        }
+        .nemo {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            left: 100px;
+            top: 100px;
+        }
+        .nleft {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 15px 15px;
+            left: 85px;
+            top: 100px;
+        }
+        .ntop {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 15px 15px;
+            left: 100px;
+            top: 85px;
+        }
+        #container {
+            width: 300px;
+            height: 300px;
+        }
+</style>
+<body>
+    <input type="button" value="크기조정" onclick="f_scale()">
+    <input type="button" value="눌렁" onclick="f_rot()">
+    <div id="id_bar"></div>
+    <div id="id_bar2"></div>
+    <div id="id_circle"></div>
+    <div id="container" onmouseover="f_rot()">
+        <div class="heart">
+            <div class="nemo"></div>
+            <div class="nleft"></div>
+            <div class="ntop"></div>
+        </div>
+    </div>
+    <script>
+        var v_bar = document.getElementById("id_bar"); 
+        var v_bar2 = document.getElementById("id_bar2"); 
+        var v_bar3 = document.getElementById("container"); 
+        var v_dgree = 0;
+        var v_dgree3 = 45;
+        var v_dgree2 = 0;
+        function f_rot() {
+            v_bar.style.transform = "rotate("+(v_dgree+=(5%360))+"deg)";
+            v_bar3.style.transform = "rotate("+(v_dgree3+=(5%360))+"deg)";
+            v_bar2.style.transform = "rotate("+(v_dgree2+=(1%360))+"deg)";
+            setTimeout(f_rot,100);
+        }
+        function f_scale() {
+            v_bar3.style.transform = "scale(10)";
+            // v_parent.style.transform = "scale(2,1.5)";
+        }
+        f_rot();
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+<script>
+    function f_sum(p_end) {
+        var v_sum = 0;
+        for (let i = 1; i <= p_end; i++) {
+            v_sum += i;
+        } return v_sum;
+    }
+    alert(f_sum(10));
+    //재귀호출은 성능이 좋음(메모리 많이 먹음, 가독성이 떨어짐)
+    //재귀호출은 무한루핑처럼 벗어나는 조건을 잡는 것이 중요!
+    //빅데이터같이 처리할 데이터가 많아져 자주 다시 쓰이는 추세
+    function f_jsum(p_endNum) {
+        if (p_endNum == 1) {return 1;}
+        return p_endNum * f_jsum(p_endNum-1)
+    }
+
+    alert(f_jsum(4));
+</script>

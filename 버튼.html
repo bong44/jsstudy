@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="t_id" value="난 텍스트" readonlys><br> <!--disabled랑 readonly 사용자가 못쓰게 막는건데 disabled는 서버로 데이터 전송 안되고 readonly는 서버에서 읽을 수 있음-->
+    <input type="button" value="눌러방" onclick="f_click()">
+    <script>
+            var v_text = document.getElementById("t_id"); //객체의 별명을 줌
+        function f_click() {
+            alert(v_text.value);
+            v_text.value = "홍치핑";
+        }
+    </script>
+</body>
+</html>

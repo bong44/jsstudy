@@ -1,0 +1,25 @@
+<meta charset="UTF-8">
+<script>
+    //배열 -> 자바스크립트 배열은 제약사항이 없음!, 엄청 중요
+    //자유로운 배열 형태
+    //데이터 타입도 막 섞여있어도 댐
+    var v_arr = ["aaa",3,4,"kkk"]; // 빈 배열 선언, 배열은 객체(object)임 //스크립트의 초기값 주는 애는 []임
+    alert("갯수는: " + v_arr.length);
+    alert(v_arr[0]);
+    var v_arr1 = [];
+    for (var index = 0; index < 10; index++) {
+        // v_arr[i] = (i+1); //이것은 별로 좋은 방법이 아님!, 초보티가 남
+        v_arr1[v_arr1.length] = (index+1); //고수적인 표현 //길이를 잘 활용해야함
+    }
+    alert(v_arr1[v_arr1.length -1]); //배열값확인
+    
+    var v_arr2 = ["aaa",["bbb","ccc",272]]
+    alert(v_arr2[1][2]); //다차원배열
+    
+    var A = ["bbb","ccc",272,{"alias":"roze"}];
+    var v_A = ["aaa",A];
+
+    alert(v_A[1][3].alias); //배열안에 배열과 그안에 json
+
+    
+</script> 

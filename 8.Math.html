@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f_ranSu(p_start,p_end) {
+            //함수로서 간편히 구현 및 활용가능
+            return Math.round(Math.random()*(p_end - p_start))+p_start;
+        } 
+        //상황에 맞는 함수를 잘 만들 수 있는 능력이 되면(재사용이 충분히 가능한) 하산 하여도 댐ㅎㅎ 
+        
+        //동적페이지 구현을 위해 setTimeout과 Math.random을 많이 사용
+        //cpu 클락 카운트를 이용, 실제 그런지는 정확하지 않음!
+        //Math.ceil(올림), Math.round(반올림), Math.floor(버림), Math.PI
+        // for (let i = 0; i < 10; i++) {
+            // 1~10 가찌 발생?
+            // alert(Math.ceil(Math.random()*10)); //랜덤숫자 발생 0<= ? < 1//0이 나온적은 지금까지 없음
+            //0*10 <= ? < 1*10 //9.999.. 까지 소수점으로도 나와서 올림 (0은 제외)
+            //65~100 까지 발생 (일단 100-65의 범위만큼 0~범위 까지의 랜덤을 해준뒤 65를 !더해준다!)
+            // alert(Math.round(Math.random()*35)+65)
+
+        // }
+        //곡선 움직임 구현을 원하면 삼각함수를 이해하고 있어야 함. sin cos
+        alert(Math.sin(Math.PI/2));
+        alert(Math.cos(Math.PI/2));
+
+        
+
+    </script>
+    
+    <script>
+        // alert(document.getElementById("id_imsi")); //null(실패) -- 아직 만들어지지 않은 객체에 접근
+    </script>
+    <div id="id_imsi">그냥태그</div>
+    <!--스크립트 태그를 관례적으로 여기 (/body)바로 위에 쓰는 이유.-->
+    <script>
+        // alert(document.getElementById("id_imsi")); //주소값가지고있음(성공)
+    </script>
+</body>
+</html>

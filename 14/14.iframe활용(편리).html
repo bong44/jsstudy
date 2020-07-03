@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>iframe</h1>
+    <input type="text" id="id_txt" value=""><br>
+    <input type="button" value="눌렁" onclick="f_check()">
+    <div>
+        <div>
+            <!--파일이든 링크든 아무곳에나 넣을 수 있어 편리-->
+            <iframe id="id_frm" src="14.myChild.html" width="400" height="400" frameborder="0"></iframe>
+        </div>
+    </div>
+    <script>
+        function f_check() {
+            var v_ifWin = document.getElementById("id_frm").contentWindow;
+            v_ifWin.document.getElementById("id_lty").value =
+                        document.getElementById("id_txt").value;
+        }
+    </script>
+</body>
+</html>

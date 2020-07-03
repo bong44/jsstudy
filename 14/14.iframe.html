@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--유튜브 영상 '소스코드 복사해 옴'-->
+    <!-- iframe은 원래 마이크로소프트에서 만들어서 IE에 넣어서 
+    브라우저 시장을 점유하는데 큰 역할을 했던 태그로 
+    현재는 표준태그로 자리잡아서 모든 브라우저에서 지원합니다 -->
+    <iframe id="id_myMovie" width="889" height="445" 
+    src="https://www.youtube.com/embed/lCLsy24q3PI?autoplay=1&mute=1" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen></iframe>
+    <!-- ?autoplay=1&mute=1 --> 
+    <input type="button" value="다음뮤비" onclick="f_next()">
+    <script>
+        var v_myMovie = document.getElementById("id_myMovie");
+        var v_movieCodes = ["lCLsy24q3PI","5CAj9GpMJtQ","vqhpGhOg3_o","nuJ4ySrXOM8"];
+        var v_head = "https://www.youtube.com/embed/";
+        var v_tail = "?autoplay=1&mute=1";
+        var i = 0;
+        function f_next() {
+            v_myMovie.setAttribute("src",v_head+v_movieCodes[i]+v_tail);
+            i++;
+            alert(i);
+            if (i==v_movieCodes.length) {
+                i=0;
+            }
+        }
+    </script>
+</body>
+</html>

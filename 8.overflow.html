@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .cl_child {
+        display: inline-block;
+    }
+
+    #id_parent {
+        position: relative;
+        left: 300px;
+        width: 100px;
+        height: 100px;
+        border: 10px groove black;
+        overflow: hidden; 
+        /* 부모가 마치 액자처럼 작용함 */
+        /* 중요한 속성!! (넘쳐나는 데이터를 hidden(감춰라))  */
+    }
+    #id_row1 {
+        position: absolute;
+        width: 420px;
+        height: 100px;
+    }
+    #id_row2 {
+        position: absolute;
+        width: 420px;
+        height: 100px;
+        left: 405px;
+    }
+</style>
+
+<body>
+    <input type="button" value="전자앨범 팔까?" onclick="f_mv()">
+    <div id="id_parent">
+        <div id="id_row1">
+            <div class="cl_child"><img src="./image/nara1.jpeg" width="100" height="100"></div>
+            <div class="cl_child"><img src="./image/nara2.jpeg" width="100" height="100"></div>
+            <div class="cl_child"><img src="./image/nara3.jpeg" width="100" height="100"></div>
+            <div class="cl_child"><img src="./image/nara4.jpeg" width="100" height="100"></div>
+        </div>
+        <div id="id_row2">
+            <div class="cl_child"><img src="./image/sin1.jpg" width="100" height="100"></div>
+            <div class="cl_child"><img src="./image/sin2.jpg" width="100" height="100"></div>
+            <div class="cl_child"><img src="./image/sin3.jpg" width="100" height="100"></div>
+            <div class="cl_child"><img src="./image/sin4.jpg" width="100" height="100"></div>
+        </div>
+    </div>
+    <script>
+        var v_row1 = document.getElementById("id_row1");
+        var v_row2 = document.getElementById("id_row2");
+        var v_mvW = 10;
+        function f_mv() {
+            //inline style로 초기화 되지 않았다면 빈 공백인데, 공백은 false
+            if (!v_row1.style.left) {
+                v_row1.style.left = "0px" //강제초기화
+                v_row2.style.left = "420px" //강제초기화
+            }
+            v_row1.style.left = parseInt(v_row1.style.left) - v_mvW + "px";
+            v_row2.style.left = parseInt(v_row2.style.left) - v_mvW + "px";
+            // 스타일의 속성을 가져오면 px가 붙어있는 형태이기에 parseInt로 변환 후 px 붙여줘야함
+            // 중요!! 이렇게 속성을 읽어 올 때, 외부스타일은 못 불러오고, 인라인 스타일만 인식 할 수 있다
+            if (parseInt(v_row2.style.left) == 0) {
+                v_row1.style.left = "420px";
+            }
+            if (parseInt(v_row1.style.left) == 0) {
+                v_row2.style.left = "420px";
+            }
+
+
+            setTimeout(f_mv,30);
+
+        }
+        f_mv();
+    </script>
+</body>
+
+</html>

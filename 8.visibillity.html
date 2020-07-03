@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        /* #jky { */
+            /* display: none;  */
+            /*존재하지만 보이지도 않고 공간도 안차지*/
+            /* visibility: hidden; */
+            /*보이지는 않지만 공간은 차지*/
+            /* display, visibility, overflow, position,transform, z-index */
+            /* 위 속성들은 알아두어야할 속성들 */
+        /* } */
+    </style>
+</head>
+<body>
+    <input type="button" value="안보이기" onclick="f_nono()">
+    <input type="button" value="보이깅" onclick="f_block()">
+    <input type="button" value="토글" onclick="f_toggle()">
+    <div>홍길동</div>
+    <div id="jky">전광렬</div>
+    <div>주다사</div>
+    <div>메니악</div>
+    <script>
+        var v_jky = document.getElementById("jky");
+        function f_nono() {
+            v_jky.style.display="none";
+        }
+        function f_block() {
+            v_jky.style.display="block";//보여주는거
+        }
+
+        var v_isShow = true; // flag변수 활용
+        function f_toggle() {
+            if (v_isShow) {
+                f_nono();
+                v_isShow = false;
+            } else {
+                f_block();
+                v_isShow = true;
+            }
+        } 
+
+        //일반적인 토글 구현 방법
+        // function f_toggle() {
+        //     if (v_jky.style.display == "none") {
+        //         f_block();
+        //     }else{
+        //         f_nono();
+        //     }
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="구구단 테이블 출력" 
+    onclick="f_gugu()">
+    <div id="id_disp"></div>
+    <script>
+        var v_disp = document.getElementById("id_disp");
+        function f_gugu() {
+            var v_tbStr = "<table border=1>";
+            for (let j = 2; j <= 9; j++) {
+            v_tbStr += "<tr>";
+            for (let i = 2; i <= 9; i++) {
+                v_tbStr += "<td>"+i+"X"+j+"="+(i*j)+"</td>"
+            }
+            v_tbStr +="</tr>";
+            }
+            v_tbStr += "</table>";
+            v_disp.innerHTML = v_tbStr;
+            alert(v_tbStr);
+        }
+        
+    </script>
+</body>
+</html>

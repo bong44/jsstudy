@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="눌렁" onclick="f_click()"> <!--인라인 이벤트 적용-->
+    <input type="button" value="눌렁" id="id_btn1">
+    <script>
+        var v_btn1 = document.getElementById("id_btn1");
+        //v_btn에 클릭 이벤트 등록(외부 인라인 적용)
+        // v_btn1.onclick = function () {
+            
+        // }
+        //등록법1
+        // v_btn1.addEventListener("click",function () { //이벤트에 대해 on을 빼고씀!! onclick == click , onload == load ....
+            // 권장되는 사용법
+        // });
+
+        //등록법2는 같은 이벤트에 함수 (이벤트핸들러)를 정의하면
+        // 덮어써버림 (곧 나중꺼만 실행)
+        // window.onload = function () {
+            
+        // }
+        // window.onload = function () {
+            
+        // }
+
+        //등록법 3
+        window.addEventListener("load",function() { //on 빼고
+            alert("1");
+        });
+        window.addEventListener("load",function() {
+            alert("2"); //등록법 2와 달리 둘다뜸
+        });
+
+        function f_click() {
+            
+        }
+    </script>
+</body>
+</html>

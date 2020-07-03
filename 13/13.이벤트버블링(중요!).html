@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #grandMother {
+            position: relative;
+            left: 50px;
+            top: 50px;
+            width: 200px;
+            height: 200px;
+            border: black 1px solid;
+        }
+        #mother {
+            position: relative;
+            left: 50px;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            border: plum 1px solid;
+        }
+        #me {
+            position: relative;
+            left: 10px;
+            top: 10px;
+            width: 50px;
+            height: 50px;
+            border: crimson 1px solid;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="grandMother" onmouseover="f_gM()">
+        <div id="mother" onmouseover="f_mo()">
+            <div id="me" onmouseover="f_me()">나 정봉경</div>
+        </div>
+    </div>
+    <script>
+        //이벤트가 상위 객체에 전달되는 것을 이벤트 버블링 이라고 부름 (짜증나는현상)
+        function f_gM() {
+            alert("나얌 할머닝");
+        }
+        function f_mo() {
+            event.stopPropagation(); //이벤트 전파 막기 ,엄청 중요!
+            alert("나얌 엄마");
+        }
+        function f_me() {
+            event.stopPropagation(); //이벤트 전파 막기 ,엄청 중요!
+            alert("나얌");
+        }
+    </script>
+</body>
+</html>

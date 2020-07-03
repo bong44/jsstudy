@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    랜덤 정답: <input type="text" id="id_jung" value=""><br>
+    <hr> <!--수평선-->
+    <script>
+        //    문제1<br>
+        //    1<input type="radio" name="nm_mun1" value="1"> 
+        //    2<input type="radio" name="nm_mun1" value="2"> 
+        //    3<input type="radio" name="nm_mun1" value="3"> 
+        //    4<input type="radio" name="nm_mun1" value="4">
+        //     위 내용을 document로 반복처리로 하여금 구현
+        var v_result = []; // 정답 담을 빈 비열
+        // 정답은 문제 수 만큼
+        var limit = 4; // 문항 수
+        var exLimit = 7; //문제 수 
+        // 랜덤으로 문제의 수 만큼 정답을 줌
+        for (let i = 1; i <= exLimit; i++) {
+            v_result[v_result.length] = Math.floor(Math.random()*4)+1;
+        }
+        document.getElementById("id_jung").value = v_result;
+        
+
+        for (let j = 1; j <= exLimit; j++) {
+            document.write("문제" + j + "<br>");
+            for (let i = 1; i <= limit; i++) {
+                document.write(i + '<input type="radio" name="nm_mun' + j + '" value="' + i + '"> ');
+                if (i==limit) {
+                    document.write( '--' + '<input type="text" id="id_Text' + j + '"" value="" size="5"> ');
+                }
+            }
+            document.write("<br>");
+        }
+        
+    </script>
+    점수<input id="id_score" type="text" value=0 size="5">
+    <input type="button" value="채점" onclick="f_score()">
+    <script>
+        function f_score() {
+
+            var v_score = 0;
+            var v_flag = true;
+
+            for (let i = 1; i <= exLimit; i++) {
+
+                var v_radios = document.getElementsByName("nm_mun"+i);
+
+                for (let j = 0; j < v_radios.length; j++) {
+
+                    if (v_radios[j].checked && j+1 == v_result[i-1]) {
+
+                        v_score += Math.round(100/exLimit); //점수 합
+                        
+                        document.getElementById("id_Text"+i).value = "정답"; // 오답 여부
+                        document.getElementById("id_Text"+i).style.backgroundColor = "blue";
+                        v_flag = false;
+                        
+                    }
+                    
+                }
+                if (v_flag) {
+                    document.getElementById("id_Text"+i).value = "오답";
+                    document.getElementById("id_Text"+i).style.backgroundColor = "red";
+                }
+                v_flag = true;
+            }
+            document.getElementById("id_score").value = v_score;
+        }
+    </script>
+</body>
+
+</html>

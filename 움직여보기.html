@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #id_ball{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            /* left: 100px;
+            top: 100px; */
+            right: 20px;
+            bottom: 30px; /*위에 주석된 것을 자주씀*/
+            border-radius: 50px 50px; /*넓이 와 높이의 절반 값이면 원*/
+            background-color: violet;          
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="움직여봐" onclick="f_mv1()">
+    <div id="id_ball" style="left: 100px;top: 60px; background-color: pink;"></div> <!--외부 스타일보다 인라인 스타일이 우선순위가 높아서 덮어 씌어버림-->
+    <script>
+        var v_ball = document.getElementById("id_ball");
+        function f_mv1() {
+            v_ball.style.left = parseInt(v_ball.style.left) + 10 + "px";
+            setTimeout(f_mv1,500);
+        }
+        function f_mv() {
+            //스타일에 접근
+
+            // v_ball.style.left = "500px"; //px같은 단위없이 숫자만 써주면 안 먹음 
+            // v_ball.style.left = v_ball.style.left + 10; //문자열과 숫자와 더하는 격이라 안 먹음
+            v_ball.style.left = parseInt(v_ball.style.left) + 10 + "px"; // 이런식으로 가능
+           
+            // alert(v_ball.style.left);// 추천방식(속도빠름)
+            // alert(v_ball.style["left"]); // 배열식 접근
+            // alert(v_ball.style.top);
+            // alert(v_ball.style["top"]);
+        }
+    </script>
+</body>
+</html>

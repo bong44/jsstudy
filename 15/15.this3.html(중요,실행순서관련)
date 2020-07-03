@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="id_disp"></div>
+    <input id="id_btn" type="button" value="누르셩">
+    <script>
+        // var v_btn = document.getElementById("id_btn");
+        // function f_msg(p_msg) {
+        //     alert(p_msg);
+        // }
+        // //v_btn.onclick = f_msg("aaa"); //중요!!!! 만약 함수를
+        
+        //  온로드 때만 부르고 싶으면 ()를 붙이면 안댐(붙이면 소스 실행과정중 함수가 콜 되어버림)
+        // v_btn.onclick = f_msg; //옳바른 사용방법
+        //위처럼 되면 파라미터를 넘길 방법이 없어짐 (call도 함수처럼 바로 실행되어 버림)
+        //그에대해 생긴 'bind'
+
+        var v_btn = document.getElementById("id_btn");
+        function f_msg(p_msg) {
+            alert(this);
+            alert(p_msg);
+        }
+        // 중요>>>>>>>>!!!!!! [뭐뭐 한 다음에 실행하라,, 라는 메소드를 쓰려면 bind를 사용하면 댐]
+        // setTimeout(f_msg.bind(document,"메세지"),1000); //괄호가 와도 되는 곳은 call, 괄호가 오면 안 되는 곳은 bind
+        // 위에 것도 귀찮다고 setTimeout에 약속을 잡아줌
+        setTimeout(f_msg,1000,"메시지");
+        
+        // call은 함수를 실행시켜 주고
+        // bind는 내부적으로 새로운 함수를 만들어서 그 함수의 포인터를 
+        // 리턴해주기 때문에 자동실행되지 않음
+        
+        v_btn.onclick = f_msg.bind(null,"나 뜨지? 이제?"); //옳바른 사용방법
+        
+    </script>
+</body>
+</html>

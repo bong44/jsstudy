@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 모든 div 태그에 기본적으로 아래 스타일을 적용 */
+        div {
+            border: 2px solid black;
+        }
+        /* 위에 꺼에서 스타일을 추가로 덮음 */
+        .wrapper{
+            width: 98vw; /*vw 폭 전체(전체화면을 100퍼센트로 보면댐)*/
+            height: 96vh; /*vh 높이 전체*/
+            border-color: magenta;
+        }
+        .header{
+            height: 30vh; /*높이 30퍼센트*/
+        }
+        .content{
+            height: 50vh; /*높이 50퍼센트*/
+        }
+        .footer{
+            height: 20vh; /*높이 20퍼센트*/
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper"> <!-- container나 wrapper로 태두리를 보통 줌 -->
+        <div class="header">해더</div>
+        <div class="content">내용</div>
+        <div class="footer">바닥글</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    독서<input type="checkbox" name="ch1" value="book" onclick="f_clik(this)">
+    영화<input type="checkbox" name="ch1" value="movie" onclick="f_clik(this)">
+    테니스<input type="checkbox" name="ch1" value="tennis" onclick="f_clik(this)">
+    타르코프<input type="checkbox" name="ch1" value="tarkov" onclick="f_clik(this)">
+    여행<input type="checkbox" name="ch1" value="travel" onclick="f_clik(this)">
+    촬영<input type="checkbox" name="ch1" value="photo" onclick="f_clik(this)">
+    <script>
+
+        var v_hobbys = document.getElementsByName("ch1");
+        var v_ckCnt = 0; // 최초 체크된 체크박스 갯수
+        var v_limitCnt = 3; // 3개 까지만 허락
+        function f_clik(p_this) {
+            if (p_this.checked) {
+                v_ckCnt++;
+            }else{
+                v_ckCnt--;
+            }
+            if (v_ckCnt > v_limitCnt) {
+                alert(v_limitCnt+"개 까지만 선택 가능합니다. 바부야");
+                p_this.checked = false;
+                v_ckCnt--;
+            }
+        }
+        
+
+
+        // function f_clik(p_ch) {
+        //     if (f_clcount() > 3) {
+        //         alert("그만입력");
+        //         p_ch.checked = false;
+        //     }   
+        // }
+
+        // function f_clcount() {
+        //     var v_cnt = 0;
+        //     for (var i = 0; i < v_hobbys.length; i++) {
+        //         if (v_hobbys[i].checked) {
+        //         v_cnt++;
+        //         }
+        //     }
+        //     return v_cnt;
+        // }
+    </script>
+</body>
+</html>

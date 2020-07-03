@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var v_hexaCodeArray = [];
+        for (let i = 0; i <= 9; i++) {
+            v_hexaCodeArray[v_hexaCodeArray.length] = i;
+        }
+        v_hexaCodeArray[v_hexaCodeArray.length] = "a";
+        v_hexaCodeArray[v_hexaCodeArray.length] = "b";
+        v_hexaCodeArray[v_hexaCodeArray.length] = "c";
+        v_hexaCodeArray[v_hexaCodeArray.length] = "d";
+        v_hexaCodeArray[v_hexaCodeArray.length] = "e";
+        v_hexaCodeArray[v_hexaCodeArray.length] = "f";
+
+        function f_hexaNum() {
+            var v_ranIndex = f_rannum(v_hexaCodeArray.length);
+            return v_hexaCodeArray[v_ranIndex];
+        }
+
+        function f_ranColor2() {
+            var v_hexaColor = "#";
+            for (let i = 0; i < 6; i++) {
+                v_hexaColor += f_hexaNum();
+            }
+            return v_hexaColor;
+        }
+
+        //Math.floor(Math.random()*256)
+        function f_rannum(p_lim) {
+            return Math.floor(Math.random()*p_lim);
+        }
+        function f_ranColor() {
+            return "rgb("+f_rannum(256)+","+f_rannum(256)+","+f_rannum(256)+")";
+            
+        }
+        window.onload = f_myBack();
+        function f_myBack (){
+            // document.body.style.backgroundColor = f_ranColor();
+            document.body.style.backgroundColor = f_ranColor2();
+            //head태그와 body는 하나밖에 없어야 하기에 바로 접근가능
+            setTimeout(f_myBack,1000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="새창열기" onclick="f_newOpen()">
+    <input id="old_txt" type="text" value=""><br>
+    <input type="button" value="새창에 값 전달" onclick="f_newTo()">
+    <input type="button" value="새창 닫기" onclick="f_newClose()">
+    <input type="button" value="체크" onclick="f_check()">
+    <input type="button" value="나를 닫기" onclick="f_close()"> <!--실험용-->
+    <script>
+        //window.open(URL, NAME, Attributes);
+        function f_close() {
+            // window.close(); //스크립트로 열은 것은 스크립트로 닫을 수 있지만, 우리가 직접 연(url을 연) 것을 못 닫음(권한 불충분) //원래 되었었는데 악용사례가 많아 제약이 걸린 것임
+
+        }
+
+        var v_newWin = null;
+        function f_check() {
+            console.log(v_newWin); //return값이 뭔지 확인용
+        }
+
+        function f_newClose() {
+            v_newWin.close();
+            v_newWin = null;
+        }
+
+        function f_newTo() {
+            v_newWin.document.getElementById("new_txt").value = document.getElementById("old_txt").value;
+        }
+
+        var f_newOpen = function(){
+            // window.open("https://mail3.nextit.or.kr","bong","width=200, height=200, left=100, top=100" );//사이즈를 주면 탭으로 안 나옴
+            //left top은 모니터 화면 기준 //아름을 주면 새로운 창이 안열림(닫혀야지만 새로 열림)두번째 파라미터 중요!
+            // 이미지 링크도 줄 수 있음
+            if (!v_newWin) {
+            v_newWin = window.open("./11.newWin.html","","width=200, height=200, left=100, top=100");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+<script>
+// 재귀호출 문제 (2일차 부터 자가복제 능력이 생김)
+// 기간         터미네이터 숫자
+// 0일          A                                           
+// 1일          A
+// 2일          A A1
+// 3일          A A2 A1
+// 4일          A A3 A2 A1 A1_1
+// 5일          A A4 A3 A2 A2_1 A1 A1_1 A1_2
+//      1 1 2 3 5 8
+function termin(day) {
+    if (day <= 1) {
+        return 1;
+    }
+    return termin(day-2) + termin(day-1);
+}
+console.log(termin(5));
+
+</script>

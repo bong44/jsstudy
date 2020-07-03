@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="눌렁" onclick="f_rot()"><br>
+    <img id="sin1" src="image/sin3.jpg" width="200" height="275">
+    <img id="sin2" src="image/sin4.jpg" width="200" height="245">
+    <img id="sin3" src="image/sin2.jpg" width="200" height="250">
+    <script>
+        var v_sin1 = document.getElementById("sin1");
+        var v_sin2 = document.getElementById("sin2");
+        var v_sin3 = document.getElementById("sin3");
+        var gak = 0;
+        function f_rot() {
+            gak = (gak + 15) % 360;
+            v_sin1.style.transform = "rotateX("+gak+"deg)";
+            v_sin2.style.transform = "rotateZ("+gak+"deg)"; //그냥 rotate만 붙이면 Z를 기본값으로 씀
+            v_sin3.style.transform = "rotateY("+gak+"deg)";
+            setTimeout(f_rot,1000/50);
+        }
+    </script>
+</body>
+</html>

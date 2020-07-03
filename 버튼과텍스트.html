@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    블랙<input type="text" id="t1" value=""><br>
+    핑크<input type="text" id="t2" value=""><br>
+    <input type="button" value="복사" onclick="f_copy()"><br>
+    <script>
+            var f_t1 = document.getElementById("t1"); 
+            var f_t2 = document.getElementById("t2");
+        function f_copy() {
+            f_t1.value=f_t2.value;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //타이머는 동적프로그램의 필수!!!
+        // setTimeout(함수명,시간);
+        function f_dami() {
+            alert("나 좀 불러줘!");
+        setTimeout(f_dami,1000); //시간 3000분의 3초
+        } //함수안에서 자기자신을 부르는게 재귀호출이라 함 (면접때)
+        f_dami(); //위 형식으로 반복 가능
+
+        function f_dami2() {
+            alert("1");
+        }
+            setTimeout(f_dami2, 5000); // 비동기함수라 하고, 다음 소스로 제어권을 넘겨줌
+            alert("2"); //얘가 먼저 실행 됨
+
+    </script>
+</body>
+</html>

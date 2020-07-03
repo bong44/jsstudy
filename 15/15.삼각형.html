@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nemoSty{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border: 1px solid black;
+        }
+        .nemoSpace {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 전각문자/ 반각문자 height/width 2height/width-->
+    <input type="button" value="눌렁" onclick="f_insNemo()">
+    <div id="container"></div>
+    <script>
+        var v_con = document.getElementById("container");
+        //네모 1개 만드는 함수
+        function f_nemo(p_arg) {
+            var v_div = document.createElement("div");
+            v_div.setAttribute("class","nemoSty");
+            if (p_arg) {
+                v_div.style.backgroundColor = f_ranColor2();
+            }else{
+                v_div.style.backgroundColor = "white";
+                v_div.setAttribute("class","nemoSpace");
+            }
+            return v_div;
+        }
+        //네모를 화면에 넣는 함수
+        function f_insNemo() {
+            // 1개넣고 줄바꿈
+            // v_con.appendChild(f_nemo());
+            // v_con.innerHTML += "<br>"
+            var lim = 7;
+            //let const.. 등은 아직 우리나라에선 explorer를 쓰기 때문에 var를 쓰는게 좋음
+            for (var i = 1; i <= lim; i++) {
+                for (var j2 = 7; j2 >= 1+i; j2--) {
+                    v_con.appendChild(f_nemo(0));
+                }
+                for (var j = 1; j <= i; j++) {
+                    v_con.appendChild(f_nemo(1));
+                }
+                ///////////////////////////////// 다시만들어 슈바
+                
+                for (var j = 1; j <= i; j++) {
+                    v_con.appendChild(f_nemo(1));
+                }
+                for (var j2 = 7; j2 >= 1+i; j2--) {
+                    v_con.appendChild(f_nemo(0));
+                }
+                v_con.innerHTML += "<br>";
+            }
+        }
+        ////////////////////////////////////////////////////////////////////////
+        var v_hexaCodeArray = [];
+        for (var i = 0; i <= 9; i++) {
+            v_hexaCodeArray[v_hexaCodeArray.length] = i;
+        }
+        v_hexaCodeArray[v_hexaCodeArray.length] = "a";
+        v_hexaCodeArray[v_hexaCodeArray.length] = "b";
+        v_hexaCodeArray[v_hexaCodeArray.length] = "c";
+        v_hexaCodeArray[v_hexaCodeArray.length] = "d";
+        v_hexaCodeArray[v_hexaCodeArray.length] = "e";
+        v_hexaCodeArray[v_hexaCodeArray.length] = "f";
+
+        function f_hexaNum() {
+            var v_ranIndex = f_rannum(v_hexaCodeArray.length);
+            return v_hexaCodeArray[v_ranIndex];
+        }
+
+        function f_ranColor2() {
+            var v_hexaColor = "#";
+            for (var i = 0; i < 6; i++) {
+                v_hexaColor += f_hexaNum();
+            }
+            return v_hexaColor;
+        }
+
+        //Math.floor(Math.random()*256)
+        function f_rannum(p_lim) {
+            return Math.floor(Math.random()*p_lim);
+        }
+        /////////////////////////////////////////////////////////////////////////
+            
+    </script>
+</body>
+</html>

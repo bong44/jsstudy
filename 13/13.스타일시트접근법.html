@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- styleSheets[0] -->
+    <link rel="stylesheet" href="../css/myStyle.css"> <!--외부스타일시트-->
+    <title>Document</title>
+    <!-- styleSheets[1] -->
+    <style>
+        /* cssRules[0] */
+        .lty1 {
+            background-color: black; /*이런것들 하나하나를 CSSRULES라 함 (0번째)*/
+        }
+        /* cssRules[1] */
+        .lty2 {
+            background-color: beige; /*이런것들 하나하나를 CSSRULES라 함 (0번째)*/
+        }
+        </style>
+        <!-- styleSheets[2] -->
+    <style> /*내부스타일시트*/
+        .csj {
+            background-color: pink;
+        }
+        div {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+        }
+        .ftSize {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="bgBlue ftSize">이태영씨 정말 이해?</div><br>
+    <input type="button" value="내외부스타일시트 접근" onclick="f_style()">
+    <script>
+        //내외부 스타일시트 접근법을 일반적인 회사에서는 사용되지 않고
+        //전문 프론트엔트 컴포넌트나 라이브러리를 만드는 회사에서 사용되고 있음
+        ///cssRules 뒤로 속성 3개를 많이 사용 cssText, selectorText, style
+        function f_style() {
+            // 내부스타일시트 접근
+
+            //selectorText (선택자)
+            // alert(document.styleSheets[2].cssRules[0].selectorText);
+            //sccText (규칙 전체 내용)
+            // alert(document.styleSheets[2].cssRules[0].cssText);
+            // style
+            // alert(document.styleSheets[1].cssRules[0].style.backgroundColor);
+
+            //외부스타일시트 접근
+
+            // alert(document.styleSheets[0].cssRules[2].style.color);
+            
+            // document.styleSheets[1].cssRules[5].style.backgroundColor = "orange";
+            f_searchSelector(".bgBlue").style.backgroundColor = "magenta"; //메모리 상에서만 바뀜
+            f_searchSelector(".ftSize").style.fontSize = "2em"; //메모리 상에서만 바뀜
+        }
+            function f_searchSelector(p_selector) {
+                var v_stySheets = document.styleSheets; // 배열형태인 스타일시트를 저장
+                for (let i = 0; i < v_stySheets.length; i++) {
+                    var v_cssRules = v_stySheets[i].cssRules;
+                    for (let j = 0; j < v_cssRules.length; j++) {
+                        if (v_cssRules[j].selectorText == p_selector) {
+                            return v_cssRules[j];
+                        }
+                    }
+                }
+            }
+        
+        alert(f_searchSelector(".csj").cssText);
+    </script>
+</body>
+</html>

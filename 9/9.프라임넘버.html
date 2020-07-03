@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // prime 넘버 구하기 (소수)
+        // 1과 그 자신으로만 나누어 떨어지는 수, 1은 소수에서 제외
+        function f_prime(p_endNum) {
+            // 작성
+            var v_arr = [];
+
+            // for (let i = 2; i <= p_endNum; i++) {
+            // var v_count = 0;
+            //     for (let j = 1; j <= p_endNum; j++) {
+                    
+            //         if (i % j == 0) {
+            //             v_count++;
+            //         }
+
+            //     } 
+            //     if (v_count == 2) {
+            //         v_arr[v_arr.length] = i;
+            //     } 
+            // }
+            // return v_arr;
+
+            for (let i = 2; i <= p_endNum; i++) {
+                if (isPrime(i)) {
+                    v_arr[v_arr.length] = i;
+                }
+            }
+            return v_arr;
+        }
+
+        function isPrime(p_num) {
+            var v_prime = true;
+            for (let i = 2; i < p_num-1; i++) {
+                if (p_num % i == 0) {
+                    v_prime = false;
+                    break;
+                }
+            }
+            return v_prime;
+        }
+        // f_prime(10); // 2에서 10까지 사이의 소수를 배열에 담아서 출력
+        alert(f_prime(20));
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       #container {
+           width: 210px;
+           margin: 0 auto; /*수평중앙 정렬*/
+           border: 1px solid pink; 
+       } 
+       #wrapper{
+           position: relative;
+       }
+       #ch1,#ch2,#ch3,#ch4{
+           position: absolute;
+       }
+       #ch1 {
+           z-index: 100;
+       }
+    </style>
+</head>
+<body>
+    <input type="text" id="id_txt" value="4/1" size="4">
+    <input type="button" value=">" onclick="f_rot()">
+    <input type="button" value="<" onclick="f_pre()">
+    <div id="container">
+        <div id="id_wrapper">
+            <div id="ch1">
+            <table border="1">
+                <tr>
+                    <td><img src="./image/nara1.jpeg" width="100" height="100"></td>
+                    <td><img src="./image/nara2.jpeg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="./image/nara3.jpeg" width="100" height="100"></td>
+                    <td><img src="./image/nara4.jpeg" width="100" height="100"></td>
+                </tr>
+            </table>
+        </div>
+    <div id="ch2">
+    <table border="1">
+                <tr>
+                    <td><img src="./image/nara2.jpeg" width="100" height="100"></td>
+                    <td><img src="./image/nara1.jpeg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="./image/nara4.jpeg" width="100" height="100"></td>
+                    <td><img src="./image/nara3.jpeg" width="100" height="100"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="ch3">
+            <table border="1">
+                <tr>
+                    <td><img src="./image/nara3.jpeg" width="100" height="100"></td>
+                    <td><img src="./image/nara4.jpeg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="./image/nara1.jpeg" width="100" height="100"></td>
+                    <td><img src="./image/nara2.jpeg" width="100" height="100"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="ch4">
+            <table border="1">
+                <tr>
+                    <td><img src="./image/nara4.jpeg" width="100" height="100"></td>
+                    <td><img src="./image/nara3.jpeg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="./image/nara2.jpeg" width="100" height="100"></td>
+                    <td><img src="./image/nara1.jpeg" width="100" height="100"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        var v_start = 1;
+        var v_txt = document.getElementById("id_txt");
+        function f_rot() {
+            v_start++;
+            //동일한 z-index 값으로 강제 초기화
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById("ch"+i).style.zIndex=100;
+            }
+            if (v_start > 4) {
+                v_start = 1;
+            }
+            document.getElementById("ch"+v_start).style.zIndex = 1000;
+            v_txt.value = "4/"+v_start;
+        }
+        function f_pre() {
+            v_start--;
+            //동일한 z-index 값으로 강제 초기화
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById("ch"+i).style.zIndex=100;
+            }
+            if (v_start == 0) {
+                v_start = 4;
+            }
+            document.getElementById("ch"+v_start).style.zIndex = 1000;
+            v_txt.value = "4/"+v_start;
+        }
+        function f_proxy() {
+            f_rot();
+            setTimeout(f_proxy, 1000);
+        }
+        f_proxy();
+    </script>
+</body>
+</html>

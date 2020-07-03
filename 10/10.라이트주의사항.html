@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //주의사항1: 문서를 덮어쓰지 않도록 주의
+        var v_str = "<table border =1>";
+        v_str += "<tr>";
+        v_str += "<td>홍치핑</td>";
+        v_str += "</tr>";
+        v_str += "</table>";
+        document.write(v_str); //메모리 측에서 성능이 좋음 (한번에 작업해서 올려주기 때문)
+    
+    </script>
+</body>
+</html>

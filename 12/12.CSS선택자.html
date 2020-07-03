@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/myStyle.css"> <!--타이틀 위에 써줌(meta데이터들 불러올 때 같이 불러온다 보면 댐)-->
+    <title>Document</title>
+</head>
+<style>
+    /* basic selector */
+    
+    /* 전체 선택자 (모든 요소에 적용)*/
+    * {
+        border: 2px solid black;
+    }
+
+    /* 태그(또는 type이라고 부름) 선택자 */
+    input {
+        border: 5px dashed pink;
+    }/* 위에서부터 순차적 실행하여 밑에꺼가 위에 껄 덮어씀 */
+    
+    /* ID 선택자 */
+    #bong {
+        font-size: 2em; /* em은 배수 */
+    }   
+
+    /* Class 선택자 */
+    .aaa {
+        background-color: tomato;
+    }
+
+    /* 속성 포함 선택자 []   <--개발자가 많이 씀*/ 
+    input[type=butoon] {/* input중에 타입이 버튼인걸 찾음 */ 
+        color: yellowgreen;
+        background-color: black;
+    }
+
+    /* 여러개 선택 , (콤마)*/
+    div,input {
+        background-color: cadetblue;
+    }
+    input[type=button]#id_a{/* input중에 타입이 버튼인걸 찾음 */ 
+        font-size: 3em;
+    }
+    /* 우선순위가 ID가 Class보다 높아용 */
+    input[type=button][class=kkk]{
+        font-size: 5em;
+    }
+
+    /* 후손 선택자 (빈 공백) */
+    #parent {
+        width: 400px;
+        height: 400px;
+        border: 2px solid black;
+    }
+    #parent div {/* 사이에 공백을 띄우면 parent안에 포함된 div인 자손 모두에 적용 */
+        width: 100px;
+        height: 100px;
+        background-color: crimson;
+        margin: 3px;
+    }
+    /* 직계 자손만 선택  > */
+    #parent > div {
+        background-color: red;
+        /* 자손의 자손은 영향 X */
+    }
+</style>
+<body>
+    <!-- 태그에 직접 쓴게 우선순위가 더 높음 -->
+    <!-- div>div*3>div -->
+    <div id="parent">
+        <div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+        </div>
+    </div>
+    <div class="fgPink bgYellow" id="bong">정봉경</div> <!--클래스 안에는 클래스가 여러개 와도 상관없음-->
+    <div class="fgBlue bgPink aaa">아롱이</div>
+    <input type="text" class="fgBlue bgYellow" value="초롱이"><br>
+    <input type="button" id="id_a" class="kkk" value="나얌 ㅎ 버튼!"><br>
+    <input type="button" value="나얌 ㅎ 버튼!">
+    <input type="button" class="kkk" value="나얌 ㅎ 버튼!">
+</body>
+</html>

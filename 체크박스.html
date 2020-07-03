@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    독서<input type="checkbox" name="ch1" value="book">
+    영화<input type="checkbox" name="ch1" value="movie">
+    테니스<input type="checkbox" name="ch1" value="tennis">
+    타르코프<input type="checkbox" name="ch1" value="tarkov">
+    여행<input type="checkbox" name="ch1" value="travel">
+    촬영<input type="checkbox" name="ch1" value="photo">
+    <input type="button" value="당신의 취미는" onclick="f_hobby()">
+    <br><input type="text" value=" " id="t_1">
+    <script>
+        var v_hobbys = document.getElementsByName("ch1");
+        var v_txt = document.getElementById("t_1");
+        function f_hobby() {
+            var v_length = v_hobbys.length;
+            var v_arr = [];
+            var v_count = 0;
+            for (let i = 0; i < v_length; i++) {
+                if (v_hobbys[i].checked) {
+                    if (v_arr.length==0) {
+                        v_arr[v_count] = v_hobbys[i].value;
+                        v_count++;
+                    }else{
+                        v_arr[v_count] = ", "+v_hobbys[i].value;
+                        v_count++;
+                    }
+                        
+                }
+            }
+            for (let j = 0; j < v_arr.length; j++) {
+                v_txt.value += v_arr[j];
+            }
+        }
+    </script>
+</body>
+</html>
