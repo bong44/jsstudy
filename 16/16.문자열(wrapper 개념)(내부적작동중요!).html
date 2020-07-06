@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="UTF-8">
+    <script>
+        //속성 : length
+        //메소드 : indexOf, replace, substr, trim, split
+        // 자주 쓰는 문자열 속성과 메소드
+        var v_str = "이태영 만만세";
+        // alert(v_str.length);
+        // alert(v_str[4]);
+        // v_str[4] = "흥"; //데이터 중간에 데이터는 변경 불가능 !!! 통째로 덮어쓰기만 가능(가능했으면 배열을 안 쓰지;)
+        // alert(v_str.charAt[6]); //index 3번 글자
+                                //원시 타입에 메소드가 왔어요? HOW?
+                                //메소드를 붙이는 순간 자동으로 wrapper 객체
+                                //String 으로 바뀜(내부적으로)
+        // v_str = new String(v_str); //위에서 메소드를 붙이는 순간, 자동으로 원시타입 데이터를 객체형태의 데이터로 바꿔줘서 메소드등을 사용 할 수 있게 wrap해줌
+                                //class -> 사용자 정의 데이터형
+        // alert(v_str.indexOf("만세"));
+        // alert(v_str.indexOf("망세")); //-1 (찾는 데이터가 없으면 -1 반환 [이것을 사용하여 로직 가능]) 중요! (보통 배열형으로 뭔가 찾는 메소드는 false일 때 -1을 반환)
+        // v_str.replace("이태영","최승주"); //replace는 원본을 바꾸지 않고 새로운 문자열을 리턴해줌 EX). v_str = v_str.replace("이태영","최승주"); 라고 써야 덮어 씌어 나옴(그리고 뒤에 또 이태영이 있으면 앞에 있는 이태영만 변환해줌)
+        // alert(v_str); //원본 데이터인 "이태영 만만세"가 뜸
+        
+        var v_str2 = "이태영 티애영 이태영 이이이 이태영";
+        // do {
+        //     v_str2 = v_str2.replace("이태영","최승주"); 
+        // } while (v_str2.indexOf("이태영") != -1);
+        // alert(v_str2);
+        // for (;v_str2.indexOf("이태영") != -1;) { // for문도 간단하게 쓸 수 있는 듯
+        //     v_str2 = v_str2.replace("이태영","최승주"); 
+        // }
+
+        // var v_arr = v_str2.split(" "); //얘도 마찬가지로 값을 리턴해주지 원본 데이터는 훼손하지 않음 그래서 다시 덮어씌어 줘야 함
+        // alert(v_arr);
+        // alert(v_str2.substr(1,2)); //1번째 부터 2개의 데이터
+        var v_str3 = "    이태영 티애영 이태영 이이이 이태영      ";
+        
+        alert("ppp"+v_str3+"ppp");  
+        alert("ppp"+v_str3.trim()+"ppp"); //공백제거 (바깥 공백만 제거하고 문자 사이 공백은 제거 안 함)
+        
+        
+    </script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 중요 잘 기억안나 ㅜ -->
+    <select id="id_list">
+    </select>
+    <!-- 초창기에 브라우저마다 지원파일 형식이 달라서 문제가 많았는데 
+    현재는 mp3,mp4 모두 지원해서 쓸만함 -->
+    <!-- <audio src=""></audio> -->
+    <!-- <video src="../video/다미짱01.mp4" width="500" controls autoplay muted></video>  -->
+    <video id="id_vdo" src="../video/다미짱01.mp4" width="500" controlslist="nodownload"></video> <br>
+    <!-- controls controlslist="nodownload" 컨트롤즈 선언 후 컨트롤즈 리스트에 접근가능 -->
+    <!-- controls을 넣어줘야 재생가능한 모드가 댐 -->
+    <input id="id_play" type="button" value="플레이">
+    <input id="id_pause" type="button" value="일시중단">
+    <input id="id_controls" type="button" value="컨트롤보이기">
+    <input id="id_speed" type="button" value="2배속">
+    <script>
+        var v_vdo = document.getElementById("id_vdo");
+        var v_play = document.getElementById("id_play");
+        var v_pause = document.getElementById("id_pause");
+        var v_controls = document.getElementById("id_controls");
+        var v_speed = document.getElementById("id_speed");
+        var v_list = document.getElementById("id_list");
+        var v_optPath = "../video/";
+        var v_optHtml = "다미짱";
+
+        v_list.addEventListener("change",function () {
+            v_vdo.src = v_list.value;
+        })
+        
+        var i = 1;
+        window.onload = function () {
+            for (var j = 1; j <= 4; j++) {
+                var v_option = document.createElement("option"); //태그 자체들을 만듬
+                v_option.value = v_optPath + v_optHtml+0+ j +".mp4";
+                v_option.innerHTML = v_optHtml + j + ".mp4";
+                v_list.appendChild(v_option); //select에 child로 붙여줌
+            }
+        }
+        v_speed.addEventListener("click",function () {
+            v_vdo.playbackRate = v_vdo.playbackRate * 2; 
+        });
+        v_vdo.addEventListener("ended",function () {
+                i++     
+                v_vdo.src = "../video/다미짱0"+i+".mp4";
+                v_vdo.play();
+                if (i==4) i=0; 
+        });
+
+        v_play.onclick = function () {
+            v_vdo.play();
+        }
+        v_pause.addEventListener("click",function () {
+            v_vdo.pause();
+        });
+        v_controls.addEventListener("click",function () {
+            if (v_vdo.controls) { // controls 자체가 선언되 있는지 없는지를 boolean값으로 리턴해줌
+                v_vdo.controls = false;
+            }else{
+                v_vdo.controls = true;
+            }
+        });
+    </script>
+</body>
+</html>
