@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #id_disp {
+            width: 300px;
+            height: 300px;
+            border: red 2px solid;
+        }
+    </style>
+</head>
+<body>
+    <!-- csv Comma Seperated Value -->
+    <!-- myData.csv 파일을 drop하면 그 내용을 
+    di_disp에 table 형식으로 출력하시용! ㅋㅋ -->
+    <div id="id_disp"></div>
+    <script>
+        var v_disp = document.getElementById("id_disp");
+        window.addEventListener("dragover",function () {
+            event.preventDefault(); 
+            event.stopPropagation();
+        });
+        window.addEventListener("drop",function () {
+            event.preventDefault();
+            event.stopPropagation();
+        });
+        v_disp.addEventListener("dragover",function () {
+            event.preventDefault();
+            event.stopPropagation();
+        });
+        v_disp.addEventListener("drop",function () {
+            // alert(event.dataTransfer.files[0]); // 알림창은 존재유무만 파악
+            // console.log(event.dataTransfer.files[0]); // 세부 정보를 파악
+            var v_file = event.dataTransfer.files[0];
+            var v_fileReader = new FileReader();
+            v_fileReader.readAsText(v_file);
+            v_fileReader.onload = function () {
+                var v_txt = document.createElement("td");
+                // v_disp.innerHTML = "";
+                // v_disp.appendChild(v_txt);
+                // <td>"+v_txt+"</td>
+                v_txt = v_fileReader.result;
+                var v_lines = v_txt.split("\n");
+                var v_table = "<table border=1>";
+                for (var i = 0; i < v_lines.length; i++) {
+                    v_table += "<tr>";
+                    var v_column = v_lines[i].split(",");
+                    for (var j = 0; j < v_column.length; j++) {
+                        v_table += "<td>"+v_column[j]+"</td>";
+                    }
+                v_table += "</tr>";
+                }
+                v_table += "</table>";
+                alert(v_table);
+                v_disp.innerHTML = v_table;
+                // v_disp.innerHTML = "<table><tr>";
+                // v_disp.appendChild(v_txt);
+                // v_disp.innerHTML += "</tr></table>";
+                
+            }
+        });
+    </script>
+</body>
+</html>

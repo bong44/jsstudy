@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #id_lty {
+            width: 200px;
+            height: 200px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="id_lty">
+        여기에 이미지를 끌어다 놓아주세용!
+    </div>
+    <script>
+        //브라우저의 Drag & Drop 기본기능 막아버리기
+        //클라이언트 측에서 사진같은걸 끌어다 놓을 수 없음
+        var v_lty = document.getElementById("id_lty");
+        window.addEventListener("dragover",function () {
+            event.preventDefault(); // 기본 이벤트 막아버리기! <<<<기억하셈!중요!>>>>
+            event.stopPropagation(); //얘도! 이 두개를 알아야 애러를 잘 찾음(중급!)
+        });
+        window.addEventListener("drop",function () {
+            event.preventDefault();
+            event.stopPropagation();
+        });
+        v_lty.addEventListener("dragover",function () {
+            //여기는 기본적으로 막아줘야함
+            event.preventDefault();
+            event.stopPropagation();
+        });
+        v_lty.addEventListener("drop",function () {
+            // console.log(event.dataTransfer.files); // 끌어오는 순간 이 구문(event.dataTransfer.files)의 배열이 생성되어 담겨옴
+            var v_file = event.dataTransfer.files[0];
+            var v_fileReader = new FileReader();
+            v_fileReader.readAsDataURL(v_file);
+            //위 구문들 잘 보샘! 중요! 외부에서 들어온 파일의 내용 추출
+            v_fileReader.onload = function () { // 위에서 다 읽었다고 이벤트로 알려주면, 실행되는 'onload' ! 중요 !
+                // alert(v_fileReader.result); //비동기방식 (얘는 이벤트가 발생될 때 까지 자원을 다른곳에 넘겨줌)
+                //파일리터는 데이터를 다 읽으면 result라는 속성에 가지고있음
+                var v_img = document.createElement("img"); //createElement 태그 객체 만드는 구문 잘 기억
+                v_img.src = v_fileReader.result;
+                v_img.width = 200;
+                v_img.height = 200;
+                v_lty.innerHTML = ""; //넣기전에 비워줌
+                v_lty.appendChild(v_img); //만들고 append로 추가하는 것 까지 기억! 중요 !
+                
+            }
+        });
+    </script>
+</body>
+</html>

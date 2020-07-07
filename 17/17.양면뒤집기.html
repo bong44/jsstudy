@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            backface-visibility: hidden;
+            background-color: red;
+        }
+        }
+        #id_img2 {
+            transform: rotateX(180deg);
+        }
+        #id_set {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: 1px solid violet;
+        }
+    </style>
+</head>
+<body>
+    <div id="id_set">
+        <img id="id_img1" src="../image/nara4.jpeg" alt="음슴" width="100" height="100">
+        <img id="id_img2" src="../image/nara1.jpeg" alt="음슴" width="100" height="100">
+    </div>
+    <script>
+        var v_img1 = document.getElementById("id_img1");
+        var v_img2 = document.getElementById("id_img2");
+        var v_gak = 0;
+        var v_gak2 = 180;
+        function f_rot() {
+            v_gak = (v_gak+3) % 360; //잘 기억!! 알아서 초기화
+            v_gak2 = (v_gak2+3) % 360; //잘 기억!! 알아서 초기화
+            v_img1.style.transform = "rotateX("+v_gak2+"deg)";   
+            v_img2.style.transform = "rotateX("+v_gak+"deg)";   
+            setTimeout(f_rot,40); 
+        }
+        f_rot();
+    </script>
+</body>
+</html>

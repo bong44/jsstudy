@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #id_disp {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="id_disp">난 DIV야</div>
+    <script>
+        var v_disp = document.getElementById("id_disp");
+        var v_isLeftDown = false;
+        
+        v_disp.addEventListener("mousedown",function () {
+        console.log(event.button);
+            if (event.button==0) {
+                v_isLeftDown = true;
+            }
+        });
+        v_disp.addEventListener("mousemove",function () {
+            if (v_isLeftDown) {
+                v_disp.style.left = (event.clientX-50)+ "px"; //사용자 마우스 위치 (자동완성이 안되서 잘 잘 기억하고 있어야함 )
+                v_disp.style.top = (event.clientY-50)+ "px"; // 단위!! 항상 제일 빼먹기 쉬움
+                console.log(event.clientX + "  " + event.clientY);
+            }
+        });
+        v_disp.addEventListener("mouseup",function () {
+            v_isLeftDown = false;
+        });
+        v_disp.addEventListener("mouseout",function () {
+            v_isLeftDown = false;
+        });
+    </script>
+</body>
+</html>
