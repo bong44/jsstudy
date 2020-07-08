@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // alert("lty sleep?"); //action이 디폴트 값이면, submit시 계속 실행됨
+    </script>
+    <!-- 전달되는 값을 받아줄 체이지를 지정하는 속성 -->
+    <!-- <form action="18.test2.php" method="GET"> -->
+    <form action="18.test2.php" method="POST">
+        <!-- action 에도 디폴트 값이 있는데 그건 '자기자신' 실행시 다시 자신을 새로 불러오는거임 -->
+        아이디<input type="text" value="" name="nm_aidi"><br>
+        암호<input type="password" name="nm_pss" value=""><br>
+        <input type="submit" value="가랑 서버로">
+    </form>
+</body>
+</html>

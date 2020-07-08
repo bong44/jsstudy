@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    사이트<input type="text" id="id_site"><br>
+    <input id="id_btn" type="button" value="사이트이동">
+    <script>
+        var v_btn = document.getElementById("id_btn");
+        var v_site = document.getElementById("id_site");
+        // v_btn.addEventListener("",); // -- 3번
+        v_btn.onclick = function () {
+            //주소표시줄을 컨트롤하는 객체 location <<중요!>>
+            //중요속성 href, 중요메소드 replace ,reload도 있는데 얘는 잘 안 씀
+            // location.href = "18.test2.php?nm_aidi=superman"; 
+            // <중요!!> 서버가 get방식으로 받을 때 서버측에 대한 쿼리문을 직접 쓸 수 있다.(리터럴에도 접근가능)
+            //href는 주소를 관리하는 속성
+            location.replace("18.test2.php?nm_aidi=뭐니&nm_secaidi=또뭐니");
+            //밖으로 같은 기능으로 보이나, replace는 cache를 쓰지 않음
+        }
+    </script>
+</body>
+</html>

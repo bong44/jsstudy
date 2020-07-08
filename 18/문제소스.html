@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #id_ball{
+           
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            left: 200px;
+            top: 200px;
+            border-radius: 25px 25px;
+            background-color: violet;          
+        }
+        #wrapper {
+            position: relative;
+            margin: 0px auto; /*가운데 정렬하는 법*/
+            background-color: pink;
+        }
+        #id_bar {
+            position: absolute;
+            bottom: 50px;
+            width: 80px;
+            height: 10px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="움직여봐" onclick="f_timeout()">
+    <div id="wrapper" style="width: 500px; height: 90vh;" tabindex="0" onkeydown="f_lrMove()"> <!--tabindex를 줘야 창을 클릭 후 키다운 이벤트 활용가능-->
+        <div id="id_bar"></div>
+        <div id="id_ball" style="left: 100px;top: 60px;"></div> 
+    </div>
+    <script>
+        //바
+        var v_bar = document.getElementById("id_bar");
+        var v_wrapper = document.getElementById("wrapper");
+        function f_lrMove() {
+            // 좌우 화살표 눌렀을 때 막대 움직이기
+            if (event.keyCode == 37 && parseInt(v_bar.style.left) > 0) { //왼쪽 화살표
+                v_bar.style.left = parseInt(v_bar.style.left) - 10 + "px";
+                console.log(v_bar.style.left);
+            }
+            if (event.keyCode == 39 && parseInt(v_bar.style.left) < 420) { //오른쪽 화살표
+                v_bar.style.left = parseInt(v_bar.style.left) + 10 + "px";
+                console.log(v_bar.style.left);
+            }
+        }
+        window.onload = function () { // 윈도우가 열리고 실행 //중요!!!!!!!!!!!!! 시스템 효율을 높임
+            if (!v_bar.style.left) { //초기값 없을 시 강제초기화
+                v_bar.style.left = "0px";
+            }
+        }
+        
+
+
+        //공
+        var v_ball = document.getElementById("id_ball");
+        var v_width = parseInt(v_wrapper.style.width);
+        var v_Hidth = parseInt(v_wrapper.style.height);
+        console.log(v_width);
+        console.log(v_Hidth);
+        var v_mvW = 2; 
+        var v_mvH = 2; 
+        var run = false;
+        function f_mv1() {
+            var v_left = parseInt(v_ball.style.left);
+            var v_top = parseInt(v_ball.style.top);
+            v_ball.style.left = v_left + v_mvW + "px";
+            v_ball.style.top = v_top + v_mvH + "px";
+            v_left = parseInt(v_ball.style.left);
+            v_top = parseInt(v_ball.style.top);
+            console.log("너비 "+v_width);
+            console.log("상하 "+v_Hidth);
+
+            console.log("탑 "+v_top);
+            console.log("옆 "+(v_top+50));
+            
+            console.log(v_ball.style.top);
+            console.log(v_ball.style.left);
+            
+            if ((v_left+50) >= v_width||v_left==0) { //공의 오른쪽이 오른벽에 닿았을 때 || 공의 오른쪽이 왼쪽 벽에 닿았을 때
+                v_mvW = -v_mvW;
+                console.log(v_mvW + "첫째");
+                
+            }
+            if ((v_top+50) >= v_Hidth||v_top==0) {
+                v_mvH = -v_mvH;
+                console.log(v_mvH + "둘째");
+            }
+            setTimeout(f_mv1,10000);
+        }
+
+        function f_timeout() {
+            if (!run) {
+                f_mv1();
+                run = !run;
+            }
+        }
+    </script>
+</body>
+</html>

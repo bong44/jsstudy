@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .aaa {
+            background-color: red;
+
+        }
+        .bbb {
+            background-color: blue;
+        }
+        .ccc {
+            color: white;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: magenta;
+        }
+    </style>
+</head>
+<body>
+    <div id="id_lty" class="aaa">wdwdwdw</div>
+    <input type="button" value="클래스바꾸기" onclick="f_chgClass()">
+    <input type="button" value="클래스추가하기" onclick="f_addClass()">
+    <input type="button" value="클래스지우기" onclick="f_removeClass()">
+    <script>
+        var v_div = document.getElementById("id_lty");
+        // alert(v_div.className);
+        // alert(v_div.getAttribute("class"));
+        // v_div.setAttribute(태그);
+        // 속성에 대한 접근법
+        function f_chgClass() {
+            v_div.className = "bbb";
+        }
+        function f_addClass() {
+            v_div.className += " ccc";
+        }
+        function f_removeClass() {
+            // var v_n =  v_div.className.split(" "); //스플릿으로 배열형태로 찢고
+            // v_div.className = v_n[0]; //첫번째 꺼만 반환
+            // 밑에 처럼 쓸 수도 있음
+            v_div.classList.remove("ccc");
+            alert("pp"+v_div.className+"pp"); //공백도 같이 빠지는 것을 볼 수 있
+        }
+    </script>
+</body>
+</html>

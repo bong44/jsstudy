@@ -16,20 +16,41 @@
 <body>
     <div id="id_disp">난 DIV야</div>
     <script>
+        window.onload = function () { //윈도우가 다 생성되었을 때 불려지는 함수
+            // if (!v_disp.style.left) { //true false를 반환
+                v_disp.style.left = "100px";
+                v_disp.style.top = "100px";
+                
+            // }
+        }
         var v_disp = document.getElementById("id_disp");
         var v_isLeftDown = false;
+        var v_dispPosX;
+        var v_dispPosY;
+        var v_mouseX;
+        var v_mouseY;
         
-        v_disp.addEventListener("mousedown",function () {
+        v_disp.addEventListener("mousedown",function () { 
         console.log(event.button);
-            if (event.button==0) {
+            if (event.button==0) {//마우스 왼 버튼
+                //기억!
+                v_dispPosX = parseInt(v_disp.style.left);
+                v_dispPosY = parseInt(v_disp.style.top);
+                v_mouseX = event.clientX;
+                v_mouseY = event.clientY;
+                //위에 너가 몰랏던 거니까 기억해
                 v_isLeftDown = true;
             }
         });
         v_disp.addEventListener("mousemove",function () {
             if (v_isLeftDown) {
-                v_disp.style.left = (event.clientX-50)+ "px"; //사용자 마우스 위치 (자동완성이 안되서 잘 잘 기억하고 있어야함 )
-                v_disp.style.top = (event.clientY-50)+ "px"; // 단위!! 항상 제일 빼먹기 쉬움
+                var v_width = event.clientX - v_mouseX;
+                var v_height = event.clientY - v_mouseY;
+                //?? 위 잘 이해해바
+                v_disp.style.left = v_width+v_dispPosX + "px"; //사용자 마우스 위치 (자동완성이 안되서 잘 잘 기억하고 있어야함 )
+                v_disp.style.top = v_height+v_dispPosY + "px"; // 단위!! 항상 제일 빼먹기 쉬움
                 console.log(event.clientX + "  " + event.clientY);
+                //마우스가 움직인만큼 disp의 left top에 더해줌
             }
         });
         v_disp.addEventListener("mouseup",function () {

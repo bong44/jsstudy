@@ -25,15 +25,15 @@
         //새로운 키워드 javascript 브라우저를 참조하는 식별자 wimdow
         var v_ball = document.getElementById("id_ball"); //window.document인데 window생략 되있음 (window최상위 객체)
         
-        alert(v_ball.style.backgroundImage);
-        alert(v_ball.style.backgroundSize); // 다른 프로그래밍언어에서 '-'으로 된 것들은 스크립트에서 하이폰은 빠지고 다음 글자가 대문자로 바뀐다.
-        alert(v_ball.style["background-image"]); 
-        alert(v_ball.style["background-size"]); // 하이폰 써서 접근하고 싶다면, 배열식 접근으로 가능
+        // alert(v_ball.style.backgroundImage);
+        // alert(v_ball.style.backgroundSize); // 다른 프로그래밍언어에서 '-'으로 된 것들은 스크립트에서 하이폰은 빠지고 다음 글자가 대문자로 바뀐다.
+        // alert(v_ball.style["background-image"]); 
+        // alert(v_ball.style["background-size"]); // 하이폰 써서 접근하고 싶다면, 배열식 접근으로 가능
 
         var v_width = window.innerWidth;
         var v_Hidth = window.innerHeight;
-        var v_mvW = 1; 
-        var v_mvH = 1; 
+        var v_mvW = 2; 
+        var v_mvH = 2; 
         var run = false;
         var imageNum = 1;
         var v_gak = 0;
@@ -60,7 +60,7 @@
                 imageNum = 1;
             }
 
-            setTimeout(f_mv1,300);
+            setTimeout(f_mv1,1);
         }
 
         function f_timeout() {
