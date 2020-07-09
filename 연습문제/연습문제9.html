@@ -29,6 +29,7 @@
 </head>
 <body>
     <input type="button" value="움직여봐" onclick="f_timeout()">
+    <input type="button" value="AI" onclick="f_auto()">
     <div id="wrapper" style="width: 500px; height: 600px;" tabindex="0" onkeydown="f_lrMove()"> <!--tabindex를 줘야 창을 클릭 후 키다운 이벤트 활용가능-->
         <div id="id_bar"></div>
         <div id="id_ball" style="left: 100px;top: 60px;"></div> 
@@ -45,16 +46,22 @@
         var run = false;
         var v_width = 0;
         var v_Hidth = 0;
+        var v_gameFlag = true;
+        var v_automode = false;
+
+        function f_auto() {
+            v_automode = !v_automode;
+        }
 
 
         function f_lrMove() {
             // 좌우 화살표 눌렀을 때 막대 움직이기
             if (event.keyCode == 37 && parseInt(v_bar.style.left) > 0) { //왼쪽 화살표
-                v_bar.style.left = parseInt(v_bar.style.left) - 10 + "px";
+                v_bar.style.left = parseInt(v_bar.style.left) - 15 + "px";
                 console.log(v_bar.style.left);
             }
             if (event.keyCode == 39 && parseInt(v_bar.style.left) < 420) { //오른쪽 화살표
-                v_bar.style.left = parseInt(v_bar.style.left) + 10 + "px";
+                v_bar.style.left = parseInt(v_bar.style.left) + 15 + "px";
                 console.log(v_bar.style.left);
             }
         }
@@ -65,7 +72,7 @@
         }
         
         function f_flag() {
-            if ((parseInt(v_ball.style.top)+50 >= 540 && parseInt(v_bar.style.left) <= (parseInt(v_ball.style.left) + 25) && (parseInt(v_ball.style.left) + 25) <= (parseInt(v_bar.style.left)+80))) {
+            if ((parseInt(v_ball.style.top)+50 == 540 && parseInt(v_bar.style.left) <= (parseInt(v_ball.style.left) + 25) && (parseInt(v_ball.style.left) + 25) <= (parseInt(v_bar.style.left)+80))) {
                 return true;
                 
             }
@@ -73,10 +80,12 @@
         }
 
 
+
         //공
         function f_mv1() {
         var v_width = parseInt(v_wrapper.style.width);
         var v_Hidth = parseInt(v_wrapper.style.height);
+        v_ball.style.transform = "skewX(0deg)";
         // console.log(v_width);
         // console.log(v_Hidth);
             var v_left = parseInt(v_ball.style.left);
@@ -92,10 +101,28 @@
             if ((v_left+50) >= v_width||v_left==0) { //공의 오른쪽이 오른벽에 닿았을 때 || 공의 오른쪽이 왼쪽 벽에 닿았을 때
                 v_mvW = -v_mvW;
             }
-            if ((v_top+50) >= v_Hidth||v_top==0||f_flag()) {
+            if (v_top==0 || f_flag()) {
                 v_mvH = -v_mvH;
+                // (v_top+50) >= v_Hidth||v_top==0||
+                if ((v_mvW > 0)&& v_top != 0) {
+                    v_ball.style.transform = "skewX(-45deg)";
+                }else{
+                    if (v_top != 0) {
+                        v_ball.style.transform = "skewX(45deg)";
+                    }
+                } 
             }
-            setTimeout(f_mv1,10);
+            if (v_top > v_Hidth-50) {
+                // v_wrapper.removeChild(v_wrapper.childNodes[1]);
+                v_ball.style.display = "none";
+                v_gameFlag = false;
+            }
+            if (v_automode) {
+                    v_bar.style.left = (parseInt(v_ball.style.left) - 15) + "px";   
+            }
+            if (v_gameFlag) {
+                setTimeout(f_mv1,10);
+            }
             // console.log("옆"+v_ball.style.left);
             // console.log("탑"+v_ball.style.top);
             
