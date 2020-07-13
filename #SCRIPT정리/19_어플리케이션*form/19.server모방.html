@@ -25,6 +25,7 @@ function getParameterValue(p_name) {
         return;
     }
     v_url = decodeURIComponent(v_url); //디코딩안하면 연산이 안댐
+    //location 잘 기억하기! 주소줄 전체를 가져옴
     var v_queryString = v_url.split("?")[1];
     var v_nameValues = v_queryString.split("&");
     for (var i = 0; i < v_nameValues.length; i++) {
