@@ -1,0 +1,48 @@
+<meta charset="UTF-8">
+<script>
+    function rozeDistance(p_second) {
+        //올라감과 미끄러짐을 제어할 변수
+        var v_flag = true;
+        var v_distance = 0;
+        //매개값 만큼 반복
+        for (var i = 1; i <= p_second; i++) {
+            if (v_flag) {
+                v_distance += 3;
+            }else{
+                v_distance -= 2;
+            }
+            v_flag = !v_flag;
+        }
+        return v_distance;
+    }
+
+    alert(rozeDistance(8)+"cm"); //거리를 리턴
+
+    function rozeTime(p_distance) {
+        //반복문을 제어할 변수
+        var v_flag = true;
+        //올라감과 미끄러짐을 표현할 변수
+        var v_flag2 = true;
+
+        var v_distance = 0;
+        var v_second = 0;
+        
+        while(v_flag){
+            v_second++;
+            if (v_flag2) {
+                v_distance += 3;
+            }else{
+                v_distance -= 2;
+            }
+            v_flag2 = !v_flag2;
+            //매개값과 거리가 일치할 때 반복문 중단
+            if (v_distance == p_distance) {
+                v_flag = false;
+            }
+        }
+        return v_second;
+    }
+
+    alert(rozeTime(rozeDistance(8))+"초"); //최소 걸리는 시간을 리턴
+
+</script>

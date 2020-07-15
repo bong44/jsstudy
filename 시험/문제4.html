@@ -1,0 +1,58 @@
+<meta charset="UTF-8">
+<script>
+    var v_arrA = [1,2,3,3,4,3,2,5,5,7,9,0,1];
+    var v_arrB = [4,5,6,7,6,9,1,3,5,7,8,1,5];
+    //중복제거한 배열을 담을 변수
+    var v_arrC = [];
+    //두 배열을 합침
+    for (var i = 0; i < v_arrA.length; i++) {
+        v_arrC[v_arrC.length] = v_arrA[i];
+    }
+    for (var i = 0; i < v_arrB.length; i++) {
+        v_arrC[v_arrC.length] = v_arrB[i];
+    }
+    //중복제거
+    for (var i = 0; i < v_arrC.length; i++) {
+        for (var j = 0; j < v_arrC.length; j++) {
+            if (v_arrC[i] == v_arrC[j] && i != j) {
+                v_arrC.splice(i,1);
+                i--;
+                break;
+            }
+        }
+    }
+    alert(v_arrC); //2,0,4,6,9,3,7,8,1,5
+    var v_arrD = [];
+    for (var i = 0; i < v_arrA.length; i++) {
+        var v_flag = true;
+        for (var j = 0; j < v_arrB.length; j++) {
+            if (v_arrA[i]==v_arrB[j]) {
+                v_flag = false;
+                break;
+            }
+        }
+            if (v_flag) {
+                v_arrD[v_arrD.length] = v_arrA[i];
+                v_flag = false;
+            }
+    }
+    alert(v_arrD); //2,2,0
+    function f_compare(first, second) {
+        var v_arrD2 = [];
+        for (var i = 0; i < first.length; i++) {
+            var v_flag = true;
+            for (var j = 0; j < second.length; j++) {
+                if (first[i] == second[j]) {
+                    v_flag = false;
+                    break;
+                }
+            }
+            if (v_flag) {
+                v_arrD2[v_arrD2.length] = first[i];
+                v_flag = false;
+            }
+        }
+        return v_arrD2;
+    }
+    alert(f_compare(v_arrB,v_arrA)); //6,6,8
+    </script>

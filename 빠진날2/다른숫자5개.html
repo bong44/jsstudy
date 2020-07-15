@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    var v_arr=[]; // 사용자 입력 담을 빈 배열, 5개까지만
+    while("참이지용"){
+        if(v_arr.length == 5) {          // 무한 루핑 종료 조건
+            alert(v_arr);
+            break;
+        }
+        // 사용자로 부터 숫자 입력받기
+        var v_userInput = prompt("숫자를 입력해 주삼","7")-0;
+
+        var v_isIn = false;          // 중복되지 않았다고 가정
+        for(var i=0; i<v_arr.length; i++){
+            if(v_arr[i] == v_userInput){       // 배열에 입력값과 같은게 있다는 건 중복
+                v_isIn = true;        // 중복을 표시
+                break;
+            }
+        }
+        // v_isIn 값으로 중복여부를 확실히 알 수 있음
+        if(!v_isIn){          // 중복이 아닌 경우에만
+            v_arr.push(v_userInput);  // 배열에 넣기
+        }
+    }
+</script>

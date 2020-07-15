@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <table id="id_table" border="1">
+
+    </table>
+    <script>
+        var v_commonTable = {
+            grade01: "대표",
+            grade02: "임원",
+            grade03: "PM",
+            grade04: "개발자"
+        };
+    
+        var v_sawonList = [
+            { level: "grade01", name: "로제" },
+            { level: "grade04", name: "지민" },
+            { level: "grade04", name: "정국" },
+            { level: "grade03", name: "제이홉" },
+            { level: "grade02", name: "제니" },
+            { level: "grade04", name: "슈가" },
+            { level: "grade02", name: "지수" },
+    
+        ];
+        for (var i = 0; i < v_sawonList.length; i++) {
+            var tempStr = v_sawonList[i].level.split("0");
+            v_sawonList[i].level = v_commonTable["grade0"+tempStr[1]];
+        }
+        var v_table =  document.getElementById("id_table");
+        
+        var tempTr = "<tr><td>넘버</td><td>이름</td><td>직위</td></tr>";
+        for (var i = 0; i < v_sawonList.length; i++) {
+            tempTr += "<tr>";
+            tempTr += "<td>"+(i+1)+"</td>"+"<td>"+v_sawonList[i].name+"</td>"+"<td>"+v_sawonList[i].level+"</td>";
+            tempTr += "</tr>";
+        }
+        v_table.innerHTML = tempTr;
+    </script>
+</body>
+</html>

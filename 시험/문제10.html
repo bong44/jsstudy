@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            position: relative;
+        }
+
+        .disp {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            background-color: black;
+            display: inline-block;
+            font-size: 50px;
+            color: yellow;
+            text-align: center;
+        }
+
+        #id_btn {
+            position: absolute;
+            left: 10%;
+            width: 400px;
+            height: 50px;
+            bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container" style="width: 500px; height: 800px; border: blue 1px solid; margin: 0px auto;">
+        <div class="disp" style="left: 5%; top: 320px;">?</div>
+        <div class="disp" style="left: 20%; top: 320px;">?</div>
+        <div class="disp" style="left: 35%; top: 320px;">?</div>
+        <div class="disp" style="left: 50%; top: 320px;">?</div>
+        <div class="disp" style="left: 65%; top: 320px;">?</div>
+        <div class="disp" style="left: 80%; top: 320px;">?</div>
+        <input type="button" id="id_btn" value="로또번호발생">
+    </div>
+</body>
+<script>
+    var v_disp = document.getElementsByClassName("disp");
+    var v_btn = document.getElementById("id_btn");
+    var v_lottoNums = [];
+    var index = 0;
+    function f_ranNum(p_start, p_end) {
+        return Math.round(Math.random() * (p_end - p_start)) + p_start;
+    }
+
+    //로또 번호 생성
+    /////////////////////////////////////////////////////////
+    function f_rotto() {
+        do {
+            //중복체크하고 넣어주려고 만든 변수
+            var v_num = f_ranNum(1, 45);
+
+            var v_check = false; // 같은 값이 있다고 가정
+            for (let i = 0; i < v_lottoNums.length; i++) {
+                if (v_lottoNums[i] == v_num) {
+                    v_check = true; //없다고 가정했는데 있음!
+                    break;
+                }
+            }
+
+            //같은 값이 없을 때 곧 v_check가 false일 때만 배열에 값을 넣음!
+            if (!v_check) {
+                v_lottoNums[v_lottoNums.length] = v_num; // 플래그변수의 활용! 
+                //중복코드 제거에 용이
+            }
+
+        } while (v_lottoNums.length != 6);
+    }
+    //////////////////////////////////////////////////////////
+
+    //    alert(parseInt(v_disp[0].style.top));
+
+    v_btn.addEventListener("click", function () {
+        //순서대로 내려오는 인덱스 버튼 누를 때 마다 초기화
+        index=0;
+        for (var i = 0; i < v_disp.length; i++) {
+            //위로 숨김
+            v_disp[i].style.top = "0px";
+            v_disp[i].style.display = "none";
+        }
+        //누룰때 마다 로또번호 초기화
+        v_lottoNums = [];
+        f_rotto();
+        timeDown();    
+    });
+    function timeDown() {
+        // var tempTop = parseInt(v_disp[index].style.top);
+        // alert(parseInt(v_disp[index].style.top));
+        if (parseInt(v_disp[index].style.top)==0) {
+            v_disp[index].style.display = "inline";
+            v_disp[index].innerHTML = v_lottoNums[index];
+        }
+        v_disp[index].style.top = parseInt(v_disp[index].style.top) + 10 + "px";
+        if (parseInt(v_disp[index].style.top) <= 319) {
+            setTimeout(timeDown,1);
+        }else{
+            index++;
+            if (index < 6) {
+                setTimeout(timeDown,1);
+                //바인드를 사용하면 문제 해결가능!
+            }
+        }
+    }
+
+</script>
+
+</html>

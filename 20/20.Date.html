@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+            background-color: brown;
+            color: chartreuse;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div id="id_clock"></div>
+    <script>
+        // javascript Date 갹채는 java의 것을그냥 벤치마킹 했다고 알려져 있음
+        // 클라이언트 컴퓨터 시간을 읽어오면 통일되지않은 시간을 읽어옴
+        // 서버쪽 시간으로 세팅하지 얺으면 큰 의미가없음
+        // 달력등의 컴포넌트를 만드는 회사가 아니면 Date 객페는 클라이언트보단
+        // 서버쪽어서 처리하는 것이 유리
+        var v_clock = document.getElementById("id_clock");
+        var v_input = confirm("이태영씨는 여자에요??"); // yes or no(true, false로 리턴)// 잘 안 씀
+        function f_clock() {
+            var v_today = new Date();
+            var v_hour = v_today.getHours();
+            var v_minute = v_today.getMinutes();
+            var v_second = v_today.getSeconds();
+            if (v_hour < 10) {
+                    v_hour = "0"+v_hour;
+            }
+            if (v_minute < 10) {
+                    v_minute = "0"+v_minute;
+            }
+            if (v_second < 10) {
+                    v_second = "0"+v_second;
+            }
+            var v_timeMsg = v_hour +":"+v_minute+":"+v_second;
+            v_clock.innerHTML = v_timeMsg;
+            setTimeout(f_clock,1000);
+        }
+        window.onload = f_clock();
+    </script>
+</body>
+</html>

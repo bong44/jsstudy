@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #nemo {
+            overflow: hidden;
+            position: relative;
+            left: 300px;
+            top: 100px;
+            width:100px;
+            height:100px;
+        }
+        #circle {
+            position:absolute;
+            left: -100px;
+            width:200px;
+            height:200px;
+            border-radius: 50%;
+            background-color: red;
+            opacity: 0.5;
+            /* border: 1px solid black; */
+        }
+        #disp {
+            position:absolute;
+            width:200px;
+            height:200px;
+            left: 207px;
+            top: 107px;
+            /* border-radius: 50%; */
+        }
+    </style>
+</head>
+<body>
+    <div id="disp">
+        <img src="../image/nara3.jpeg" width="200px" height="200px" style="border-radius: 50%; border: 1px solid blue;" alt="">
+    </div>
+    <div id="nemo">
+        <div id="circle"></div>
+    </div>
+    
+<script>
+    var v_nemo = document.getElementById("nemo");
+    v_nemo.style.transformOrigin = "left bottom";  // 회전 디폴트값은 center center
+    var v_gakdo = 0;  // 각도 초기값
+    // 회전 함수
+    function f_rotate(){
+        v_gakdo = (v_gakdo + 10) % 360;
+        v_nemo.style.transform = "rotate(" + v_gakdo + "deg)";
+        setTimeout(f_rotate, 200);
+    }
+    f_rotate();  // 함수 콜
+</script>
+</body>
+</html>

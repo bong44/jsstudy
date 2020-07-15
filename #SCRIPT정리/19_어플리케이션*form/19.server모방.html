@@ -1,4 +1,5 @@
 <meta charset="UTF-8">
+<script src="../js/jsp.js"></script>
 <script>
     // location 의 중요한 메소드 2개 (href, replace)
     // alert(location.href); //주소표시줄에 있는 값 그대로 알림창 띄어줌
@@ -19,23 +20,48 @@
 // alert(v_aidi+"님의 암호는: "+v_password+" 입니다!");
 
 // 위의 방식의 범용화
-function getParameterValue(p_name) {
-    var v_url = location.href;
-    if (v_url.indexOf("?") == -1) {
-        return;
-    }
-    v_url = decodeURIComponent(v_url); //디코딩안하면 연산이 안댐
-    //location 잘 기억하기! 주소줄 전체를 가져옴
-    var v_queryString = v_url.split("?")[1];
-    var v_nameValues = v_queryString.split("&");
-    for (var i = 0; i < v_nameValues.length; i++) {
-        var v_name = v_nameValues[i].split("=")[0];
-        if (v_name == p_name) {
-            return v_nameValues[i].split("=")[1];
-        }
-    }
-    return null; // 못 찾았다는 표시, 개발자 맘
-}
-alert(getParameterValue("nm_aidi"));
-alert(getParameterValue("nm_password"));
+// function getParameterValue(p_name) {
+//     var v_url = location.href;
+//     if (v_url.indexOf("?") == -1) {
+//         return;
+//     }
+//     v_url = decodeURIComponent(v_url); //디코딩안하면 연산이 안댐
+//     //location 잘 기억하기! 주소줄 전체를 가져옴
+//     var v_queryString = v_url.split("?")[1];
+//     var v_nameValues = v_queryString.split("&");
+//     for (var i = 0; i < v_nameValues.length; i++) {
+//         var v_name = v_nameValues[i].split("=")[0];
+//         if (v_name == p_name) {
+//             return v_nameValues[i].split("=")[1];
+//         }
+//     }
+//     return null; // 못 찾았다는 표시, 개발자 맘
+// }
+// alert(getParameterValue("nm_aidi"));
+// alert(getParameterValue("nm_password"));
+   var v_aidi = request.getParameter("nm_aidi");
+   var v_password = request.getParameter("nm_password");
+   var v_skills = request.getParameterValues("nm_skills");
+
+   out.print("당신의 아이디는 "+ v_aidi + " 이고");
+   out.println("암호는 " + v_password + " 이며");
+   out.print("보유기술은 " + v_skills + "이군용");
+
+   //함수 동작 테스트
+   //alert(getParameterValue("nm_aidi"));
+   //alert(getParameterValue("nm_password"));
+   //alert(getParameterValue("nm_pkkk"));
+
+   //var v_urlValue = location.href.split("?")[1]; // ? 오른쪽 값만 뽑아내기
+   /* encoding/decoding 관련 메소드
+           escape                unescape              아주 옛날꺼
+           encodeURI             decodeURI             적당히 옛날꺼
+           encodeURIComponent    decodeURIComponent    최신꺼 (대부분 이걸 사용)
+   */
+   /*
+   v_urlValue=decodeURIComponent(v_urlValue);
+   var v_aidi = v_urlValue.split("&")[0].split("=")[1];
+   var v_password = v_urlValue.split("&")[1].split("=")[1];
+   alert(v_aidi + "님" + " 당신의 암호는 " + v_password + "군용 ㅋㅋ");
+   */
 </script>
