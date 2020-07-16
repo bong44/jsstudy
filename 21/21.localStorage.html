@@ -1,0 +1,26 @@
+<html lang="ko">
+<meta charset="UTF-8">
+<script>
+    //localstorage 브라우저 저장소 
+    //offline 상태에서도 사용자에게 online인 것처럼....
+    //현재는 cookie보다 용량이 크고 사용법이 편해서 cookie 대체로 사용되고 있음
+    // json형태로 데이터 저장
+    localStorage.setItem("내 맘대로 키 값","밸류값");
+    localStorage.setItem("key1","value1");
+    localStorage.setItem("key1","howdo?"); //같은 키값을 주면 나중 꺼가 덮어 씌어버림
+    localStorage.key1 = "희흐히"; //바로 속성에도 접근 가능 //덮어씌어버림
+    // localStorage.removeItem("key1");
+    delete localStorage.key1; //객체 속성 지울때 delete
+    
+    // alert(localStorage.getItem("key1"));
+    // alert(localStorage.key1);
+    // alert(localStorage["key1"]); //위 방법이 되면 배열식 접근법도 당연히 됨!
+    // alert(localStorage.length); //2
+    // localStorage.clear(); //설명에 method라고 되있는 것은 ()가 붙고, 프라퍼티라고 써있는거는 그냥 써도 댐(속성으로 간주??)
+    // alert(localStorage.length); //0
+    // alert(localStorage.key(0)); // 순서를 보장하지 않음 (뭐가 올 지 모름)
+    for (var key in localStorage) { //객체의 속성들을 볼 수 있음 <<<<중요!!!!!!!>>>>
+        alert(key); //키 밸유 값을 넘어 메소드 까지 전부 불러옴 
+        // localStorage[key]; 처럼 접근 가능 (여기선 배열식만 접근 가능)
+    }
+</script>

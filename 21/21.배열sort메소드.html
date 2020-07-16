@@ -1,0 +1,45 @@
+<html lang="ko">
+<meta charset="UTF-8">
+<script>
+    var v_arr = [5,3,1,2,9,6];
+    //                  버블정렬 
+    // v_arr.mySort = function (f_callback) {
+    //     // alert(this);//this가 배열 자신임을 확인
+    //     for (var i = 0; i < this.length; i++) {
+    //         for (var j = i+1; j < this.length; j++) {
+    //             if (this[i] > this[j]) {
+    //                 var v_temp = this[i];
+    //                 this[i] = this[j];
+    //                 this[j] = v_temp;
+    //             }
+    //         }
+    //     }
+    // }
+    v_arr.mySort = function (f_callback) {
+        // alert(this);//this가 배열 자신임을 확인
+        for (var i = 0; i < this.length; i++) {
+            for (var j = i+1; j < this.length; j++) {
+                if (f_callback(this[i],this[j]) > 0) {
+                    var v_temp = this[i];
+                    this[i] = this[j];
+                    this[j] = v_temp;
+                }
+            }
+        }
+    }
+    //콜백함수의 응용 <<<< 콜백함수란, 파라미터로 함수를 받는 것을 콜백함수라 함 >>>> 이벤트리스너에 사용 하듯이
+    // 위 아래의 로직을 합침
+    v_arr.mySort(function (aa,bb) {
+        return bb - aa;//내림차순
+        return aa - bb;//오름차순
+    });
+
+    alert(v_arr);
+    // alert(v_arr.sort()); //오름차순정렬
+    // alert(v_arr);//참조값에 사용하는 메소드는 값에 대해 직접적으로 접근해서 원본에 값을 변경함
+    
+    // v_arr.sort(function (a,b) { //sort메소드에 callback함수 사용
+    //     return b-a; //내림차순정렬
+    //     return a-b; //오름차순정렬
+    // });
+</script>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Open-API, jsonp(json padding)
+        var v_imgUrls;  // 전역 변수 선언
+       function jsonFlickrFeed(p_json){
+            v_imgUrls = p_json.items;
+            f_disp();   // 화면에 뿌리는 함수
+
+            //items속성의 media속성의 m의 데이터  <<<<json형태로 저장되어 있음>>>>
+
+            // console.log(p_json);
+            //       {title: "Recent Uploads tagged 고양이", link: "https://www.flickr.com/photos/tags/%EA%B3%A0%EC%96%91%EC%9D%B4/", description: "", modified: "2020-07-15T05:32:34Z", generator: "https://www.flickr.com", …}
+            //       description: ""
+            //       generator: "https://www.flickr.com"
+            //       items: Array(20)
+            //       0:
+            //       author: "nobody@flickr.com ("rootcrop54")"
+            //       author_id: "30098550@N00"
+            //       date_taken: "2020-07-08T13:24:55-08:00"
+            //       description: " <p><a href="https://www.flickr.com/people/catkisses123/">rootcrop54</a> posted a photo:</p> <p><a href="https://www.flickr.com/photos/catkisses123/50114739577/" title="Who let the tiger out?"><img src="https://live.staticflickr.com/65535/50114739577_2f1ff4aa25_m.jpg" width="240" height="160" alt="Who let the tiger out?" /></a></p> "
+            //       link: "https://www.flickr.com/photos/catkisses123/50114739577/"
+            //       media:
+            //       m: "https://live.staticflickr.com/65535/50114739577_2f1ff4aa25_m.jpg"
+            //       __proto__: Object
+            //       published: "2020-07-15T05:32:34Z"
+            //       tags: "otis dilute orange ginger tabby male tiger vest harness onawalk elephant ear jungle neko macska kedi 猫 貓 kočka kissa γάτα köttur kucing gatto 고양이 kaķis katė katt katze katzen katua kocia kot pisică pisici кошка mačka maček gatos gorbe kitteh chat ネコ"
+            //       title: "Who let the tiger out?"
+            //       __proto__: Object
+            
+       }
+       function f_disp(){
+        document.getElementById("id_disp").innerHTML =""; //내용 클리엉!
+        if(!v_imgUrls.length){
+            document.getElementById("id_disp").innerHTML ="찾는 이미지없엉";
+            return;  // 함수 종료
+        }
+           for(var i=0; i<v_imgUrls.length; i++){
+               var v_img = document.createElement("img");
+               v_img.src = v_imgUrls[i].media.m;
+               v_img.width = 150;
+               v_img.height = 150;
+               document.getElementById("id_disp").appendChild(v_img);
+           }
+       }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <input type=text id="id_search" value="">
+    <input type=button id="id_btn" value="검색해볼까낭">
+    <div id="id_disp"></div>
+    <!-- 플리커 사이트에서 받아온 이미지URL로 id_disp에 이미지를 출력해보세용-->
+    <script>
+        var v_txtBox = document.getElementById("id_search");
+        var v_btn = document.getElementById("id_btn");
+        v_btn.onclick = f_sch;
+        var v_flikrUrl = "https://www.flickr.com/services/feeds/photos_public.gne?tags="
+        function f_sch(){
+            var v_scriptTag = document.getElementById("lty");
+            if (v_scriptTag) { //null값이 아닐 때만 지움 
+                document.head.removeChild(v_scriptTag);
+            }
+            var v_schURL = v_flikrUrl + v_txtBox.value + "&format=json";
+            var v_script = document.createElement("script");
+            v_script.setAttribute("id","lty"); //넣을 때 스티커를 붙입시다
+            v_script.src = v_schURL;
+            document.head.appendChild(v_script);
+        }
+    </script>
+</body>
+</html>

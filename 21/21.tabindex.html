@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- tabindex는 tab 누룰 시 먹여진 값 순서대로 포커스 움직임 -->
+    <!-- 업무프로그램 중 입력필요한 란에 포커스 줄 수 있음  -->
+    <input type="text" tabindex="1" value="자동포커스" autofocus><br> 
+    <input type="text" tabindex="4" value="자동포커스"><br>
+    <input type="text" tabindex="5" value="자동포커스"><br>
+    <input type="text" tabindex="-1" value="자동포커스"><br>
+    <!-- tabindex= -1 값은 focus를 거부 -->
+    <input type="text" tabindex="3" value="자동포커스"><br>
+    <div tabindex="0">흐흐흐</div>
+    <!-- 기본적으로 div는 포커스를 줄 수 없는데 그런요소에 포커스를 주고 싶을 때 0을 줌 -->
+</body>
+</html>
