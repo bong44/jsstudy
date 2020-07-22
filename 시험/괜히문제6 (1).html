@@ -24,7 +24,7 @@
             position: absolute;
             bottom: 200px;
             left: 200px;
-            width:20px;
+            width:100px;
             height:80px;
             background-color: red;
         }
@@ -58,6 +58,7 @@
         v_autoMode = true;
     }
     var v_bar = document.getElementById("id_bar");
+    var v_bar2 = document.getElementById("id_bar2");
     var v_ball = document.getElementById("id_ball");
     var v_marker = document.getElementById("id_marker");
     var v_parWidth = 400;
@@ -104,6 +105,10 @@
         var v_barLeft = parseInt(v_bar.style.left);
         var v_barRight = v_barLeft + 80;
         var v_barTop = parseInt(v_bar.style.top);
+        var v_bar2Left = parseInt(v_bar2.style.left);
+        var v_bar2Right = v_bar2Left + 100;
+        var v_bar2Top = parseInt(v_bar2.style.top);
+        var v_bar2Bottom = v_bar2Top + 80;
 
         /* 자동으로 막대 움직이기  공의 x중심과 막대의 x중심이 일치하도록 */
         /* 아래방식의 코드를 디버깅 로그 출력형식으로 많이 사용함 */
@@ -134,8 +139,10 @@
 
         //막대충돌 체크
         var v_bottomCheck = (v_ballBottom >= v_barTop);
-        var v_lrCheck = (v_ballRight >= v_barLeft) && (v_ballLeft <=v_barRight); 
-        if(v_bottomCheck && v_lrCheck){
+        var v_lrCheck = (v_ballRight >= v_barLeft) && (v_ballLeft <=v_barRight);
+        var v_bottomCheck2 = (v_ballBottom >= v_bar2Top);
+        var v_lrCheck2 = (v_ballRight >= v_bar2Left) && (v_ballLeft <=v_bar2Right);
+        if(v_bottomCheck && v_lrCheck || v_bottomCheck2 && v_lrCheck2){
             if(v_mvW > 0){
                 v_ball.style.transform = "skewX(-45deg) rotate("+ v_gak + "deg)"; // skew 뒤틀리다
             }else {

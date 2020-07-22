@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+<!-- 파일업로드 구현시 클라이언트단에서 주의 할 부분
+전송 Method 꼭 post방식 (get은 용량 제한이 있음)
+enctype="multipart/form-data" 빼먹으면 안댐 -->
+<form action="upload.php" method="post" enctype="multipart/form-data">
+  Select image to upload:
+  <input type="file" name="fileToUpload" id="fileToUpload" accept=".jpg, .png, .jpeg, .gif"> <br>
+  <input type="submit" value="Upload Image" name="submit">
+</form>
+
+</body>
+</html>
