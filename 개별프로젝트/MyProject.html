@@ -9,6 +9,7 @@
             text-align: right;
             height: 20px;
             font-size: 15px;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.3);
         }
            #menuBar {
                position: sticky;
@@ -17,7 +18,7 @@
                top: 0px;
                /* background-color:whitesmoke; */
                background-color: rgba(248, 248, 248, 0.562);
-               border-bottom: 1px solid gray;
+               border-bottom: 1px solid rgba(128, 128, 128, 0.4);
                z-index: 100;
            }
            #container {
@@ -36,21 +37,21 @@
            #id_disp2 {
                position: relative;
                 top: 250px;
-                background-color: royalblue;
+                /* background-color: royalblue; */
                 width: 100%;
                 height: 250px;
            }
            #id_disp3 {
                 position: relative;
                 top: 300px;
-                background-color: royalblue;
+                /* background-color: royalblue; */
                 width: 100%;
                 height: 250px;
            }
            #id_disp4 {
                 position: absolute;
                 bottom: 0px;
-                background-color: fuchsia;
+                /* background-color: fuchsia; */
                 width: 100%;
                 height: 250px;
            }
@@ -128,29 +129,32 @@
        </style> 
 </head>
 <body>
-    <form action="">
-        <div id="topBar">TEL_) 010 - 3618 - 7055</div>
+    <form method="GET">
+        <div id="topBar" style="background-color:rgba(0, 128, 128, 0.1);">TEL_) 010 - 3618 - 7055</div>
         <div id="menuBar">
-            <img src="2.png" alt="" style="height: 60px; width: 60px;">
+            <img src="tennisball.png" alt="" style="height: 50px; width: 50px;margin: 5px;">
+            <h3 style="position: absolute; left: 47.5%; top: -4px;">TENNIS</h3>
         </div>
         <div id="container">
+            <div style="height: 180px; width: 100%; position: absolute; top: 10px;">
+            </div>
             <div id="id_disp1">
                 <div id="id_1_disp1">
                     <div class="searchbox">
                     <div class="header">
                         <h1>Search</h1>
-                        <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search">
+                        <input onkeyup="filter()" type="text" id="value" name="search" placeholder="Type to Search">
                     </div>
         
                     <div class="container">
         
                         <div class="item">
                             <span class="icon">A</span>
-                            <span class="name">Apple</span>
+                            <span class="name">테니스 포핸드</span>
                         </div>
         
                         <div class="item">
-                            <span class="icon">O</span>
+                            <span class="icon">B</span>
                             <span class="name">Orange</span>
                         </div>
         
@@ -193,9 +197,19 @@
                     <!-- <img id="id_img" src="racket3.jpg" alt="" style="float: left; position: relative; top: -70px; width: 500px; opacity: 1.0;"> -->
                 </div>
             </div>
-        </div> <div id="id_disp2"></div>
-            <div id="id_disp3"></div>
-            <div id="id_disp4"></div>
+        </div> 
+            <div id="id_disp2">
+                <h3 style="color: teal;">VIDEOS</h3>
+                <hr>
+            </div>
+            <div id="id_disp3">
+                <h3 style="color: teal;">LOCATIONS</h3>
+                <hr>
+            </div>
+            <div id="id_disp4">
+                <h5 style="color: gray; height:7px;">INFORMATION</h5>
+                <hr>
+            </div>
         </div>
     </form>
     <script>
@@ -225,13 +239,18 @@
       var v_img = document.getElementById("id_img");
       var op = 0.1;
       var tempOp = 10;
+      var i = 1;
       function moveImgs() {
           if (tempOp >= 10) {
               op = -op;
             }
           if (tempOp <= 0) {
               op = -op;
-              v_img
+              i++;
+              v_img.src = "racket"+i+".jpg";
+              if(i==3){
+                  i=0;
+              }
             }
             tempOp += op;
           v_imgs.style.opacity = tempOp*0.1;
