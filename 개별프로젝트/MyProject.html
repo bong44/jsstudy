@@ -4,136 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-       <style>
-           #topBar {
-            text-align: right;
-            height: 20px;
-            font-size: 15px;
-            border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-        }
-           #menuBar {
-               position: sticky;
-               height: 60px;
-               left: 0px;
-               top: 0px;
-               /* background-color:whitesmoke; */
-               background-color: rgba(248, 248, 248, 0.562);
-               border-bottom: 1px solid rgba(128, 128, 128, 0.4);
-               z-index: 100;
-           }
-           #container {
-               position: relative;
-               width: 1000px;    
-               height: 1800px;
-               margin: 0px auto;
-               z-index: 1;
-           }
-           #id_disp1 {
-               position: relative;
-               top: 200px;
-                width: 100%;
-                height: 600px;
-           }   
-           #id_disp2 {
-               position: relative;
-                top: 250px;
-                /* background-color: royalblue; */
-                width: 100%;
-                height: 250px;
-           }
-           #id_disp3 {
-                position: relative;
-                top: 300px;
-                /* background-color: royalblue; */
-                width: 100%;
-                height: 250px;
-           }
-           #id_disp4 {
-                position: absolute;
-                bottom: 0px;
-                /* background-color: fuchsia; */
-                width: 100%;
-                height: 250px;
-           }
-           #id_1_disp1{
-                width: 50%;
-                height: 100%;
-               float: left;
-           }
-           #id_1_disp2{
-               overflow: hidden;
-               display: inline-block;
-                width: 50%;
-                height: 100%;
-                opacity: 0.9;
-
-           }
-           #value{
-              border: none;
-              background: whitesmoke;
-              padding: 6px;
-              font-size: 18px;
-              width: 80%;
-              border-radius: 6px;
-              border: 2px teal solid;
-            }
-            /* #value:focus{
-              outline: none;
-            } */
-            .searchbox{
-                position: relative;
-                top: -30px;
-              width: 90%;
-              margin: 10px auto;
-            }
-            .header{
-              overflow: hidden;
-              padding: 20px;
-              text-align: left;
-            }
-            .header h1{
-              text-transform: uppercase;
-              color: teal;
-              margin: 0;
-              margin-bottom: 8px;
-            }
-            #value:focus{
-              outline: none;
-            }
-            .container{
-              padding: 1%;
-              height: 482px;
-              overflow: scroll;
-            }
-            .item{
-              margin: 3% 0px;
-              display: flex;
-              align-items: center;
-            }
-            .icon{
-              width: 25px;
-              height: 25px;
-              background: teal;
-              color: white;
-              font-size: 15px;
-              text-align: center;
-              line-height: 25px;
-              border-radius: 50%;
-              margin-right: 8px;
-            }
-            .name{
-              font-size: 17px;
-              font-weight: 470;
-              color: #333;
-            }
-       </style> 
+    <link rel="stylesheet" href="./MyCss.css" type="text/css">
 </head>
 <body>
     <form method="GET">
         <div id="topBar" style="background-color:rgba(0, 128, 128, 0.1);">TEL_) 010 - 3618 - 7055</div>
         <div id="menuBar">
-            <img src="tennisball.png" alt="" style="height: 50px; width: 50px;margin: 5px;">
-            <h3 style="position: absolute; left: 47.5%; top: -4px;">TENNIS</h3>
+            <img src="tennisimgs/tennisball.png" alt="" style="height: 50px; width: 50px;margin: 5px;">
+            <h3 style="position: absolute; left: 47.5%; top: -4px;color: rgb(13, 185, 185);">TENNIS</h3>
         </div>
         <div id="container">
             <div style="height: 180px; width: 100%; position: absolute; top: 10px;">
@@ -146,12 +24,13 @@
                         <input onkeyup="filter()" type="text" id="value" name="search" placeholder="Type to Search">
                     </div>
         
-                    <div class="container">
-        
-                        <div class="item">
-                            <span class="icon">A</span>
-                            <span class="name">테니스 포핸드</span>
-                        </div>
+                    <div class="container" id="container2">
+                        <!-- <a href="#" style="text-decoration:none">
+                            <div class="item">
+                                <span class="icon">A</span>
+                                <span class="name">테니스 포핸드</span>
+                            </div>
+                        </a>
         
                         <div class="item">
                             <span class="icon">B</span>
@@ -185,14 +64,15 @@
         
                         <div class="item">
                             <span class="icon">C</span>
+
                             <span class="name">Cherry</span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
             <div id="id_1_disp2" >
                 <div id="imgsContainer" style="width: 1500px; height: 600px; overflow: hidden; position: relative; left: 0px;opacity: 1.0;">
-                    <img id="id_img" src="racket1.jpg" alt="" style="float: left;  position: relative; top: -70px; width: 500px; opacity: 1.0;">
+                    <img id="id_img" src="tennisimgs/racket1.jpg" alt="" style="float: left;  position: relative; top: -70px; width: 500px; opacity: 1.0;">
                     <!-- <img id="id_img" src="racket2.jpg" alt="" style="float: left;  position: relative; top: -30px; width: 500px; opacity: 1.0;"> -->
                     <!-- <img id="id_img" src="racket3.jpg" alt="" style="float: left; position: relative; top: -70px; width: 500px; opacity: 1.0;"> -->
                 </div>
@@ -212,54 +92,6 @@
             </div>
         </div>
     </form>
-    <script>
-        var v_container = document.getElementById("container");
-        // window.onresize=function(){
-        //     console.log("넓이",window.innerWidth);
-        //     console.log("높이",window.innerHeight);
-        // } 
-        function filter(){
-
-        var value, name, item, i;
-
-        value = document.getElementById("value").value.toUpperCase();
-        item = document.getElementsByClassName("item");
-
-        for(i=0;i<item.length;i++){
-          name = item[i].getElementsByClassName("name");
-          if(name[0].innerHTML.toUpperCase().indexOf(value) > -1){
-            item[i].style.display = "flex";
-          }else{
-            item[i].style.display = "none";
-          }
-        }
-      }
-      
-      var v_imgs = document.getElementById("imgsContainer");
-      var v_img = document.getElementById("id_img");
-      var op = 0.1;
-      var tempOp = 10;
-      var i = 1;
-      function moveImgs() {
-          if (tempOp >= 10) {
-              op = -op;
-            }
-          if (tempOp <= 0) {
-              op = -op;
-              i++;
-              v_img.src = "racket"+i+".jpg";
-              if(i==3){
-                  i=0;
-              }
-            }
-            tempOp += op;
-          v_imgs.style.opacity = tempOp*0.1;
-          setTimeout(moveImgs,20);
-        //   console.log(tempOp*0.1);
-      }
-      moveImgs();
-      
-      
-    </script>
+    <script src="./MyScript.js"></script>
 </body>
 </html>
