@@ -8,12 +8,16 @@
 </head>
 <body>
     <form method="GET">
-        <div id="topBar" style="background-color:rgba(0, 128, 128, 0.1);">TEL_) 010 - 3618 - 7055</div>
+        <div id="topBar" style="background-color:rgba(0, 128, 128, 0.1);"><b style="opacity: 0.3; position: relative; right: 10px;">TEL_) 010 - 3618 - 7055</b>
+          <div style="width: 100px; height: 500px;">
+            <img src="./tennisimgs/RTPlogo.jpg" width="200px" height="200px" style="position: relative; left: 830px; top: 50px;" alt="">
+          </div>
+        </div>
         <div id="menuBar">
             <img src="tennisimgs/tennisball.png" alt="" style="height: 50px; width: 50px;margin: 5px;">
-            <h3 style="position: absolute; left: 47.5%; top: -4px;color: rgb(13, 185, 185);">TENNIS</h3>
+            <h3 style="position: absolute; left: 3.1%; top: 8px;color: rgb(13, 185, 185);">TENNIS.com</h3>
         </div>
-        <div id="container">
+        <div id="container" style="z-index: 2;">
             <div style="height: 180px; width: 100%; position: absolute; top: 10px;">
             </div>
             <div id="id_disp1">
@@ -25,72 +29,76 @@
                     </div>
         
                     <div class="container" id="container2">
-                        <!-- <a href="#" style="text-decoration:none">
-                            <div class="item">
-                                <span class="icon">A</span>
-                                <span class="name">테니스 포핸드</span>
-                            </div>
-                        </a>
-        
-                        <div class="item">
-                            <span class="icon">B</span>
-                            <span class="name">Orange</span>
-                        </div>
-        
-                        <div class="item">
-                            <span class="icon">M</span>
-                            <span class="name">Mandarin</span>
-                        </div>
-        
-                        <div class="item">
-                            <span class="icon">S</span>
-                            <span class="name">Strawberry</span>
-                        </div>
-        
-                        <div class="item">
-                            <span class="icon">W</span>
-                            <span class="name">Watermelon</span>
-                        </div>
-        
-                        <div class="item">
-                            <span class="icon">G</span>
-                            <span class="name">Grape</span>
-                        </div>
-        
-                        <div class="item">
-                            <span class="icon">P</span>
-                            <span class="name">Pear</span>
-                        </div>
-        
-                        <div class="item">
-                            <span class="icon">C</span>
-
-                            <span class="name">Cherry</span>
-                        </div> -->
                     </div>
                 </div>
             </div>
             <div id="id_1_disp2" >
                 <div id="imgsContainer" style="width: 1500px; height: 600px; overflow: hidden; position: relative; left: 0px;opacity: 1.0;">
                     <img id="id_img" src="tennisimgs/racket1.jpg" alt="" style="float: left;  position: relative; top: -70px; width: 500px; opacity: 1.0;">
-                    <!-- <img id="id_img" src="racket2.jpg" alt="" style="float: left;  position: relative; top: -30px; width: 500px; opacity: 1.0;"> -->
-                    <!-- <img id="id_img" src="racket3.jpg" alt="" style="float: left; position: relative; top: -70px; width: 500px; opacity: 1.0;"> -->
                 </div>
             </div>
         </div> 
             <div id="id_disp2">
-                <h3 style="color: teal;">VIDEOS</h3>
+                <h3 style="color: teal;">HOT LESSON VIDEO</h3>
                 <hr>
+                <div style="width: 100%; height: 90%; position: relative; top: 45px;">
+                  <a href="#">
+                    <div style="width: 30%; margin: 16px; height: 120%;float: left;">
+                      <img src="./tennisimgs/mainVideo1.jpg" width="100%" height="170px" alt="">
+                      <span style="position: relative; top: 10px;"><b>[하늘쌤테니스꿀팁] 제48편 미친각 포핸드 앵글샷</b></span>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div style="width: 30%; margin: 16px; height: 120%; float: left;">
+                      <img src="./tennisimgs/mainVideo2.jpg" width="100%" height="170px" alt="">
+                      <span style="position: relative; top: 10px;"><b>[하늘쌤테니스꿀팁] 제29편 플렛 서브(프로네이션) 쉽게 하기</b></span>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div style="width: 30%; margin: 16px; height: 120%;  display: inline-block;">
+                      <img src="./tennisimgs/mainVideo3.jpg" width="100%" height="170px" alt="">
+                      <span style="position: relative; top: 10px;"><b>[하늘쌤테니스꿀팁] 제1편 끝내는 발리 잘하기 1탄</b></span>
+                    </div>
+                  </a>
+                </div>
                 <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-                <div id="player"></div>
+                <!-- <div id="player"></div> -->
             </div>
-            <div id="id_disp3">
-                <h3 style="color: teal;">LOCATIONS</h3>
+            <div id="id_disp3" style="clear: both;">
+                <h3 style="color: teal; text-align: left;">COURT INFORMATION</h3>
                 <hr>
+                <div style="width: 100%; height: 90%; position: relative; top: 5px;">
+                  <a href="#">
+                    <div style="width: 30%; margin: 16px; height: 90%; background-color: teal;float: left;">
+                      <img src="./tennisimgs/seoul.png" width="100%" height="100%" style="border: rgb(38, 167, 154) 1px solid; margin: -10px;" alt="">
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div style="width: 30%; margin: 16px; height: 90%; background-color: teal;float: left;">
+                      <img src="./tennisimgs/dejeon.png" width="100%" height="100%" style="border: rgb(38, 167, 154) 1px solid; margin: -10px;" alt="">
+                      
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div style="width: 30%; margin: 16px; height: 90%; background-color: teal; display: inline-block;">
+                      <img src="./tennisimgs/sejong.png" width="100%" height="100%" style="border: rgb(38, 167, 154) 1px solid; margin: -10px;" alt="">
+                    
+                    </div>
+                  </a>
+                </div>
             </div>
-            <div id="id_disp4">
-                <h5 style="color: gray; height:7px;">INFORMATION</h5>
+            <div id="id_disp4" style="clear: both;">
+                <h5 style="color: gray; height:7px;">BUSINESS INFORMATION</h5>
                 <hr>
+                <br>
+                <span style="opacity: 0.5;">주소 (우) 34856 대전광역시 중구 계룡로 825 (희영빌딩 2층) 대표이사: 정봉경 <br>
+                  사업자번호: 1212-82-828282 통신판매업: 제2020-대전중구-02222호부가통신사업: 제004000호 
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  Copyright © danawa Co., Ltd. All Rights Reserved.
+                </span>
             </div>
         </div>
     </form>

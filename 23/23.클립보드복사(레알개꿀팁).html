@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #id_disp {
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- 우리가 에디터에서 쓰는 코드들은 내부적으로 브라우저 역할을 하면서 html5로 구성되어있음 -->
+    <!-- 포커스 받을 수 없는 거에 포커스 줄 때는 0을 주고,
+    포커스를 못 주게 막고 싶으면 -1 !! -->
+    <img tabindex="0" src="../image/nara1.jpeg" alt="" width="100" height="100" onclick="f_cp2(this.src)"> <!-- 태그안에 함수 부를 때 바로 this로 해서 자신의 값 전송가능! 꿀팁! -->
+    <img tabindex="0" src="../image/nara2.jpeg" alt="" width="100" height="100" onclick="f_cp2(this.src)">
+    <img tabindex="0" src="../image/nara3.jpeg" alt="" width="100" height="100" onclick="f_cp2(this.src)">
+    <!-- 복사되는 것 처럼 사용할 사기용 textarea -->
+    <textarea id="id_ta" style="display: none;"></textarea>
+    <input type="text" id="id_txt" value="이태영 만만세"> <br>
+    <input type="button" value="클립보드로 복사" onclick="f_cp()">
+    <div id="id_disp" contenteditable></div> <!-- contenteditable만 주면 수정가능! -->
+    <script>
+        // 클립보드 복사는 기본적으로 텍스트만 가능(표준스펙)
+        // 그외 기능은 브라우저마다 차이가 있음
+        var v_txt = document.getElementById("id_txt");
+        var v_ta = document.getElementById("id_ta");
+        function f_cp() {
+            // 복사를 위해서는 먼저 선택해야함
+            // v_txt.select(); //텍스트박스의 선택 메소드 !!!!!!!
+            //display가 none이면 select를 할 수 없어서 빛의 속도로 보여줬다 빠르게 끔!
+            v_ta.style.display="block";
+            v_ta.select();
+            //ctrl + c 버튼 기능
+            document.execCommand("copy");
+            v_ta.style.display="none";
+        }
+
+        var v_disp = document.getElementById("id_disp");
+        //붙여넣기 이벤트 paste
+        v_disp.addEventListener("paste",function () {
+            event.preventDefault();
+            var v_img = document.createElement("img");
+            v_img.src = event.clipboardData.getData("text");
+            v_img.width = 30;
+            v_img.height = 30;
+            v_disp.appendChild(v_img);
+        });
+        
+        function f_cp2(p_src) {
+            v_ta.value = p_src;
+        }
+
+    </script>
+</body>
+</html>

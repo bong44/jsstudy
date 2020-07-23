@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        window.onmousedown = function () {
+            // alert(event.button); // 이벤트 객체에 객체 정보 넘어옴!!
+            if (event.button==2) {
+                
+            }
+        }
+        //contextMenu 막기
+        window.addEventListener("contextmenu", function () {
+            event.preventDefault(); //기본이벤트 막아버리기
+            event.stopPropagation(); //이벤트 전파막기! 
+            //위에 두개는 꼭 알고 있어야 한다는데...
+            //브라우저에서 기본 제공해주는 이벤트이기 내가 예상하는 동작을 방해하는 동작이면 막아줄 필요 있음!
+        });
+    </script>
+</body>
+</html>

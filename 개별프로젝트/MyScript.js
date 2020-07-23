@@ -49,7 +49,6 @@
         for (var i = 0; i < v_itemList.length; i++) {
           var v_tempA = document.createElement("a");
           v_tempA.setAttribute("href",v_itemList[i][2]);
-          v_tempA.setAttribute("style","text-decoration:none");
           var v_tempDisp = document.createElement("div");
           v_tempDisp.setAttribute("class","item");
           var v_tempSpan1 = document.createElement("span");

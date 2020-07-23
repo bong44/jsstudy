@@ -12,14 +12,14 @@
        /* background-color:whitesmoke; */
        background-color: rgba(248, 248, 248, 0.562);
        border-bottom: 1px solid rgba(128, 128, 128, 0.4);
-       z-index: 100;
+       z-index: 10;
    }
    #container {
        position: relative;
        width: 1000px;    
        height: 1800px;
        margin: 0px auto;
-       z-index: 1;
+       z-index: 2;
    }
    #id_disp1 {
        position: relative;
@@ -119,3 +119,9 @@
       font-weight: 470;
       color: #333;
     }
+
+    a { text-decoration: none; color: black; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: none; }
+    a:focus { text-decoration: none; }
+    a:hover, a:active { text-decoration: none; }
