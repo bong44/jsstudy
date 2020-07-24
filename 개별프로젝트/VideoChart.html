@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./MyCss.css" type="text/css">
+    <script src="./VideoJsp.js"></script>
+</head>
+
+<body>
+    <form action="">
+        <div id="menuBar">
+            <img src="tennisimgs/tennisball.png" alt="" style="height: 50px; width: 50px;margin: 5px;"
+                onclick="f_home()" onmouseover="f_over(this)">
+            <h3 style="position: absolute; left: 3.1%; top: 8px;color: rgb(13, 185, 185);" onclick="f_home()"
+                onmouseover="f_over(this)">TENNIS.com</h3>
+            <input type="text" id="value" name="search" placeholder="검색"
+                style="width: 400px; position: relative; top: -21px; left: 35%;">
+            <input type="submit" value=""
+                style="width: 50px; height: 30px; overflow: hidden; background-image: url(./tennisimgs/searchicon.png); background-size: 50px 30px; background-position-y: -1px; position: relative; left: 35.5%; top: -11px; border-radius: 15px;">
+        </div>
+        <div id="vd_container"
+            style="z-index: 2; width: 1500px; height: 1300px; margin: 0px auto;">
+        </div>
+    </form>
+    <script>
+        var v_videos = [["이미지", "머리말", "비디오링크","컨택스트","업로드날짜"]];
+        var v_serch = request.getParameter("search");
+        var v_value = document.getElementById("value");
+
+        v_value.value = v_serch;
+        
+        var v_result = []
+        
+        var value, name, item, i;
+        
+        value = v_serch.toUpperCase();
+        
+        for (i = 0; i < v_videos.length; i++) {
+            name = v_videos[i][1];
+            if (name.toUpperCase().indexOf(value) > -1) {
+                alert("일치");
+                v_result[v_result.length] = v_videos[i];
+            } else {
+                alert("불일치");
+            }
+        }
+
+        if (v_result.length) {
+            alert("참");
+        }else{
+            alert("false");
+        }
+
+        function f_home() {
+            location.replace("./MyProject.html");
+            // location.href = "./MyProject.html";
+        }
+
+        function f_over(p_cu) {
+            p_cu.style.cursor = "pointer";
+        }
+
+
+    </script>
+</body>
+
+</html>

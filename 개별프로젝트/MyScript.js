@@ -1,8 +1,10 @@
       var v_container = document.getElementById("container");
       var v_container2 = document.getElementById("container2");
       var v_itemList = [
-        ["T","테니스 포핸드","#"],["T","테니스 백핸드","#"],["T","테니스 서비스","#"],["T","테니스 발리","#"],["T","테니스 슬라이스","#"],["T","테니스 리턴","#"]
-        ,["T","테니스 스탭","#"]
+        ["#","-------------------- 검색해주세요 ---------------------","#"]
+        ,["W","웨이트 트레이닝1","./VideoChart.html?search=머리"]
+        ,["W","웨이트 트레이닝2","./VideoChart.html?search=머"]
+        ,["W","웨이트 트레이닝3","./VideoChart.html?search=쿠"]
       ];
         function filter(){
 
@@ -19,6 +21,7 @@
             item[i].style.display = "none";
           }
         }
+        item[0].style.display = "flex";
       }
       
       var v_imgs = document.getElementById("imgsContainer");
@@ -49,6 +52,7 @@
         for (var i = 0; i < v_itemList.length; i++) {
           var v_tempA = document.createElement("a");
           v_tempA.setAttribute("href",v_itemList[i][2]);
+          v_tempA.setAttribute("id","id_a");
           var v_tempDisp = document.createElement("div");
           v_tempDisp.setAttribute("class","item");
           var v_tempSpan1 = document.createElement("span");
@@ -64,10 +68,15 @@
         }
       }
 
+
       f_itemFactory();
 
-
-
+      var v_a = document.getElementById("id_a");
+      v_a.addEventListener("click",function () {
+        event.preventDefault();
+        event.stopPropagation();
+      });
+      
 
 
 

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./MyCss.css" type="text/css">
+    <script src="./VideoJsp.js"></script>
+</head>
+<body>
+    <form action="">
+        <div id="menuBar">
+            <img src="tennisimgs/tennisball.png" alt="" style="height: 50px; width: 50px;margin: 5px;"  onclick="f_home()" onmouseover="f_over(this)">
+            <h3 style="position: absolute; left: 3.1%; top: 8px;color: rgb(13, 185, 185);" onclick="f_home()" onmouseover="f_over(this)">TENNIS.com</h3>
+            <input type="text" id="value" name="search" placeholder="검색" style="width: 400px; position: relative; top: -21px; left: 35%;">
+            <input type="submit" value="" style="width: 50px; height: 30px; overflow: hidden; background-image: url(./tennisimgs/searchicon.png); background-size: 50px 30px; background-position-y: -1px; position: relative; left: 35.5%; top: -11px; border-radius: 15px;">
+        </div>
+        <div id="vd_container" style="z-index: 2; width: 100%; height: 1800px;">
+            <div style="position: absolute; width: 1250px; height: 750px; left: 50px; top: 110px;">
+                <iframe id="id_myMovie" width="100%" height="100%" 
+                src="https://www.youtube.com/embed/" 
+                frameborder="0" 
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+                </iframe>
+            </div>
+            <div style="position: relative; width: 400px; height: 1250px; background-color: rgb(192, 191, 191); left: 1400px; top: 40px; overflow: scroll;">
+            </div>
+            <div style="position: absolute; width: 1250px; height: 200px; background-color: rgba(192, 191, 191, 0.1); left: 50px; top: 900px;">
+                <span style="position: relative; left: 10px; top: 5px;"><b id="id_title" style="font-size: 20px;">SUBTITLE</b></span>
+                <br>
+                <br>
+                <span style="position: relative; left: 10px; color: gray;" id="id_date">date</span>
+                <hr style="opacity: 0.5;">
+                <br>
+                <span style="position: relative; left: 10px;" id="id_context">context</span>
+            </div>
+        </div>
+    </form>
+    <script>
+        var v_myMovie = document.getElementById("id_myMovie");
+        var v_title = document.getElementById("id_title");
+        var v_context = document.getElementById("id_context");
+        var v_date = document.getElementById("id_date");
+        
+        v_myMovie.src += request.getParameter("v"); 
+        v_title.innerHTML = request.getParameter("sub");
+        v_date.innerHTML = request.getParameter("date");
+        v_context.innerHTML = request.getParameter("con");
+
+        function f_over(p_cu){
+            p_cu.style.cursor = "pointer";
+        }
+
+        function f_home(){
+            location.replace("./MyProject.html");
+            // location.href = "./MyProject.html";
+        }
+    </script>
+</body>
+</html>
