@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 잘 쓰면 편하게 사용하지만 못 쓰면 어렵게 됨 -->
+    <table border="2" class="cl_tbl">
+        <tr>
+            <td>이름</td>
+            <td>별명</td>
+        </tr>
+        <tr>
+            <td>이태영</td>
+            <td>잠탱이</td>
+        </tr>
+    </table>
+<input type="button" value="테이블복사" id="id_cp">
+<script>
+    var v_btn = document.getElementById("id_cp");
+    var v_tbl = document.getElementById("id_tbl");
+    v_btn.addEventListener("click",function () {
+        // 특정 elemnet 복사
+        // var v_copiedTable = v_tbl.cloneNode(); //복사명령 cloneNode --얕은 복사 (겉에 table만 복사하고 그안 에 것들은 안 가져옴)
+        var v_copiedTable = v_tbl.cloneNode(true); // true를 매개변수로 주면 --깊은 복사 (모든 하위 내용 복사)
+        document.body.appendChild(v_copiedTable); //아이디는 고유한 이름으로서 하나만 있어여함 (주의사항) //그래서 클론 노드를 쓸 때는 아이디 보단, class나 name을 주는게 좋음@
+    });
+</script>
+</body>
+</html>

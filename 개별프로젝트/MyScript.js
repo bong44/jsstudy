@@ -2,9 +2,9 @@
       var v_container2 = document.getElementById("container2");
       var v_itemList = [
         ["#","-------------------- 검색해주세요 ---------------------","#"]
-        ,["W","웨이트 트레이닝1","./VideoChart.html?search=머리"]
-        ,["W","웨이트 트레이닝2","./VideoChart.html?search=머"]
-        ,["W","웨이트 트레이닝3","./VideoChart.html?search=쿠"]
+        ,["T","테니스","./VideoChart.html?search=테니스"]
+        ,["W","웨이트 트레이닝","./VideoChart.html?search=웨이트"]
+        ,["S","스탭훈련","./VideoChart.html?search=스탭"]
       ];
         function filter(){
 
@@ -78,7 +78,7 @@
       });
       
 
-
+      
 
 
       

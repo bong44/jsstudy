@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 모바일에서 특히 많이 씀 
+         페이지가 바닥에 닿으면 새로운 데이타가 페이지 끝에 추가됨 
+         오늘 만드는 방식으로만 쓰이니 이 소스를 잘 가지고 있어야 합니당 -->
+
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+         <p>이태영 만만세</p>
+<script>
+    // 스크롤 이벤트
+    function f_endless() {
+        // documentElement 현재 도큐먼트(열려있는 브라우저)의 정보를 객체로 가져옴
+        // 사용자가 얼마큼 스크롤 했는지
+        // 1번
+        console.log("스크롤탑: ",document.documentElement.scrollTop);
+        // 사용자가 보는 화면 높이
+        // 2번
+        console.log("보이는 문서높이: ",document.documentElement.clientHeight);
+        // 스크롤한 높이
+        // 3번
+        console.log("",document.documentElement.scrollHeight);
+        // 1번과 2번의 값을 합친 값이 3번의 값과 같다면, 사용자가 스크롤 바를 전부 내렸다는 것을 알 수 있음!
+
+        var v_scrollTop = document.documentElement.scrollTop;
+        var v_clientHeight = document.documentElement.clientHeight;
+        var v_scrollHeight = document.documentElement.scrollHeight;
+
+        //닿기 전에 (20의 튜닝값 줌)
+        if (v_scrollTop + v_clientHeight > (v_scrollHeight-40)) {
+            var v_img = document.createElement("img");
+            v_img.src = "../image/sin2.jpg";
+            v_img.width = 200;
+            v_img.height =300;
+            document.body.appendChild(v_img);
+        }
+
+    }    
+    window.addEventListener("scroll",f_endless);
+</script>
+</body>
+</html>
