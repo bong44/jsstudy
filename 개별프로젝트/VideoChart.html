@@ -23,6 +23,8 @@
         </div>
         <div id="vd_container"
             style="z-index: 2; width: 1000px; height: auto; margin: 0px auto; background-color: rgba(221, 220, 220,0.3);">
+            <br>
+            <span id="id_resultCnt" style="margin: 10px 10px; color: gray;">-검색된 영상: 0개.</span>
             <!-- <a href="">
                 <div style="margin: 50px auto; width: 800px; height: 200px;">
                     <div style="height: 100%; width: 320px; background-image: url(./tennisimgs/mainVideo1.jpg); background-size: 100% 100%;display: inline-block;"></div>
@@ -43,13 +45,46 @@
         // <!-- ./Video.html?v=&sub=&con=&date= --> -- 형식
         var v_videos = [
             // [이미지경로(0),머리말(1),유튜브링크(2),컨택스트(3),업로드날짜(4)]
+            // ,["./tennisimgs/mainVideo1.jpg",,,,]
              ["./tennisimgs/mainVideo1.jpg", "[하늘쌤테니스꿀팁] 제48편 미친각 포핸드 앵글샷", "6Ja0Mj7mv4Q","많은 분들께서 제 플레이 영상을 보시고 앵글샷 가르쳐 달라하시는 분들이 많았는데요. 이 전에 포핸드 영상을 쭈욱 다 보시고 보시면 좋을거 같아서 못올리고 있었습니다~","조회수 191,165회•2018. 8. 26."]
             ,["./tennisimgs/mainVideo2.jpg", "[하늘쌤테니스꿀팁] 제29편 플렛 서브(프로네이션) 쉽게 하기", "KI31eWjWCcA","생각을 살짝 바꾸면 쉬워져요~^^<br>계속 고급 정보를 드릴수 있는 힘이 되어주세요~^^ 감사합니다~","조회수 179,541회•2018. 7. 8."]
             ,["./tennisimgs/mainVideo3.jpg", "[하늘쌤테니스꿀팁] 제1편 끝내는 발리 잘하기 1탄", "2QYcqMSHHvs","안녕하세요 김하늘 코치 입니다. <br>끝내는 발리를 하실때 많은 선수들이나 동호인 분들이 어려워 하시고 실수가 많으신데요. <br>이 발리를 할때 어떻게 발란스를 잡아야지 좀 더 쉽게 자세가 잡히고 자세를 유지하며 발란스를 잡을수 있는지 설명해드립니다~","조회수 137,622회•2018. 4. 14."]
+            ,["./tennisimgs/P4Zs67d1f_A.jpg","[하늘쌤테니스팩폭] 제2.1편 포핸드: 진화 하는 포핸드","P4Zs67d1f_A","포핸드 레깅을 설명하기 위해서 3편으로 나눠서 올리겠습니다~<br>지루해서 졸지 않으시길...^^;;","조회수 169,711회•2018. 5. 26."]
+            ,["./tennisimgs/fZPsquZTKYk.jpg","[하늘쌤테니스꿀팁] 제42편 떼굴떼굴 굴러가는 슬라이스","fZPsquZTKYk","피니시도 궁금하실텐데 나중에 올려드리겠습니다^^<br>계속 고급 정보를 드릴수 있는 힘이 되어주세요~^^ 감사합니다~","조회수 169,467회•2018. 8. 7."]
+            ,["./tennisimgs/7QGsY7iAS0Y.jpg","[하늘쌤테니스꿀팁] 제38편 포핸드 라켓백에서 라켓을 내릴때 면","7QGsY7iAS0Y","포핸드 라켓백 했을때 면이 어떻게 되어야 하는지에 대한 설명입니다~<br>계속 고급 정보를 드릴수 있는 힘이 되어주세요~^^ 감사합니다~","조회수 166,961회•2018. 7. 28."]
+            ,["./tennisimgs/Kuk8YPeMKXY.jpg","[하늘쌤테니스팩폭] 제4.1편 포핸드 손목의 움직임과 초간단 개선 방법 + 보너스 Part. 1","Kuk8YPeMKXY","파초선 얍!!!<br>제 모든 비디오는 서로 연관성이 강하기 때문에 미리 전편들 꼭 챙겨 보시고 요번 편도 보세요~^^","조회수 155,979회•2018. 7. 16."]
+            ,["./tennisimgs/C3L5TeTSWSE.jpg","[하늘쌤테니스팩폭] 제3편 포핸드 탑스핀 Part 2/3 : 손목을 써라?! 말아라?!","C3L5TeTSWSE","이것도 저만의 스타일 그리고 감으로 설명 해드리는겁니다~ <br>말이 너무 길어지네요... 졸지마세요~^^;;","조회수 147,004회•2018. 7. 2."]
+            ,["./tennisimgs/K87Xg_Iaazw.jpg","[하늘쌤테니스팩폭] 제1편 포발리 그립의 비밀","K87Xg_Iaazw","어렸을때 포핸드 발리 그립을 저도 정직하게 잡고 있었는데 아무도 알려주지 않더라구요...<br>코치들이 '넌 백발리는 좋은데 포발리는...'' 이게 바로 교과서에 써져있는 그립 때문이었답니다...","조회수 142,972회•2018. 5. 9."]
+            ,["./tennisimgs/9EkinQQWpsg.jpg","[하늘쌤테니스꿀팁] 제27편 상식을 파괴하는 탑스핀 추가 설명과 높은 찬스 볼","9EkinQQWpsg","팩폭 탑스핀 1,2,3편도 꼭 보세요~ <br>쫌 더 추가 설명을 해보아요~ 거기에 높은 찬스볼은 보너스!!","조회수 141,602회•2018. 7. 4."]
+            ,["./tennisimgs/Fu_6SUmSnUU.jpg","[하늘쌤테니스꿀팁] 제8편 백발백중 쉬운 볼 스매싱","Fu_6SUmSnUU","쉬운 오버헤드 처리를 할때 그립에 의해서가 아닌 몸을 잘못써서 스매싱에 힘을 못주시고 타이밍 못잡으시는 <br>분들에게 말씀드리고 싶은 레슨입니다.","조회수 139,253회•2018. 4. 27."]
+            ,["./tennisimgs/9V4CMPHEutA.jpg","[테니스시합]Roger Federer - Laver Cup 2018 Best Points/Highlights (HD)","9V4CMPHEutA","Highlights/best points of Roger Federer in the Laver Cup 2018.","조회수 137,441회•2018. 9. 25."]
+            ,["./tennisimgs/ObY6FxjbSgI.jpg","[테니스시합]Laver Cup 2018 Best Points/Highlights (HD)","ObY6FxjbSgI","For more matches contact: samtennisenquiries@gmail.com<br><br>Highlights of the Laver Cup 2018 in Chicago where team Europe defeated team World 13-8.","조회수 1,097,321회•2018. 9. 24."]
+            ,["./tennisimgs/5kGSfHP7PI8.jpg","[테니스시합]Alexander Zverev Vs Kevin Anderson - Laver Cup 2018 (Highlights HD)","5kGSfHP7PI8","For more matches contact: samtennisenquiries@gmail.com<br><br>Highlights of the eleventh and final match in the Laver Cup 2018, between Alexander Zverev and Kevin Anderson.","조회수 288,217회•2018. 9. 24."]
+            ,["./tennisimgs/bhFIvBHUv60.jpg","[테니스시합]Roger Federer Vs John Isner - Laver Cup 2018 (Highlights HD)","bhFIvBHUv60","For more matches contact: samtennisenquiries@gmail.com<br><br>Highlights of the tenth match in the Laver Cup 2018, between Roger Federer and John Isner.","조회수 939,681회•2018. 9. 24."]
+            ,["./tennisimgs/mK5qvAZaTSk.jpg","[테니스시합]Federer/Zverev Vs Sock/Isner - Laver Cup 2018 (Highlights HD)","mK5qvAZaTSk","For more matches contact: samtennisenquiries@gmail.com<br><br>Highlights of the ninth match in the Laver Cup 2018, between Roger Federer/Alexander Zverev and Jack Sock/John Isner.","조회수 1,372,869회•2018. 9. 24."]
+            ,["./tennisimgs/DBKOe6emR7Q.jpg","[테니스시합]Dimitrov/Goffin Vs Sock/Kyrgios - Laver Cup 2018 (Highlights HD)","DBKOe6emR7Q","For more matches contact: samtennisenquiries@gmail.com<br><br>Highlights of the eighth match in the Laver Cup 2018, between Grigor Dimitrov/David Goffin and Jack Sock/Nick Kyrgios.","조회수 470,705회•2018. 9. 23."]
+            ,["./tennisimgs/N33s3n94ZbU.jpg","[테니스시합]Novak Djokovic Vs Kevin Anderson - Laver Cup 2018 (Highlights HD)","N33s3n94ZbU","For more matches contact: samtennisenquiries@gmail.com<br><br>Highlights of the seventh match in the Laver Cup 2018, between Novak Djokovic and Kevin Anderson.","조회수 368,056회•2018. 9. 23."]
+            ,["./tennisimgs/MEoDYm0v4j0.jpg","[테니스시합]Roger Federer Vs Nick Kyrgios - Laver Cup 2018 (Highlights HD)","MEoDYm0v4j0","For more matches contact: samtennisenquiries@gmail.com<br><br>Highlights of the sixth match in the Laver Cup 2018, between Roger Federer and Nick Kyrgios.","조회수 706,276회•2018. 9. 23."]
+            ,["./tennisimgs/UYFlDgp55WY.jpg","[테니스시합]Alexander Zverev Vs John Isner - Laver Cup 2018 (Highlights HD)","UYFlDgp55WY","For more matches contact: samtennisenquiries@gmail.com<br><br>Highlights of the fifth match in the Laver Cup 2018, between Alexander Zverev and John Isner.","조회수 265,020회•2018. 9. 23."]
+            ,["./tennisimgs/ee5HnlhvZuY.jpg","[테니스시합]Federer/Djokovic Vs Sock/Anderson - Laver Cup 2018 (Highlights HD)","ee5HnlhvZuY","For more matches contact: samtennisenquiries@gmail.com<br><br>Highlights of the fourth match in the Laver Cup 2018, between Roger Federer/Novak Djokovic and Jack Sock/Kevin Anderson.","조회수 502,721회•2018. 9. 22."]
+            ,["./tennisimgs/wscfZsdD-uk.jpg","[테니스시합]David Goffin Vs Diego Schwartzman - Laver Cup 2018 (Highlights HD)","wscfZsdD-uk","For more matches contact: samtennisenquiries@gmail.com<br><br>Highlights of the third match in the Laver Cup 2018, between David Goffin and Diego Schwartzman.","조회수 198,613회•2018. 9. 22."]
+            ,["./tennisimgs/4Jg5koIF-7Q.jpg","[테니스시합]Jack Sock Vs Kyle Edmund - Laver Cup 2018 (Highlights HD)","4Jg5koIF-7Q","For more matches contact: samtennisenquiries@gmail.com<br><br>Highlights of the second match in the Laver Cup 2018, between Jack Sock and Kyle Edmund.","조회수 130,600회•2018. 9. 22."]
+            ,["./tennisimgs/u-3h02JLsbI.jpg","[웨이트트레이닝]지하주차장 극한컨디셔닝","u-3h02JLsbI",'말왕 이메일 : ragoona88@gmail.com<br><br>http://bit.ly/horsekingtv  (*링크가 horseking에서 horsekingtv로 바뀌었습니다)',"조회수 315,076회•2020. 5. 27."]
+            ,["./tennisimgs/fzGCXoyVwS4.jpg","[웨이트트레이닝]8x8 볼륨 미쳤네요;; 다음 날 근육통 바로 옴.. + 50만 구독자 이벤트 by my protein!! (운동리뷰 EP6)","fzGCXoyVwS4","말왕 이메일 : ragoona88@gmail.com<br><br>http://bit.ly/horsekingtv  (*링크가 horseking에서 horsekingtv로 바뀌었습니다)","조회수 631,700회•2019. 7. 5."]
+            ,["./tennisimgs/pteMPTKbWsM.jpg","[웨이트트레이닝]한국의 스트롱맨들과 운동을 해봤다으(3대 평균 620kg)","pteMPTKbWsM","말왕 이메일 : ragoona88@gmail.com<br><br>http://bit.ly/horsekingtv  (*링크가 horseking에서 horsekingtv로 바뀌었습니다)","조회수 682,094회•2019. 12. 11."]
+            ,["./tennisimgs/lCLsy24q3PI.jpg","[웨이트트레이닝]TOTAL AB WORKOUT Outdoor Gym Edition","lCLsy24q3PI","Instagram // @merkelfitness<br><br>TRAINING PROGRAMS | https://justmerk.com<br>Instagram | @merkelfitness https://www.instagram.com/merkelfitness/","조회수 74,900회•2020. 7. 2."]
+            ,["./tennisimgs/XtxQPrABLyo.jpg","[웨이트트레이닝]4 YEARS OF NATURAL BODYBUILDING // GYM MOTIVATION","XtxQPrABLyo","Instagram // @merkelfitness<br><br>filmed & edited by Kenneth Princesa https://www.youtube.com/user/Sckenpri...","조회수 1,527,526회•2019. 11. 17."]
+            ,["./tennisimgs/CmcZDu9T2J4.jpg","[웨이트트레이닝]Building a Bigger More Defined Back! // Back Workout","CmcZDu9T2J4","Instagram // @merkelfitness<br><br>TRAINING PROGRAMS | https://www.merkelfitness.com/register/","조회수 305,401회•2019. 8. 28."]
+            ,["./tennisimgs/mZHjJ-QUfoM.jpg","[웨이트트레이닝]BIG UPPER BODY WORKOUT // How I Get Rid of Weak Points","mZHjJ-QUfoM","Instagram // @merkelfitness<br><br>TRAINING PROGRAMS https://justmerk.com","조회수 238,860회•2020. 2. 16."]
+            ,["./tennisimgs/ThNbJTLPHVc.jpg","[웨이트트레이닝]Jeremy Buendia - WORKOUT motivation ** CHAMP 🏆**","ThNbJTLPHVc","Edited by Me: @fochbymotivation<br><br>Footage by: Jeremy Buendia, Andrei Deiu, Sergi Constance, Simeon panda, David laid, Gerardo Gabriel","조회수 9,865,059회•2017. 10. 15."]
+            ,["./tennisimgs/MIB5tKaLTxo.jpg","[식단]다이어트 위한 탄수화물 섭취량! 이렇게 먹으면 무조건 살빠져요!!","MIB5tKaLTxo","다이어트를 위한 탄수화물 섭취량은 얼마일까요?<br>건강하고 효과적인 섭취량 가이드를 알려드릴게요!","조회수 2,978,711회•2018. 6. 3."]
+            ,["./tennisimgs/bneYaTTBdMM.jpg","[힐링 요가] 자연과 함께하는 20분 전신 순환 요가루틴ㅣ20min Healing Yoga Routine","bneYaTTBdMM","아요님들 안녕 ~<br><br>새로운 요가루틴이에요. 💗","조회수 20,545회•2020. 7. 24."]
+            // ,["./tennisimgs/MIB5tKaLTxo.jpg","[식단]","","",""]
         ];
         var v_serch = request.getParameter("search");
         var v_value = document.getElementById("value");
         var v_container = document.getElementById("vd_container");
+        var v_resultCnt = document.getElementById("id_resultCnt");
 
         v_value.value = v_serch;
         
@@ -72,6 +107,7 @@
         if (v_result.length < 3) {
             drawCnt = v_result.length;
         }
+        v_resultCnt.innerHTML = "- 검색된 영상: "+v_result.length+"개.";
 
 
         if (v_result.length) {
@@ -100,13 +136,14 @@
             v_container.innerHTML += 
             '<br><br><br><br><h2 style="text-align: center;">찾으시는 영상이 없습니다!</h2><br><br><br><br>';
         }
+
         function f_endless() {
             var v_scrollTop = document.documentElement.scrollTop;
             var v_clientHeight = document.documentElement.clientHeight;
             var v_scrollHeight = document.documentElement.scrollHeight;
         
             //닿기 전에 (20의 튜닝값 줌)
-            if (v_scrollTop + v_clientHeight > (v_scrollHeight-20) && scrollDrawCount < v_result.length) {
+            if (v_scrollTop + v_clientHeight > (v_scrollHeight-5) && scrollDrawCount < v_result.length) {
                 v_container.innerHTML +=
                 '<a href="'+'./Video.html?v='+v_result[scrollDrawCount][2]+'&sub='+v_result[scrollDrawCount][1]+'&con='+v_result[scrollDrawCount][3]+'&date='+v_result[scrollDrawCount][4]+'" id="id_a">'
                 +'<div style="margin: 50px auto; width: 800px; height: 200px;">'
@@ -123,7 +160,6 @@
                 +'</a>';
                 scrollDrawCount++;
             }
-        
         }    
         window.addEventListener("scroll",f_endless);
         

@@ -1,10 +1,20 @@
       var v_container = document.getElementById("container");
       var v_container2 = document.getElementById("container2");
       var v_itemList = [
-        ["#","-------------------- 검색해주세요 ---------------------","#"]
-        ,["T","테니스","./VideoChart.html?search=테니스"]
-        ,["W","웨이트 트레이닝","./VideoChart.html?search=웨이트"]
-        ,["S","스탭훈련","./VideoChart.html?search=스탭"]
+        ["#","----------------------- 검색 키워드 ------------------------","#"]
+        ,["T","하늘쌤테니스","./VideoChart.html?search=하늘쌤테니스"]
+        ,["T","테니스시합","./VideoChart.html?search=테니스시합"]
+        ,["W","웨이트트레이닝","./VideoChart.html?search=웨이트트레이닝"]
+        ,["F","식단","./VideoChart.html?search=식단"]
+        ,["Y","요가","./VideoChart.html?search=요가"]
+        ,["L","생활","./VideoChart.html?search=생활"]
+        ,["B","보디빌딩","./VideoChart.html?search=보디빌딩"]
+        ,["E","운동","./VideoChart.html?search=운동"]
+        ,["P","피지크","./VideoChart.html?search=피지크"]
+        ,["F","포핸드","./VideoChart.html?search=포핸드"]
+        ,["B","백핸드","./VideoChart.html?search=백핸드"]
+        ,["S","서브","./VideoChart.html?search=서브"]
+        ,["B","발리","./VideoChart.html?search=발리"]
       ];
         function filter(){
 
