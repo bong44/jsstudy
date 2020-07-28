@@ -26,6 +26,8 @@
             </div>
         </div>
     </form>
+    <script src="./bongsUtils/jsencrypt.min.js" type="text/javascript"></script>
+    <script src="./bongsUtils/bongsCrypter.js"></script>
     <script>
         var v_id = document.getElementById("input_id");
         var v_pass = document.getElementById("input_pass");
@@ -40,7 +42,7 @@
             var users = JSON.parse(localStorage.getItem("users"));
             var user = {};
             user.id = v_id.value;
-            user.pass = v_pass.value;
+            user.pass = bong_encrypter(v_pass.value);
             users.push(user);
             localStorage.setItem("users",JSON.stringify(users));
             alert("가입이 성공적으로 완료 되었습니다! \n  로그인창으로 이동합니다.");

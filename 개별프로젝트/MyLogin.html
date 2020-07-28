@@ -26,6 +26,8 @@
             </div>
         </div>
     </form>
+    <script src="./bongsUtils/jsencrypt.min.js" type="text/javascript"></script>
+    <script src="./bongsUtils/bongsCrypter.js"></script>
     <script>
 
         function f_login() {
@@ -33,7 +35,7 @@
             var v_pass = document.getElementById("input_pass").value;
             var users = JSON.parse(localStorage.getItem("users"));
             for (var i = 0; i < users.length; i++) {
-                if (v_id==users[i].id && v_pass==users[i].pass) {
+                if (v_id==users[i].id && v_pass==bong_decrypter(users[i].pass)) {
                     var flag = {};
                     flag.flag = true;
                     localStorage.setItem("loginFlag",JSON.stringify(flag));
