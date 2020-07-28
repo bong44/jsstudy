@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+<script>
+// mongoDB(객체지향DB로 유명) -- 비정형데이터를 취급하기에 어울림, 오라클은 RDBNS -- 정형데이터에 어울림 (테이블의 컬럼과 딱딱 맞아 떨어지는)
+// 추세가 객체지향 DB로 ..
+//localstorage의 제약사항 현재는 문자열만 저장 가능!
+// var v_lty = {
+//     "name":"이태영", "age":100
+//     };
+
+//틀리지 않게 쓰기 좋음
+var v_lty = {};
+v_lty.name = "이태영";
+v_lty.age = 100;
+
+
+v_lty = JSON.stringify(v_lty); //JSON을 문자열로 변환
+// v_lty = JSON.parse(v_lty); //문자열을 JSON으로 변환 -- 문자열이 JSON형식 이어야 함
+alert(v_lty.name);
+localStorage.setItem("key값: ",v_lty);
+// JSON을 부라우저에서 읽을 때 문자열로 할 때는 바깥을 쌍따옴표 안에 껄 따옴표로 꼭 해줘야함!
+</script>

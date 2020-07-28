@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    //데이터 저장
+    // var v_arrName = ["임구현","소리엘","배동환","김하은"];
+    // var v_arrAge = [100,90,80,70];
+    // // 위 내용을 짝(JSON)을 지어서 localStorage에 저장해보기
+
+    // var v_arrJSON = []; //JSON객체를 담을 빈배열
+    // for (var i = 0; i < v_arrName.length; i++) {
+    //     var v_json = {};
+    //     v_json.name = v_arrName[i];
+    //     v_json.age = v_arrAge[i];
+    //     v_arrJSON.push(v_json);
+    // }
+
+    // //로컬스토리지에 저장
+    // v_arrJSON = JSON.stringify(v_arrJSON);
+    // localStorage.setItem("test",v_arrJSON);
+
+    
+    //로컬스토리지에서 꺼내기
+    // var v_arrLTY = localStorage.getItem("test");
+    // v_arrLTY = JSON.parse(v_arrLTY);
+    
+    // alert(v_arrLTY[0].name);
+
+    var v_newJson = {};
+    v_newJson.name = "김다훈";
+    v_newJson.age = 60;
+    // 이러면 덮어씌움
+    // localStorage.setItem("test",JSON.stringify(v_newJson));
+    var v_arrLTY = JSON.parse(localStorage.getItem("test"));
+    v_arrLTY.push(v_newJson);
+    //push로 줄여 쓸 수 있음
+    // v_arrLTY[v_arrLTY.length] = v_newJson;
+    //다시 같은 key값으로 덮어쓰기
+    localStorage.setItem("test",JSON.stringify(v_arrLTY));
+
+    alert(eval("3+4+4")); //문자열을 스크립트 기능으로 쓸 수 있게 해줌!
+</script>

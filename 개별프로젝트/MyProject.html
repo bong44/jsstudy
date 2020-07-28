@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RTP-tennis</title>
+    <link rel="shortcut icon" href="./tennisimgs/RTPlogo.jpg" type="image/x-icon">
     <link rel="stylesheet" href="./MyCss.css" type="text/css">
 </head>
 <body>
@@ -102,6 +103,50 @@
         </div>
     </form>
     <script src="./MyScript.js"></script>
-    <script src="./MyVideoScript.js"></script>
+    <script>
+      var v_menuBar = document.getElementById("menuBar");
+       
+      
+      if (localStorage.getItem("loginFlag")==null) {
+            var flag = {};
+            flag.flag = false;
+            localStorage.setItem("loginFlag",JSON.stringify(flag)); 
+        }
+
+        var v_loginFlag = JSON.parse(localStorage.getItem("loginFlag"));
+
+        // <input type="button" value="회원가입" style="background: rgba(13, 185, 185,0.5);position: absolute;right: 0px; top: 10px; height: 40px; border-radius: 6px;">
+        //     <input type="button" value="로그인" style="background: rgba(13, 185, 185,0.5);position: absolute;right: 75px; top: 10px; height: 40px; border-radius: 6px;">
+
+        if (v_loginFlag.flag) {
+          var v_tempButtonReg = document.createElement("input");
+          v_tempButtonReg.setAttribute("type","button");
+          v_tempButtonReg.value="로그아웃";
+          v_tempButtonReg.setAttribute("onclick","f_logout()");
+          v_tempButtonReg.setAttribute("style","background: rgba(13, 185, 185,0.5);position: absolute;right: 10px; top: 15px; height: 30px; border-radius: 6px; border:solid black 1px;opacity:0.7;font-size: 18px;");
+          v_menuBar.appendChild(v_tempButtonReg);
+        }else{
+          var v_tempButtonReg = document.createElement("a");
+          var v_tempButtonLog = document.createElement("a");
+          v_tempButtonReg.innerHTML="회원가입";
+          v_tempButtonReg.setAttribute("style","background: rgba(13, 185, 185,0.5);position: absolute;right: 10px; top: 15px; height: 30px; border-radius: 6px; border:solid black 1px;opacity:0.7;font-size: 18px;");
+          v_tempButtonReg.href = "./MyRegist.html";
+          v_tempButtonLog.innerHTML="로그인";
+          v_tempButtonLog.setAttribute("style","background: rgba(13, 185, 185,0.5);position: absolute;right: 85px; top: 15px; height: 30px; border-radius: 6px; border:solid black 1px; opacity:0.7;font-size: 18px;");
+          v_tempButtonLog.href = "./MyLogin.html";
+          v_menuBar.appendChild(v_tempButtonReg);
+          v_menuBar.appendChild(v_tempButtonLog);
+        }
+
+        function f_logout() {
+          var flag = {};
+          flag.flag = false;
+          localStorage.setItem("loginFlag",JSON.stringify(flag)); 
+          location.replace("./MyProject.html");
+        }
+
+        
+
+    </script>
 </body>
 </html>
