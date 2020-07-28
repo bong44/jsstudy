@@ -19,6 +19,7 @@
                 <img src="./tennisimgs/RTPlogo.jpg" alt="" width="200px" height="200px" style="position: relative; left: 148px;">
             </div>
             <div style="width: 100%; height: 300px; background-color: rgb(221, 221, 221); position: relative; top: 50px;">
+                <h2 style="position: absolute;left: 203px;">회원가입</h2>
                 <input id="input_id" type="text" style=" position: absolute; top: 60px; left: 145px; width: 200px;height: 30px;">   
                 <input id="input_pass" type="password" style="position: absolute; top: 120px; left: 145px; width: 200px;height: 30px;">
                 <input type="button" value="회원가입" onclick="f_regist()" style="position: absolute; top: 180px; left: 149px; width: 200px;height: 30px;">
@@ -32,7 +33,6 @@
         var v_id = document.getElementById("input_id");
         var v_pass = document.getElementById("input_pass");
 
-
         if (localStorage.getItem("users")==null) {
             var users = [];
             localStorage.setItem("users",JSON.stringify(users)); 
@@ -41,6 +41,17 @@
         function f_regist() {
             var users = JSON.parse(localStorage.getItem("users"));
             var user = {};
+            if (v_id.value == "" || v_id.value.indexOf(" ")!=-1) {
+                alert("올바른 아이디 형식이 아닙니다!");
+                location.replace("./MyRegist.html");
+                return;
+            }
+            if (v_pass.value == "" || v_pass.value.indexOf(" ")!=-1) {
+                alert("올바른 비밀번호 형식이 아닙니다!");
+                location.replace("./MyRegist.html");
+                return;
+                
+            }
             user.id = v_id.value;
             user.pass = bong_encrypter(v_pass.value);
             users.push(user);
