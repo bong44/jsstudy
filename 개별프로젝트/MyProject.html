@@ -102,6 +102,13 @@
               </div>
             </div>
           </form>
+          <div id="id_modal">
+            <div id="id_body">
+              <h3 style="position: relative; top: 27px; left: 90px;">정말 로그아웃 하시겠습니까?</h3>
+              <input type=button value="확인" onclick="f_outOk()" style="position: relative; left: 155px; top: 60px;">
+              <input type=button value="취소" onclick="f_outNo()" style="position: relative; left: 165px; top: 60px;">
+            </div>
+          </div>
           <script src="./MyScript.js"></script>
     <script>
       var v_menuBar = document.getElementById("menuBar");
@@ -138,13 +145,20 @@
           v_menuBar.appendChild(v_tempButtonLog);
         }
 
+        var v_modal = document.getElementById("id_modal");
         function f_logout() {
+          v_modal.style.display = "flex";
+        }
+        function f_outOk() {
+          v_modal.style.display = "none";
           var flag = {};
           flag.flag = false;
           localStorage.setItem("loginFlag",JSON.stringify(flag)); 
           location.replace("./MyProject.html");
         }
-        
+        function f_outNo() {
+          v_modal.style.display = "none";
+        }
         
         </script>
 </body>

@@ -126,3 +126,21 @@
     a:hover { text-decoration: none; }
     a:focus { text-decoration: none; }
     a:hover, a:active { text-decoration: none; }
+
+    #id_modal{
+      position:fixed;  /* 위치 고정 */
+      left:0px; top:0px;
+      width:100vw;
+      height:100vh; /* position fixed 일때는 %도 먹음 */
+      z-index: 272; /* layer로 띄우기*/
+      display: none; /* 첨엔 안 보였다가 뿅 나타나게 */
+      background-color: rgba(89, 222, 231, 0.3);
+    }
+    #id_body {
+      margin: auto auto; /* 대충 가운데 정렬*/
+      width:22%;          /* 넓이 부모의 70% */
+      height:220px;
+      background-color: rgba(163, 157, 157,0.6);
+      border: teal 5px solid;
+      border-radius: 20px;
+    }
