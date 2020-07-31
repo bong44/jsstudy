@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+//더미 데이탕 맹글기,페이지 나누기 하려면 많은 데이타가 필용!
+localStorage.clear();   // 일단 localStorage 지우기
+var v_dataMax = 108;  // 108번뇌
+var v_dataArr = [];   // json을 담을 빈 배열
+var v_skillsArr = ["js","jsp","oracle","인공지능"];
+for(var i=0; i< v_dataMax; i++){
+    var v_ranSkills = [];
+    var v_forMax = f_random(3)+1;
+    for (var j = 0; j < v_forMax; j++) {
+        if () {
+            
+        }
+        v_ranSkills.push(v_skillsArr[f_random(4)]);
+    }
+    var v_gul = {};             // 게시글 묶음을 위한 빈 객체
+    v_gul.num = (i+1);
+    v_gul.title = "제목"+(i+1);
+    v_gul.writer = "이태영"+ (i+1);
+    v_gul.content = "억지내용" + (i+1);
+    v_gul.auth = "manager";
+    v_gul.skills  = v_ranSkills;
+    v_dataArr.push(v_gul);
+}
+localStorage.setItem("볼품게시",JSON.stringify(v_dataArr));
+
+function f_random(max) {
+    return Math.floor(Math.random()*max);
+}
+
+</script>
