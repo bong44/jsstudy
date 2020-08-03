@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" id="id_tbl">
+    </table>
+가져올 데이타 파일명<input type="text" id="id_file" value="">
+<input type="button" value="아작스로데이타가져오기" id="id_btn">
+<script>
+    var v_disp = document.getElementById("id_disp");
+    var v_btn = document.getElementById("id_btn");
+    var v_fileName = document.getElementById("id_file");
+    var v_tbl = document.getElementById("id_tbl");
+    v_btn.onclick = function () {
+        var v_ajax = new XMLHttpRequest();
+        v_ajax.open("get",v_fileName.value,true);
+        v_ajax.send();
+
+        v_ajax.onreadystatechange = function () {
+            //state와 status 혼동 주의 
+            if (v_ajax.readyState == 4 && v_ajax.status == 200) {
+                //reponse에 통신 결과가 담겨져서 옴(open에서 통신한 내용의 결과)
+                //주의사항: reponse는 메소드가 아니고 변수임 (property)
+                // v_disp.innerHTML =  v_ajax.responseText;
+                // data.csv 파일내용 받아서 table형식으로 출력하기
+                var v_content = v_ajax.responseText.split("\n"); //엔터키로 짜르는거 인식좀;;;;;;;;; 쌉중요!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                var v_tempTrs = "";
+                for (var i = 0; i < v_content.length; i++) {
+                    var v_line = v_content[i].split(",");
+                    v_tempTrs += "<tr>";
+                    for (var j = 0; j < v_line.length; j++) {
+                        v_tempTrs += "<td>"+v_line[j]+"</td>"
+                    }
+                    v_tempTrs += "</tr>";
+                }
+                v_tbl.innerHTML = v_tempTrs;
+            }
+        }
+    }
+</script>
+</body>
+</html>

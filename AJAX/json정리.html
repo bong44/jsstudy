@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="UTF-8">
+<script>
+    var v_json = {};
+    //속성추가
+    v_json.aaa = "aaa";
+    v_json.bbb = "흥";
+    v_json.arr = ["1","2","3"];
+    //메소드 추가, 메소드명 내 망대로, 매개변수 받을지 말지 내 맘대로 
+    v_json.msg = function (p_msg) {
+        alert(p_msg);
+    }
+
+    //접근
+    alert(v_json.arr[1]);
+    v_json.msg("흥");
+
+    //다른 선언방식
+    var v_json2 = {
+        "aaa2":"aaa2",
+        "bbb2":"aaa2",
+        "arr2":["11","22","33"],
+        "msg2":function (p_msg) {
+            alert(p_msg+"<<2>>");
+        }
+    };
+    //접근 2
+    alert(v_json2.arr2[2]);
+    v_json2.msg2("흥치");
+</script>
