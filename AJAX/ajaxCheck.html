@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="id_disp"></div>
+    <input type="button" value="눌렁" id="id_btn">
+<script>
+    var v_btn = document.getElementById("id_btn");
+    v_btn.addEventListener("click",function () {
+       var v_ajax = new XMLHttpRequest();
+       //JSON데이터
+    //    v_ajax.open("get","data.json",true); 
+       //XML데이터
+       v_ajax.open("get","data.xml",true); 
+       v_ajax.send();
+
+       v_ajax.onreadystatechange = function () {
+           if (v_ajax.readyState == 4 && v_ajax.status == 200) {
+               //JSON
+            //    var v_arr = JSON.parse(v_ajax.responseText);
+               //가져온 데이터 문자열이 스크립트 배열/JSON 문법에 어글나지 않는 문자열이어서 변환가능
+            //    alert(v_arr[0].content.point);
+            //XML
+            var v_xml = v_ajax.responseXML;
+            var v_names = v_xml.getElementsByTagName("상세")[0]; //옆에 배열 쓰는거 안 익숙 익숙해지렴
+            for (var i = 0; i < v_names.children.length; i++) {
+                alert(v_names.children[i].nodeName); //nodeName은 태그명이 출력 됨(XML데이터에서 사용)
+            }
+           }
+       }
+    });
+</script>
+</body>
+</html>

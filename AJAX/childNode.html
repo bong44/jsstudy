@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="id_disp">
+        <div>흥</div>
+        <div>치</div>
+        <div>피</div>
+    </div>
+    <!-- childNodes가 인식 할 수 있는 데이터 -->
+    <!-- <div id="id_disp"><div>흥</div><div>치</div><div>피</div></div> -->
+<input type="button" value="체크" onclick="f_check()">
+<script>
+    var v_lty = document.getElementById("id_disp");
+    function f_check() {
+        //childNodes는 태그 사이의 공백 까지의 데이터 까지 전부 노드로 인식해서 조심해야 함
+        alert(v_lty.childNodes[0].innerHTML);
+        //정확하게 태그만 인식할 수 있음
+        alert(v_lty.children[0].innerHTML);
+    }
+</script>
+</body>
+</html>
