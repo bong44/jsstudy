@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- post방식 전송에 필요한 디폹트값 -->
+    <!-- <form enctype="application/x-www-form-urlencoded"></form>  -->
+<script>
+    //ajax post 방식
+    var v_xhr = new XMLHttpRequest();
+    v_xhr.open("post","check.php",true);
+    //post 방식에서 data를 전송할 때는 send에 매개변수로 넘겨줌
+    v_xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    // 디폴트 인코딩 설정은 꼭! send위에 셋팅해야함
+    v_xhr.send("name=lty");
+    v_xhr.onreadystatechange = function () {
+        if (v_xhr.readyState == 4 && v_xhr.status == 200) {
+            alert(v_xhr.responseText);
+        }
+    }
+</script>
+</body>
+</html>
