@@ -6,16 +6,33 @@
     <title>Document</title>
 </head>
 <body>
+    <form id="id_form">
+        이름<input type="text" name="nm_name" value="864"><br>
+        별명1<input type="text" name="nm_al1" value="486"><br>
+        별명2<input type="text" name="nm_al2" value="4864"><br>
+        별명3<input type="text" name="nm_al3" value="728"><br>
+        별명4<input type="text" name="nm_al4" value="786"><br>
+        별명5<input type="text" name="nm_al5" value="6534"><br>
+        별명6<input type="text" name="nm_al6" value="783"><br>
+        별명7<input type="text" name="nm_al7" value="56341"><br>
+        별명8<input type="text" name="nm_al8" value=".5641"><br>
+        별명9<input type="text" name="nm_al9" value="123"><br>
+        별명10<input type="text" name="nm_al10" value="783"><br>
+    </form>
     <!-- post방식 전송에 필요한 디폹트값 -->
     <!-- <form enctype="application/x-www-form-urlencoded"></form>  -->
 <script>
+    //FormData객체는 append로 하나하나 값을 추가해야되는데 form객체를 파라미터로 넘길수가 있음
+    var v_formData = new FormData(document.getElementById("id_form"));
+
+
     //ajax post 방식
     var v_xhr = new XMLHttpRequest();
     v_xhr.open("post","check.php",true);
     //post 방식에서 data를 전송할 때는 send에 매개변수로 넘겨줌
-    v_xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    // v_xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     // 디폴트 인코딩 설정은 꼭! send위에 셋팅해야함
-    v_xhr.send("name=lty");
+    v_xhr.send(v_formData);
     v_xhr.onreadystatechange = function () {
         if (v_xhr.readyState == 4 && v_xhr.status == 200) {
             alert(v_xhr.responseText);

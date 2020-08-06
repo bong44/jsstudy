@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="width: 600px; height: 800px;">
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+    <input type="button" value="차트데이타 바꿔보깅" onclick="f_chg()">
+    <script>
+        //https://www.chartjs.org/docs/latest/
+        //graphic library 가져오기, openGL
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['흥', '치', '피', '똥', '뿡', '체'],
+                datasets: [
+                    {
+                    label: '1번',
+                    data: [12, 19, 3, 5, 20, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                },
+                    {
+                    label: '2번',
+                    //type 속성추가
+                    type:"line",
+                    //
+                    data: [12, 20, 9, 5, 2, 17],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                },
+                    {
+                    label: '3번',
+                    data: [12, 19, 4, 5, 2, 20],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        function f_ranArr() {
+            var v_arr = [];
+            var v_len = 6;
+            for (var i = 0; i < v_len; i++) {
+                v_arr[i] = Math.floor(Math.random()*100) +1;
+            }
+            return v_arr;
+        }
+
+        function f_chg() {
+            myChart.data.datasets[0].data = f_ranArr();
+            myChart.data.datasets[1].data = f_ranArr();
+            myChart.data.datasets[2].data = f_ranArr();
+
+            // var v_lty = {};
+            // v_lty.label = "흥치피";
+            // v_lty.type = "line";
+            // v_lty.data = [3,3,3,3,3,3];
+            // myChart.data.datasets.push(v_lty);
+
+            //canvas는 값만 바꾸면 안 되고 새로 '렌더링'을 해줘야 함
+            myChart.update();
+            setTimeout(f_chg,500);
+        }
+        f_chg();
+    </script>
+</body>
+
+</html>
