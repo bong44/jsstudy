@@ -51,7 +51,7 @@
     //------------------------------------------------------------------------           외부           ----------------------------------------------------------------------------------------
 
     //5. 4단계에서 전역변수에 담아놓은 속성, 근본(생성자 함수)클래스의 prototype에 직접적으로 접근하는 fn속성을 이용해서 공용 메소드 외부에서 생성 ($.fn == MyClass.prototype)
-    $.fn.each = function (p_callback) { //5-1. 중요! 여기선 each라는 기본적인 함수 틀을 생성하고 파라미터를 함수로 받아 MyClass의 데이터와 파라미터의 다양한 액션들을 연결 해 줄 수 있는 메소드개념의 클래스(?)를 생성 (중계역할)
+    $.fn.each = function (f_callback) { //5-1. 중요! 여기선 each라는 기본적인 함수 틀을 생성하고 파라미터를 함수로 받아 MyClass의 데이터와 파라미터의 다양한 액션들을 연결 해 줄 수 있는 메소드개념의 클래스(?)를 생성 (중계역할)
         //5-2. 더 중요! MyClass에 담겨있는 태그데이터들 하나하나에 대해서 콜백함수가 접근 할 수 있게 해줌!
         for (var i = 0; i < this.length; i++) {
                 f_callback(i,this[i]);
@@ -77,10 +77,16 @@
         });
     //클래스에 접근 
         $(".cl_disp").each(function (p_index,p_item) {
-            p_item.innerHTML = "<h1>"+p_item.innerHTML+"</h1>";
-        }).each(function (p_index,p_item) {
-            p_item.innerHTML = "<h3>"+p_item.innerHTML+"</h3>";
-        });
+            p_item.innerHTML = "<h1>"+"클래스 접근"+"</h1>";
+        })
+    //ID 접근 
+        $("#id_disp1").each(function (p_index,p_item) {
+            p_item.innerHTML = "<h1>"+"아이디 1 접근"+"</h1>";
+        })
+
+        $("#id_disp2").each(function (p_index,p_item) {
+            p_item.innerHTML = "<h1>"+"아이디 2 접근"+"</h1>";
+        })
 </script>
 </body>
 </html>
