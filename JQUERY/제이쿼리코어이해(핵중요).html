@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>흥!</div>
+    <div>치!</div>
+    <div>피!</div>
+    <div>힝!</div>
+    <div>뿡!</div>
+    <script>
+        // document.querySelectorAll("css 선택자");
+        //factory 패턴(new 를 안하고 객체생성)
+        // var vaa = ""; == window.vaa = "";
+
+        (function () {
+            var factory = function (p_selector) {
+                return new myDom(p_selector);
+            }
+
+            var myDom = function (p_selector) {
+                var v_elems = document.querySelectorAll(p_selector);
+                this.length = v_elems.length;
+                for (var i = 0; i < v_elems.length; i++) {
+                    this[i] = v_elems[i];
+                }
+            }
+            //전역변수를 만들어 준 것과 같음
+            window.$ = factory; // 함수 자체를 참조시키는 것! 중요!!!!! 만약 그냥 factory("값")해서 넘기면 실행된 값만 넘어감 , 그냥 여기 안에있는 함수들은 한번만 실행되고 못 접근하니까 $라는 전역변수에 경유해서 접근 가능하게 해주는 것
+            factory.fn = myDom.prototype;
+        })();
+
+        // var v_divs = new myDom("div");
+        // var v_divs = factory("div");
+        // v_divs[3].innerHtml = "ㅎㅎㅎㅎ"; //지금도 배열식 접근법인데 굉장히 햇갈림 햇갈리면 개초보 중요!!!!!!!!!!!
+        // console.log(v_divs);
+
+        //내부소스 변경없이 프로토타입 메소드 추가
+        $.fn.msg = function (p_msg) {
+            alert(p_msg);
+            return this; //메소드 체인잉을 위해 필요한 리턴값 (나 자신을 돌려줘야 다음 메소드가 똑같은 나를 활용해 메소드를 부를 수 있음!)!!!! 씹핵조빡중요!!!!!!!!!!!!!!!!!!!!!!!
+            //메소드 체인잉: msg().msg().msg().. 이런식으로 쓰는 것
+        }
+
+        var v_divs = $("div").msg("흥칫");
+        console.log(v_divs);
+    </script>
+</body>
+</html>
