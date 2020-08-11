@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>그렇지용 이태용1</div>
+    <div>그렇지용 이태용2</div>
+    <div>그렇지용 이태용3</div>
+    <input type=text  class="aaa" value="임선영"><br>
+    <input type=text value="이다솔"><br>
+    <input type=text class="aaa" value="백서윤"><br>
+    <input type=button value="흥">
+<script>
+    alert($("input[type=text]").val(function (p_index, p_oldStr) {
+        if (p_index == 1) {
+            return p_oldStr + "wdhuw";
+        }else{
+            return p_oldStr;
+        }
+    }));
+
+    //alert($("div").eq(1).html()); // 첫번째 요소의 innerHTML 속성값 읽기
+    //$("div").html("메렁");  // 쓰기
+    $("div").html(function(p_index, p_oldStr){
+        //alert(p_index + " : " + p_oldStr);
+        //if(p_index==1){
+        //    return "메렁";
+        //}
+        return p_oldStr + "만만셍";
+    });
+</script>
+</body>
+</html>

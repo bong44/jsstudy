@@ -54,6 +54,16 @@ $.fn.attr = function(p_attr,p_callback){
     }
     return this;
 }
+
+$.fn.html = function (f_callback) {
+    for (var i = 0; i < this.length; i++) {
+        this[i].innerHTML = f_callback(i, this[i].innerHTML);
+    }
+}
+
+
+
+
 // $.fn.attr = function (p_json) {
 //     for (var i = 0; i < this.length; i++) {
 //         for (var v_attr in p_json) {
@@ -62,5 +72,17 @@ $.fn.attr = function(p_attr,p_callback){
 //         }
 //     }
     // this[i].setAttribute(p_json);
-    return this;
+//     return this;
+// }
+
+$.fn.on = function (p_evtName,f_callback) {
+    for (var i = 0; i < this.length; i++) {
+        this[i].addEventListener(p_evtName, f_callback.bind(this[i]));
+    }
+}
+
+$.fn.append = function (p_elemt) {
+    for (var i = 0; i < this.length; i++) {
+        this[i].appendChild(p_elemt);
+    }
 }

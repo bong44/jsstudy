@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./MyQuery.js"></script>
     <title>Document</title>
+    <script src="./MyQuery.js"></script>
 </head>
 <body>
     <div class="lty">흥</div>
@@ -26,19 +26,22 @@
 //        }
 //    });
 
-$("img").attr("width",function(p_index,p_oldVal){
-        if(!p_oldVal){
-            //this.setAttribute("width","200");  //? this 짜증나게 window
-            return "300";
-        }else {
-            return "100";
-        }
-   });
+// $("img").attr("width",function(p_index,p_oldVal){
+//         if(!p_oldVal){
+//             //this.setAttribute("width","200");  //? this 짜증나게 window
+//             return "300";
+//         }else {
+//             return "100";
+//         }
+//    });
 
 // $("img").attr({
 //     "width":200,
 //     "height":100
 // });
+    $("div").on("click",function () {
+        alert("d");
+    });
 </script>
 </body>
 </html>
