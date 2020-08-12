@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./MyQuery.js"></script>
+</head>
+<body>
+    <div class="lty">흥</div>
+    <div class="lty">뿡</div>
+    <div class="lty">헉</div>
+    <img src="../image/sin1.jpg">
+    <img src="../image/sin2.jpg">
+    <img src="../image/sin3.jpg">
+<script>
+   // $(".lty").eq(1).innerHTML = "이태영 만만셍";
+   $(".lty")[1].innerHTML = "<h1>비오는날도 테니스가 가능해용</h1>";
+//   $("img").attr("width","100").attr("height","100");
+   //$("img").attr("height","100");
+//    $("img").attr("width",function(p_index){
+//        if(p_index == 0){
+//            return "400";
+//        }else {
+//            return "100";
+//        }
+//    });
+
+// $("img").attr("width",function(p_index,p_oldVal){
+//         if(!p_oldVal){
+//             //this.setAttribute("width","200");  //? this 짜증나게 window
+//             return "300";
+//         }else {
+//             return "100";
+//         }
+//    });
+
+// $("img").attr({
+//     "width":200,
+//     "height":100
+// });
+    $("div").on("click",function () {
+        alert("d");
+    });
+</script>
+</body>
+</html>

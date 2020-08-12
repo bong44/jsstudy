@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div class="csj">
+            <div class="lty1">정정완</div>
+            <div class="lty2">김수정</div>
+            <div class="lty1">정봉경</div>
+        </div>
+    </div>
+    <input type="button" value="눌렁" onclick="f_clk()">
+<script>
+    function f_clk() {
+        //이렇게 되면 두번을 써야되는데 한줄로 쓰기 위해선 end라는 것으로 다시 상위객체로 돌아갈 수 있음
+        // $("div").find(".lty1").css("backgroundColor","red");
+        // $("div").find(".lty2").css("backgroundColor","blue");
+        // $("div").find(".lty1").css("backgroundColor","red")
+        // .end().find(".lty2").css("backgroundColor","blue");
+        // $("div").first(); // $("div").eq(0)
+        // $("div").last(); // $("div").eq($("div").length() -1)
+        
+    }
+
+</script>
+</body>
+</html>

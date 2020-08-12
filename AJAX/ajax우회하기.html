@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<body>
+    <input type="text" id="id_search" value="">
+    <input type="button" value="구글뉴스검색" onclick="f_search()"><br>
+    <div id="id_disp" ></div>
+</body>
+<script>
+    var v_disp = document.getElementById("id_disp");
+    var v_search = document.getElementById("id_search");
+    function f_search() {
+        var v_xhr = new XMLHttpRequest();
+        //ajax는 대부분 same-origin 정책으로 인해 다른 사이트(도메인)의 정보를 못가져옴
+        //이때 사용하는 방법이 내 서버를 경유해서 데이타를 받음
+        v_xhr.open("get","around.php?search="+v_search.value,true);
+        v_xhr.send();
+
+        v_xhr.addEventListener("readystatechange",function () {
+            if (v_xhr.readyState == 4 && v_xhr.status == 200) {
+               var v_items = JSON.parse(v_xhr.responseText).channel.item;
+            //    console.log(v_items);
+               var v_tblStr = "<table border=1>";
+               for (var i = 0; i < v_items.length; i++) {
+               v_tblStr += "<tr onmouseout='f_out(this)' onmouseover='f_on(this)'>";
+                   
+                   v_tblStr += "<td>"+(i+1)+"번째</td>";
+                   v_tblStr += "<td><a href='"+v_items[i].link+"'>"+v_items[i].title+"</a></td>";
+
+            //        if (i%6==0) {
+            //    v_tblStr += "</tr><tr>";
+            //        }
+               v_tblStr += "</tr>";
+               }
+               v_tblStr += "</table>";
+            }
+            v_disp.innerHTML = v_tblStr;
+        });
+    }
+    function f_out(p_this) {
+        p_this.style.backgroundColor = "white";
+    }
+    function f_on(p_this) {
+        p_this.style.backgroundColor = "rgba(41, 41, 250,0.3)";
+    }
+
+</script>

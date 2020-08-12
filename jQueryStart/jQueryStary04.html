@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="id_disp"></div>
+<img src="../image/sin1.jpg" alt="">
+<input type="button" value="눌러방" id="id_btn">
+<input type="button" value="눌러바?" id="id_mv">
+<input type="button" value="innerHTML지우기" id="id_empty">
+<script> 
+    $("#id_empty").on("click",function () {
+        $("#id_disp").empty();
+    });
+
+    $("#id_btn").on("click",function () {
+        // $("<img></img>") 중요!!!!! jQuery에서 없는 태그를 새로 만들 때 추천방식!
+        $("<img></img>").attr({
+            "src" : "../image/sin1.jpg"
+            ,"width" : "100"
+            ,"height" : "200"
+        }).css("border","solid black 1px").appendTo($("#id_disp"))
+    });
+
+    $("#id_mv").on("click",function () {
+        // 이미 존재하는 객체를 어떤 곳에 붙이면 이동호과가 나타남
+    //    $("img").eq(0).appendTo($("#id_disp")); 
+       $("img").eq(0).remove(); 
+    });
+</script>
+</body>
+</html>

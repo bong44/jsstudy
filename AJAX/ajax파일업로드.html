@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- "multipart/form-data"
+    이것은 정확히는 인코딩이 아니고, 데이타가 섞여서 들어간다고 알려주는 의미,
+    보통 파일들은 바이너리(1,0) 파일
+    boundary라고 경계선을 붙여서 서버쪽으로 넘겨줘영 -->
+    <input type="file" id="id_file" accept=".jpg,.jpeg,.png,.gif"><br>
+    <input type="button" value="아작스파일업로드" onclick="f_up()">
+    <div id="id_disp"></div>
+    <!-- <form enctype="multipart/form-data"></form> -->
+<script>
+    //꼭 POST방식을 써야하는 곳! 파일업로드
+    //편리한 기능이니 잘 보관
+    //아작스 파일업로드는 특별한 케이스이니 주의
+    var v_file = document.getElementById("id_file");
+    var v_disp = document.getElementById("id_disp");
+    function f_up() {
+        //사용자 선택 파일
+        console.log(v_file.files[0]);
+        
+        //처음보는 생소한 내용
+        //여기 밑에 데이터를 추가하면 그 데이터는 form에 둘러쌓여있는 역할을 하게 함
+        //속성 중에 append만 알고 있으면 댐
+        var v_formData = new FormData(); //파일을 넘길때는 인코딩을 하면 안됨(상대가 못 해석함)
+        v_formData.append("fileToUpload",v_file.files[0]); //(파라미터(name값),value값)
+
+        //
+        var v_xhr = new XMLHttpRequest();
+        v_xhr.open("post","upload.php",true);
+        //post 방식에서 data를 전송할 때는 send에 매개변수로 넘겨줌
+        // v_xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded"); //인코딩을 안해주면 상대가 해석을 못함 //파일보낼때하고 햇갈림
+        // 디폴트 인코딩 설정은 꼭! send위에 셋팅해야함
+        v_xhr.send(v_formData);
+        v_xhr.onreadystatechange = function () {
+            if (v_xhr.readyState == 4 && v_xhr.status == 200) {
+                var v_img = document.createElement("img");
+                v_img.src = v_xhr.responseText;
+                v_img.width = 100;
+                v_img.height = 100;
+                v_disp.appendChild(v_img);
+            }
+        }
+    }
+</script>
+</body>
+</html>

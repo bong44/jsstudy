@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="id_file" value=""><br>
+    <input type="button" value="파일올리깅" id="id_up">
+    <div id="id_disp"></div>
+<script>
+    $("#id_up").on("click",function () {
+            var v_formData = new FormData();
+            v_formData.append("fileToUpload",$("#id_file")[0].files[0]);
+        $.ajax({
+            method:"post",
+            url:"../AJAX/upload.php",
+            data: v_formData,
+            /*파일 업로드시에만 필요한  설정
+             jQuery가 자동으로 데이타 인코딩 설정을 바꾸지 못하도록*/
+            processData:false,
+            contentType:false,
+            cache:false, //이건 권장
+            //위 두줄이 꼭 필요함(파일 업로드 시)
+            success:function (p_rslt) {
+                $("<img></img>").attr("src","../AJAX/"+p_rslt).attr({
+                    "width":"100",
+                    "height":"100"
+                }).appendTo($("#id_disp"));
+            }
+        })
+    });
+</script>    
+</body>
+</html>

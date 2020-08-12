@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="이태영1"><br>
+    <input type="text" value="이태영1"><br>
+    <input type="text" value="이태영1"><br>
+    <input type="button" value="눌렁">
+    <script>
+        // alert($("input[type=text]").val());
+        alert($("input[type=text]").val("정봉경흥"));
+
+        //return 으로 값만 넘겨주면 내부에서 알아서 그 값을 받아 처리
+        $("input[type=text]").val(function (p_index, p_value) {
+            if (p_index == 2) {
+                return p_value + " 바봉 ㅋㅋㅋ";
+            }else{
+                return p_value;
+            }
+        });
+
+
+        //window.onload에 대응, 정확히는 DomContentLoaded 이벤트에 대음 // onload는 이미지같은 로드 전부 기다리고, DomContentLoaded태그만 쫙 잃이면 바로실행 그래서 빠름, 요즘 많이 씀
+        // $(document).ready(function () {
+        //     alert("페이지 로딩 후 자동시작");
+        // });
+        $(function () {
+            console.log("보통 여기에 초기화 작업을 많이 함");
+           alert("나도 페이지 로딩 후 자동시작 (위랑 똑같아 나를 더 많이 써!)"); 
+        });
+        
+    </script>
+</body>
+</html>

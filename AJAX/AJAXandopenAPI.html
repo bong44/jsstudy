@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="눌렁" id="id_btn">
+<script>
+    var v_btn = document.getElementById("id_btn");
+    v_btn.onclick = function () {
+        var v_ajax = new XMLHttpRequest();
+        v_ajax.open("get","https://api.exchangeratesapi.io/history?start_at=2020-01-01&end_at=2020-08-01&base=USD",true);
+        v_ajax.send();
+
+        v_ajax.onreadystatechange = function () {
+            if (v_ajax.readyState == 4 && v_ajax.status == 200) {
+                var v_ajson = JSON.parse(v_ajax.responseText);
+                //여기서 괴롭힘
+                //KRW와 JPY값만 날짜별로 해서 localStorage에 저장해 주세요
+                // console.log(v_ajson);
+                var v_rateArr = v_ajson.rates;
+                //값이 배열이면 length로 반복문 돌릴탠데 JSON은 forin문으로 해서 키값을 뽑아올 수 있음
+                //key의 를 출력하면 key값 key.value는 키 값에 대한 value값
+                var v_tempArr = [];
+                for (var attr in v_rateArr) {
+                    // alert(attr);
+                    // alert(v_rateArr[attr].KRW);
+                    // localStorage.setItem(attr,"{KRW:"+JSON.stringify(v_rateArr[attr].KRW)+",JPY:"+JSON.stringify(v_rateArr[attr].JPY)+"}");
+                    // var v_tempKey = attr;
+                    
+                    //date를 굳이 키로 잡을 필요가 없었음. 구조자체를 의심해 볼 필요가 있음!
+                    var v_single = {};
+                    v_single.date = attr;
+                    v_single.KRW = v_rateArr[attr].KRW;
+                    v_single.JPY = v_rateArr[attr].JPY;
+
+
+                    //안 좋은 방식
+                    // var v_tempJson2 = {"KRW":v_rateArr[attr].KRW , "JPY":v_rateArr[attr].JPY};
+                    // var v_tempJson = {};
+                    // v_tempJson[attr] = {};
+                    // v_tempJson[attr].KRW = v_rateArr[attr].KRW;
+                    // v_tempJson[attr].JPY = v_rateArr[attr].JPY;
+
+                    v_tempArr.push(v_single);
+                }
+
+
+                v_tempArr.sort(function (a,b) {
+
+                    var v_dateA = a.date.replace("-","").replace("-","");
+                    var v_dateB = b.date.replace("-","").replace("-","");
+
+                    // for (var keyA in a) {}
+                    // for (var keyB in b) {}  //for in문으로 돌려도 키값은 고정이니까
+                    // console.log(keyA);   //자바스크립트는 for밖에서도 값을 쓸 수 있음!
+                    // console.log(keyB);
+                    // if (JSON.stringify(Object.keys(a)).replace(/-/gi,"") > JSON.stringify(Object.keys(b)).replace(/-/gi,"")) { //  /-/gi 하면 문자열의 모든 것을 대체
+                    //     return 1;
+                    // }
+                    // if (JSON.stringify(Object.keys(a)).replace(/-/gi,"") < JSON.stringify(Object.keys(b)).replace(/-/gi,"")) {
+                    //     return -1;
+                    // }
+                    // return 0;
+                    // return JSON.stringify(Object.keys(a)).replace(/-/gi,"") - JSON.stringify(Object.keys(b)).replace(/-/gi,""); 얘도 되야댈탠데;
+
+                    return v_dateA - v_dateB;
+                });
+
+                // // value 기준으로 정렬
+                // items.sort(function (a, b) {
+                //     if (a.value > b.value) {
+                //         return 1;
+                //     }
+                //     if (a.value < b.value) {
+                //         return -1;
+                //     }
+                //     // a must be equal to b
+                //     return 0;
+                // });
+
+                console.log(v_tempArr);
+
+                localStorage.setItem("JSON",JSON.stringify(v_tempArr));
+                // alert(v_ajson.rates.);
+                //JSON의 데이터가 숫자형식이거나 할 때는 배열식접근법을 사용한다!!!!!!!! 쌉중요!!!!!!
+
+            }
+        }
+    }
+</script>
+</body>
+</html>

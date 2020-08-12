@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form name="nm_my">
+        <input type=text name="nm_name" value="이태영"><br>
+        <input type=text name="nm_al1" value="이태영1"><br>
+        <input type=text name="nm_al2" value="이태영2"><br>
+        <input type=text name="nm_al3" value="이태영3"><br>
+        <input type=text name="nm_al4" value="이태영4"><br>
+        <input type=text name="nm_al5" value="이태영5"><br>
+        <input type=text name="nm_al6" value="이태영6"><br>
+    </form>
+<script>
+    $.ajax({
+        method:"get",
+        url:"../AJAX/data.json",
+        dataType:"json",
+        success:function(p_rslt){
+            console.log(p_rslt[0].lang);
+        }
+    });
+
+    // $.ajax({
+    //     method:"post",
+    //     url:"../AJAX/check.php",
+    //     data:$("form[name=nm_my]").serialize(), //serialize가 자동으로 &
+    //     success:function(p_rslt){
+    //         alert("post"+p_rslt);
+    //     }
+    // });
+
+    // $.ajax({
+    //     method:"get",
+    //     url:"../AJAX/check2.php",
+    //     data:$("form[name=nm_my]").serialize(), //serialize가 자동으로 &
+    //     success:function(p_rslt){
+    //         alert("get"+p_rslt);
+    //     }
+    // });
+
+    /*
+    //jQuery AJAX, 우리 이미 만들었음
+    // 일반화 시킴
+    var $$ = {};
+    $$.ajax = function(p_json){
+        var v_ajax = new XMLHttpRequest();
+        v_ajax.open(p_json.method,p_json.url,true);
+        v_ajax.send();   // post방식일때는 매개변수로 값을 넘긴다
+        v_ajax.onreadystatechange = function(){
+            if(v_ajax.readyState == 4 && v_ajax.status == 200){
+                p_json.success(v_ajax.responseText);
+            }
+        }
+    }
+
+    $$.ajax({
+        method:"get",
+        url:"data.txt",
+        success:function(p_result){
+            alert("넘어온 값은"+ p_result)
+        }
+    });
+    */
+ </script>    
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>흥!</div>
+    <div>치!</div>
+    <div class="lds">피!</div>
+    <div class="lds">힝!</div>
+    <div>뿡!</div>
+    <script>
+        // 일단 여기서 중요한 부분! 즉각실행함수의 활용과, 그로인해 제약사항 극복으로 전역변수(밖에서 만들어 줘도 되지만 window."변수명" 으로 선언하면 똑같)로 함수 참조 연결
+        // , 또 생성자함수에 대해서 메소드 추가를 내부 코드 수정없이 밖에서 해주기 위한 ptototype속성을 factory 함수에 속성으로 추가 (메소드 체이닝 까지 가능하도록 설계) 
+        // factory는 myDom 함수의 새로운 객체 생성을 자동을 해주기 위한 함수
+        // querySelectorAll은 css선택자 기법을 통해 html의 태그들을 스크립트로 가져올 수 있다.
+        // jquery는 무거움 for문으로 담기 돌려서 전부 담기 때문에
+        (function () {
+            var factory = function (p_selector) {
+                return new myDom(p_selector);
+            }
+
+            var myDom = function (p_selector) {
+                var v_elems = document.querySelectorAll(p_selector);
+                this.length = v_elems.length;
+                for (var i = 0; i < v_elems.length; i++) {
+                    this[i] = v_elems[i];
+                }
+            }
+            console.log(myDom);
+            window.$ = factory;
+            factory.fn = myDom.prototype;
+        })();
+
+        $.fn.each = function (f_callback) {
+            for (var i = 0; i < this.length; i++) {
+                f_callback(i,this[i]);
+            }
+            return this;
+        }
+
+        //
+        $("div").each(function (p_index,p_item) {
+            //만약 3번째의 태그 값을 바꿔주고 싶을 때
+            if (p_index==2) {
+                p_item.innerHTML = "<h1>바뀜잼</h1>"
+            }
+            //출력
+        //    alert(p_index +" : "+ p_item.innerHTML); 
+        });
+
+        $("div").each(function (p_index,p_item) {
+            //모든 div태그들에 h1태그들로 감싸줌
+            p_item.innerHTML = "<h1>"+p_item.innerHTML+"</h1>";
+        }).each(function (p_index,p_item) {
+            //메소드 체인잉에 의거 가능
+            p_item.innerHTML = "<h3>"+p_item.innerHTML+"</h3>";
+        });
+
+        //클레스 선택자로 구분가능
+        $(".lbs").each(function (p_index,p_item) {
+            //클레스있는 애들만 배열에 들어온거임
+            p_item.innerHTML = "<h1>클레스로 해서 바꿈</h1>";
+        });
+    </script>
+</body>
+</html>
