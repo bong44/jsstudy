@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<body>
+    <input type="text" id="id_search" value="">
+    <input type="button" value="구글뉴스검색" onclick="f_search()"><br>
+    <div id="id_disp" ></div>
+</body>
+<script>
+    var v_disp = document.getElementById("id_disp");
+    var v_search = document.getElementById("id_search");
+    function f_search() {
+        var v_xhr = new XMLHttpRequest();
+        
+        v_xhr.open("get","around2.php?",true);
+        v_xhr.send();
+
+        v_xhr.addEventListener("readystatechange",function () {
+            if (v_xhr.readyState == 4 && v_xhr.status == 200) {
+                console.log(v_xhr.responseText);
+               }
+        });
+    }
+
+</script>

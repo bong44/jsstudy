@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $.ajax({
+        method:"get",
+        url:"http://localhost:8080/cors/test.jsp",
+        success:function(p_rslt){
+            alert(p_rslt);
+        }
+    })
+</script>
