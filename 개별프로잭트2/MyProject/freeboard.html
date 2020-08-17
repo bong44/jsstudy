@@ -97,7 +97,7 @@
             </div>
         </header>
         <!-- Board-->
-        <section class="page-section bg-primary" id="board" >
+        <section class="page-section bg-info" id="board" >
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center">
@@ -106,28 +106,28 @@
 
 
 
-                        <div class="container">
+                        <div class="container" >
                             <div class="page-header">
                                 <h3>자유게시판</h3>
                             </div>
                         <div class="row">
                             <div class="col-sm-2 col-sm-offset-10 text-right" style="margin-bottom: 5px;" >
-                                <a href="freeForm.jsp" class="btn btn-primary btn-sm"> 
+                                <a href="freeForm.jsp" class="btn btn-dark btn-sm"> 
                                     <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                                     &nbsp;새글쓰기
                                 </a>
                             </div>
                         </div>
-                            <table class="table table-striped table-bordered table-hover">
+                            <table class="table table-dark table-sm table-striped table-bordered table-hover">
                             <colgroup>
                                 <col width="10%" />
-                                <col width="15%" />
-                                <col />
+                                <col width="10%" />
+                                <col width="40%" />
                                 <col width="10%" />
                                 <col width="15%" />
                                 <col width="10%" />
                             </colgroup>
-                            <thead>
+                            <thead id="id_list">
                                 <tr>
                                     <th>글번호</th>
                                     <th>분류</th>
@@ -184,5 +184,41 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+            // localStorage.setItem("free","1");
+            // console.log(localStorage.getItem("free"));
+
+            var temp_data = [
+                {"categroy":"사는이야기","title":"이제 월요일이네;","user":"봉경","regdate":"20-12-15","content":"","hit":0},
+                {"categroy":"사는이야기","title":"내일 부터 일한다;;","user":"유미","regdate":"20-12-15","content":"","hit":0},
+                {"categroy":"사람","title":"하던말든 가든 말든 ㅎ","user":"아롱","regdate":"20-12-15","content":"","hit":0},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0},
+                {"categroy":"강아지","title":"너는 진짜 잘 지내니","user":"복돌이","regdate":"20-12-15","content":"","hit":0}
+            ];
+
+            var v_trForm = [];
+            if(!localStorage.getItem("free")){
+                for (var i = 0; i < temp_data.length; i++) {
+                    v_trForm[i] = {};
+                    v_trForm[i].category = temp_data[i].categroy;
+                    v_trForm[i].title = temp_data[i].title;
+                    v_trForm[i].user = temp_data[i].user;
+                    v_trForm[i].regdate = temp_data[i].regdate;
+                    v_trForm[i].content = temp_data[i].content;
+                    v_trForm[i].hit = temp_data[i].hit;
+                }
+                localStorage.setItem("free",JSON.stringify(v_trForm));
+            }
+
+            var v_localVals = JSON.parse(localStorage.getItem("free"));
+
+            for (var i = 0; i < v_localVals.length; i++) {
+                var temp_td = "<td>"+i+"</td>"+"<td>"+v_localVals[i].category+"</td>"+"<td>"+v_localVals[i].title+"</td>"
+                                +"<td>"+v_localVals[i].user+"</td>"+"<td>"+v_localVals[i].regdate+"</td>"+"<td>"+v_localVals[i].hit+"</td>";
+                $("<tr></tr>").append(temp_td).appendTo("#id_list");
+            }
+
+
+        </script>
     </body>
 </html>
