@@ -423,7 +423,7 @@
                 v_endNum = v_arrDatas.length
             }
 
-            var firstPage = ((v_curPage-1) / 5) * 5 + 1;
+            var firstPage = Math.floor((v_curPage-1) / 5) * 5 + 1;
             var lastPage = firstPage + 5 - 1;
             if (lastPage > v_totalGSu) {
                 lastPage = v_totalGSu;
