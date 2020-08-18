@@ -12,7 +12,7 @@
    var request = {}; // 빈객체 생성
    request.getParameter = function(p_name){    // 메소드 추가
        var v_url = location.href;
-       if(v_url.indexOf("?") == -1) return;
+       if(v_url.indexOf("?") == -1) return null;
        // 디코딩을 너무 빨리해서, 넘어온 값속에 =, 이 섞여있으면
        // split에서 문제가 됨 
        // v_url = decodeURIComponent(v_url);  // 디코딩
@@ -28,7 +28,7 @@
    }
    request.getParameterValues = function(p_name){
        var v_url = location.href;
-       if(v_url.indexOf("?") == -1) return;
+       if(v_url.indexOf("?") == -1) return null;
       // v_url = decodeURIComponent(v_url);  // 디코딩
        var v_retArr = [];   // 값을 담을 빈배열 생성
        var v_queryString = v_url.split("?")[1];

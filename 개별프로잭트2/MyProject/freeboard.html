@@ -70,8 +70,8 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#board">글 목록</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#board" id="id_mvToBoard">글 목록</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact" >Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -86,8 +86,8 @@
                             <h1 class="text-white-50">검색하세요.</h1>
                             <div class="d-flex justify-content-center h-100">
                               <div class="searchbar">
-                                <input class="search_input" type="text" name="" placeholder="Search...">
-                                <a href="#board" class="search_icon js-scroll-trigger"><i class="fas fa-search"></i></a>
+                                <input class="search_input" type="text" name="" placeholder="Search..." id="id_inputVal">
+                                <a href="#board" class="search_icon js-scroll-trigger" id="id_boardLink"><i class="fas fa-search"></i></a>
                               </div>
                             </div>
                           </div>
@@ -143,8 +143,14 @@
                             </div>
 
 
+                        <!-- START : 페이지네이션  --> 
+                        <div id="id_listNum">
 
-                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#page-top">검색</a>
+                        </div>
+                        <!-- END : 페이지네이션  --> 
+
+                        <br>
+                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#page-top" id="id_refresh">초기화</a>
                     </div>
                 </div>
             </div>
@@ -184,16 +190,158 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script src="../bongsLib/jsp.js"></script>
         <script>
-            // localStorage.setItem("free","1");
-            // console.log(localStorage.getItem("free"));
+
+            if (request.getParameter("flagMvList")) {
+                $("#id_mvToBoard").trigger("click");
+            }
 
             var temp_data = [
-                {"categroy":"사는이야기","title":"이제 월요일이네;","user":"봉경","regdate":"20-12-15","content":"","hit":0},
-                {"categroy":"사는이야기","title":"내일 부터 일한다;;","user":"유미","regdate":"20-12-15","content":"","hit":0},
-                {"categroy":"사람","title":"하던말든 가든 말든 ㅎ","user":"아롱","regdate":"20-12-15","content":"","hit":0},
-                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0},
-                {"categroy":"강아지","title":"너는 진짜 잘 지내니","user":"복돌이","regdate":"20-12-15","content":"","hit":0}
+                {"categroy":"인생","title":"이제 월요일이네;","user":"봉경","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"인생","title":"내일 부터 일한다;;","user":"유미","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"사람","title":"하던말든 가든 말든 ㅎ","user":"아롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"너는 진짜 잘 지내니","user":"복돌이","regdate":"20-12-15","content":"","hit":0,"deleteYN":"Y"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"인생","title":"이제 월요일이네;","user":"봉경","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"인생","title":"내일 부터 일한다;;","user":"유미","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"사람","title":"하던말든 가든 말든 ㅎ","user":"아롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"너는 진짜 잘 지내니","user":"복돌이","regdate":"20-12-15","content":"","hit":0,"deleteYN":"Y"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"인생","title":"이제 월요일이네;","user":"봉경","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"인생","title":"내일 부터 일한다;;","user":"유미","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"사람","title":"하던말든 가든 말든 ㅎ","user":"아롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"너는 진짜 잘 지내니","user":"복돌이","regdate":"20-12-15","content":"","hit":0,"deleteYN":"Y"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"},
+                {"categroy":"강아지","title":"잘지내니?","user":"초롱","regdate":"20-12-15","content":"","hit":0,"deleteYN":"N"}
             ];
 
             var v_trForm = [];
@@ -206,19 +354,124 @@
                     v_trForm[i].regdate = temp_data[i].regdate;
                     v_trForm[i].content = temp_data[i].content;
                     v_trForm[i].hit = temp_data[i].hit;
+                    v_trForm[i].deleteYN = temp_data[i].deleteYN;
                 }
                 localStorage.setItem("free",JSON.stringify(v_trForm));
+                localStorage.setItem("exData",JSON.stringify(v_trForm));
             }
 
-            var v_localVals = JSON.parse(localStorage.getItem("free"));
+            // var v_localVals = JSON.parse(localStorage.getItem("free"));
 
-            for (var i = 0; i < v_localVals.length; i++) {
-                var temp_td = "<td>"+i+"</td>"+"<td>"+v_localVals[i].category+"</td>"+"<td>"+v_localVals[i].title+"</td>"
-                                +"<td>"+v_localVals[i].user+"</td>"+"<td>"+v_localVals[i].regdate+"</td>"+"<td>"+v_localVals[i].hit+"</td>";
-                $("<tr></tr>").append(temp_td).appendTo("#id_list");
+            // for (var i = 0; i < v_localVals.length; i++) {
+            //     if (v_localVals[i].deleteYN == "N") {
+            //         var temp_td = "<td>"+(i+1)+"</td>"+"<td>"+v_localVals[i].category+"</td>"+"<td>"+v_localVals[i].title+"</td>"
+            //                     +"<td>"+v_localVals[i].user+"</td>"+"<td>"+v_localVals[i].regdate+"</td>"+"<td>"+v_localVals[i].hit+"</td>";
+            //         $("<tr></tr>").append(temp_td).appendTo("#id_list");
+            //     }
+            // }
+            $("#id_boardLink").click(function () {
+                localStorage.setItem("free",localStorage.getItem("exData"));
+                var value, name, item, i;
+    
+                value = document.getElementById("id_inputVal").value.toUpperCase();
+                item = JSON.parse(localStorage.getItem(v_tblName));
+                localStorage.setItem("exData",JSON.stringify(item));
+
+    
+                for(i=0;i<item.length;i++){
+                    name = item[i].title.toUpperCase();
+                    // console.log(name.toUpperCase().indexOf(value));
+                    if(name.toUpperCase().indexOf(value) > -1){
+                    }else{
+                        item.splice(i,1);
+                        i--;
+                    }
+                }
+                // console.log(item);
+                localStorage.setItem("free",JSON.stringify(item));
+                location.replace("freeboard.html?pg_num=1&flagMvList=1");
+            });
+            
+            $("#id_refresh").click(function () {
+                localStorage.setItem("free",localStorage.getItem("exData"));
+                location.replace("freeboard.html?pg_num=1&flagMvList=1");
+            });            
+
+
+
+            var v_pgNum = request.getParameter("pg_num");
+            var v_curPage = 1;    // 현재 페이지 디폴트 값
+            if(v_pgNum){
+                v_curPage = v_pgNum;
             }
 
+            //localstorage내용 읽어와서 출력하기
 
+            var v_tblName="free";
+            var v_arrDatas = JSON.parse(localStorage.getItem(v_tblName));
+            
+            // 페이지 나누기, 페이지당 몇개 10개, 전체페이지 수 :전체글수 / 페이지당글수
+            var v_pgPGSu = 10;
+            var v_totalGSu = v_arrDatas.length;
+            var v_totalPG = Math.ceil(v_totalGSu / v_pgPGSu);
+        
+            var v_startNum =  (v_curPage -1) * v_pgPGSu;   // 페이지별 스타트 글넘버 배열 index
+            var v_endNum =   v_startNum + v_pgPGSu;  
+            
+            //마지막 페이지의 마지막 글 넘버
+            if(v_endNum > v_arrDatas.length){
+                v_endNum = v_arrDatas.length
+            }
+
+            var firstPage = ((v_curPage-1) / 5) * 5 + 1;
+            var lastPage = firstPage + 5 - 1;
+            if (lastPage > v_totalGSu) {
+                lastPage = v_totalGSu;
+            }
+
+            // var v_tblStr="<form id='id_form'>";
+            // v_tblStr +="<table border=1>";
+            // v_tblStr += "<tr><th>넘버</th><th>제목</th><th>글쓴이</th><th>보유스킬</th><th>등급</th><th>삭제</th></tr>"    
+            for(var i=v_startNum; i<v_endNum; i++){
+                if (v_arrDatas[i].deleteYN == "N") {
+                    var temp_td = "<td>"+(i+1)+"</td>"+"<td>"+v_arrDatas[i].category+"</td>"+"<td>"+v_arrDatas[i].title+"</td>"
+                                +"<td>"+v_arrDatas[i].user+"</td>"+"<td>"+v_arrDatas[i].regdate+"</td>"+"<td>"+v_arrDatas[i].hit+"</td>";
+                    $("<tr></tr>").append(temp_td).appendTo("#id_list");
+                }
+            }
+            // v_tblStr +="</table></form>";
+
+            
+            //사용자 페이지 클릭 모양 맹글어주기
+            if (firstPage > 1) {
+                $("#id_listNum").append("<a style='font-size:2em;color:red' href='freeboard.html?pg_num="+ (firstPage-1) + "&flagMvList=1'>앞</a>");
+            }
+            for(var v_page=firstPage; v_page<= lastPage; v_page++){
+                if(v_page == v_curPage){
+                    $("#id_listNum").append("<a style='font-size:2em;color:red'>" + v_page + "</a>");
+                }else{
+                    $("#id_listNum").append("<a href='freeboard.html?pg_num="+ v_page + "&flagMvList=1'>" + v_page + "</a>");
+                }
+                $("#id_listNum").append("&nbsp;&nbsp;&nbsp;&nbsp;");
+            }
+            if (lastPage < v_totalPG) {
+                $("#id_listNum").append("<a style='font-size:2em;color:red' href='freeboard.html?pg_num="+ (lastPage+1) + "&flagMvList=1'>뒤</a>");
+            }
+                    
+            
+            
+            // v_tblStr +="<br><input id='id_submit' type=button value='선택된것 지우기'><br>";
+            // v_tblStr += "<a href='write.html'>글쓰깅</a>";
+            // document.write(v_tblStr);  // 화면에 출력
+
+            // var v_form = document.getElementById("id_form");
+            // var v_btnSubmit = document.getElementById("id_submit");
+            // //일반 버튼으로 submit하기
+            // v_btnSubmit.onclick = function(){
+            //     v_form.action = "del_action.html";
+            //     v_form.submit();               //form객체의 submit메소드 호출
+            // }
+                    
         </script>
     </body>
 </html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<head>
+    <title>Ag-Grid Basic Example</title>
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
+</head>
+<body>
+    <div id="myGrid" style="height: 200px; width:800px;" class="ag-theme-alpine"></div>
+    <input type=button value="데이타가져오기" onclick="f_data()">
+    <button onclick="getSelectedRows()">선택된 Row가져오기</button>
+<script>
+function getSelectedRows() {
+    var selectedNodes = gridOptions.api.getSelectedNodes()
+    console.log(selectedNodes);
+    // 아래 map 메소드도 es6버젼이라 해당기능을 맹글어 써야 함
+    //var selectedData = selectedNodes.map( function(node) { return node.data })
+    //var selectedDataStringPresentation = selectedData.map( function(node) { return node.name + ' ' + node.age }).join(', ')
+    //alert('Selected nodes: ' + selectedDataStringPresentation);
+}
+
+function f_data(){
+     //ES6버젼의 Promise는 국내현실상(IE11버젼호환성) 아직 쓰기가 좀 무리가 있음.
+     //그래서 AJAX부분은 직접 구현해서 사용하는 것이 현실적인 대안
+     var v_ajax = new XMLHttpRequest();
+     v_ajax.open("get","data2.json",true);
+     v_ajax.onreadystatechange=function(){
+         if(v_ajax.readyState == 4 && v_ajax.status == 200){
+           //  console.log(v_ajax.responseText);  // 데이타 가져왔는지 체크
+            gridOptions.api.setRowData(JSON.parse(v_ajax.responseText)); //aggrid에서 rowdata세팅해주는 API
+         }
+     }
+     v_ajax.send();
+}
+
+var columnDefs = [
+  {headerName: "이름", field: "name", sortable: true, filter: true},
+  {headerName: "별명", field: "alias", sortable: true},
+  {headerName: "강하다고?", field: "strong", sortable: true},
+  {headerName: "나이", field: "age", sortable: true}
+];
+    
+// specify the data
+var rowData = [
+  /*  
+  {make: "Toyota", model: "Celica", price: 35000},
+  {make: "Ford", model: "Mondeo", price: 32000},
+  {make: "Porsche", model: "Boxter", price: 72000}
+  */
+];
+    
+// let the grid know which columns and what data to use
+var gridOptions = {
+  pagination: true,
+  paginationPageSize: 8,
+  columnDefs: columnDefs,
+  rowData: rowData,
+  rowSelection: 'multiple',
+};
+
+// setup the grid after the page has finished loading
+// DOMContentLoaded vs onload 
+document.addEventListener('DOMContentLoaded', function() {
+    var gridDiv = document.querySelector('#myGrid');
+    new agGrid.Grid(gridDiv, gridOptions);
+});
+</script>
+</body>
+</html>
