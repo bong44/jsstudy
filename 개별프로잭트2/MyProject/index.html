@@ -30,6 +30,10 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">MySkills</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item cl_board" style="display: none;"><a class="nav-link js-scroll-trigger" href="freeboard.html" >자유게시판</a></li>
+                        <li class="nav-item cl_regist"><a class="nav-link js-scroll-trigger" href="freeboardform.html">회원가입</a></li>
+                        <li class="nav-item cl_login"><a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#myModal" style="cursor:pointer;">로그인</a></li>
+                        <li class="nav-item cl_logout" style="display: none;"><a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#myModal2" style="cursor:pointer;">로그아웃</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -51,6 +55,55 @@
                 </div>
             </div>
         </header>
+        <!-- 로그인 창 -->
+            <form action="" name="nm_fm1">
+                <div class="container">
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel" style="position: relative; left: 41%;">로그인</h4>
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label>ID</label>
+                                        <input type="text" class="form-control" id="inputName">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>PassWord</label>
+                                        <input type="password" class="form-control" id="inputPassword">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">창 닫기</button>
+                                    <button type="submit" class="btn btn-primary">로그인</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+        <!-- 로그인 창 -->
+            <form action="" name="nm_fm2">
+                <div class="container">
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel2" style="position: relative; left: 41%;">로그아웃</h4>
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <span>정말 로그아웃 하시겠습니까?</span>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">창 닫기</button>
+                                    <button type="submit" class="btn btn-primary">로그아웃</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
         <!-- About-->
         <section class="page-section bg-primary" id="about" >
             <div class="container">
@@ -183,7 +236,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6" >
                         <a class="portfolio-box" href="" >
-                            <img class="img-fluid" src="assets/img/portfolio/fullsize/notReady.jpg" alt=""  style="position: relative; left: 21%;"/>
+                            <img class="img-fluid" src="assets/img/portfolio/fullsize/notReady.jpg" alt=""  />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Project Name</div>
@@ -192,7 +245,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6" >
                         <a class="portfolio-box" href="" >
-                            <img class="img-fluid" src="assets/img/portfolio/fullsize/notReady.jpg" alt=""  style="position: relative; left: 21%;"/>
+                            <img class="img-fluid" src="assets/img/portfolio/fullsize/notReady.jpg" alt=""  />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Project Name</div>
@@ -201,7 +254,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <a class="portfolio-box" href="" >
-                            <img class="img-fluid" src="assets/img/portfolio/fullsize/notReady.jpg" alt=""  style="position: relative; left: 21%;"/>
+                            <img class="img-fluid" src="assets/img/portfolio/fullsize/notReady.jpg" alt=""  />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Project Name</div>
@@ -210,7 +263,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <a class="portfolio-box" href="" >
-                            <img class="img-fluid" src="assets/img/portfolio/fullsize/notReady.jpg" alt=""  style="position: relative; left: 21%;"/>
+                            <img class="img-fluid" src="assets/img/portfolio/fullsize/notReady.jpg" alt=""  />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Project Name</div>
@@ -219,7 +272,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <a class="portfolio-box" href="" >
-                            <img class="img-fluid" src="assets/img/portfolio/fullsize/notReady.jpg" alt=""  style="position: relative; left: 21%;"/>
+                            <img class="img-fluid" src="assets/img/portfolio/fullsize/notReady.jpg" alt=""  />
                             <div class="portfolio-box-caption p-3">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Project Name</div>
@@ -271,5 +324,54 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+        //로그인
+        $("form[name=nm_fm1]").on("submit",function(){
+
+            var v_getMemberList = JSON.parse(localStorage.getItem("member"));
+
+            var v_tempMember = {};
+            v_tempMember.id = $("#inputName").val();
+            v_tempMember.pass = $("#inputPassword").val();
+
+            for (var i = 0; i < v_getMemberList.length; i++) {
+                if(v_tempMember.id == v_getMemberList[i].id){
+                    if (v_tempMember.pass == v_getMemberList[i].pass) {
+                        
+                        sessionStorage.setItem("loginflag","1");
+                        alert("로그인이 성공적으로 이루어졌습니다!");
+                        location.replace("index.html");
+                        return false;
+                    }else{
+                        alert("아이디나 비밀번호가 일치하지 않습니다");
+                        return false;
+                    }
+                }
+            }
+            alert("아이디나 비밀번호가 일치하지 않습니다");
+
+            event.preventDefault(); // ajax쓸거면 여기에 떡하니 이것이 써 있어야 함
+
+        });
+
+        $("form[name=nm_fm2]").on("submit",function(){
+
+            sessionStorage.removeItem("loginflag");
+            location.replace("index.html");
+            event.preventDefault(); // ajax쓸거면 여기에 떡하니 이것이 써 있어야 함
+
+        });
+            console.log($(".nav-item.cl_board"));
+            console.log($(".nav-item.cl_logout"));
+            
+
+        if (sessionStorage.getItem("loginflag") == "1") {
+            $(".nav-item.cl_board").css("display","flex");
+            $(".nav-item.cl_regist").css("display","none");
+            $(".nav-item.cl_login").css("display","none");
+            $(".nav-item.cl_logout").css("display","flex");
+        }
+
+        </script>
     </body>
 </html>

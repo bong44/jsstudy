@@ -65,8 +65,8 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                    자유게시판</a>
+                <a class="navbar-brand js-scroll-trigger" href="./index.html">
+                    포트폴리오</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
@@ -98,7 +98,6 @@
         </header>
         <!-- Board-->
         <section class="page-section bg-info" id="board" >
-            <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center">
                         <h2 class="text-white mt-0">글 목록</h2>
@@ -142,56 +141,58 @@
                             </table>
                             </div>
 
-
-                        <!-- START : 페이지네이션  --> 
-                        <div id="id_listNum">
-
+                            <!-- START : 페이지네이션  --> 
+                            <div id="id_listNum">
+                            </div>
+                            <!-- END : 페이지네이션  --> 
+                            
+                            <br>
+                            <a class="btn btn-light btn-xl js-scroll-trigger" href="#page-top" id="id_refresh">초기화</a>
                         </div>
-                        <!-- END : 페이지네이션  --> 
-
-                        <br>
-                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#page-top" id="id_refresh">초기화</a>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- Contact-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="mt-0">Let's Get Work Togather!</h2>
-                        <hr class="divider my-4" />
-                        <p class="text-muted mb-5">저와 같이 일하고 싶으시다고요? 전화번호나 메일에 메세지를 남겨주세요. <br><br> 가능한 빨리 연락드리겠습니다!</p>
+            </section>
+            <!-- Contact-->
+            <section class="page-section" id="contact">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <h2 class="mt-0">Let's Get Work Togather!</h2>
+                            <hr class="divider my-4" />
+                            <p class="text-muted mb-5">저와 같이 일하고 싶으시다고요? 전화번호나 메일에 메세지를 남겨주세요. <br><br> 가능한 빨리 연락드리겠습니다!</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                            <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+                            <div>010-3618-7055</div>
+                        </div>
+                        <div class="col-lg-4 mr-auto text-center">
+                            <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+                            <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
+                            <a class="d-block" href="">qhdrud0429@gmail.com</a>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
-                        <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-                        <div>010-3618-7055</div>
-                    </div>
-                    <div class="col-lg-4 mr-auto text-center">
-                        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-                        <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                        <a class="d-block" href="">qhdrud0429@gmail.com</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="bg-light py-5">
-            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script src="../bongsLib/jsp.js"></script>
-        <script>
+            </section>
+            <!-- Footer-->
+            <footer class="bg-light py-5">
+                <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>
+            </footer>
+            <!-- Bootstrap core JS-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+            <!-- Third party plugin JS-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+            <!-- Core theme JS-->
+            <script src="js/scripts.js"></script>
+            <script src="../bongsLib/jsp.js"></script>
+            <script>
+            if (sessionStorage.getItem("loginflag") != "1") {
+                alert("잘못된 접근입니다!");
+                location.replace("index.html");
+            }
 
             if (request.getParameter("flagMvList")) {
                 $("#id_mvToBoard").trigger("click");
@@ -444,18 +445,18 @@
             
             //사용자 페이지 클릭 모양 맹글어주기
             if (firstPage > 1) {
-                $("#id_listNum").append("<a style='font-size:2em;color:red' href='freeboard.html?pg_num="+ (firstPage-1) + "&flagMvList=1'>앞</a>");
+                $("#id_listNum").append("<a class='btn btn-dark' href='freeboard.html?pg_num="+ (firstPage-1) + "&flagMvList=1'>&laquo;</a>");
             }
             for(var v_page=firstPage; v_page<= lastPage; v_page++){
                 if(v_page == v_curPage){
-                    $("#id_listNum").append("<a style='font-size:2em;color:red'>" + v_page + "</a>");
+                    $("#id_listNum").append("<a class='btn btn-light' style='border:3px solid #343a40;' >" + v_page + "</a>");
                 }else{
-                    $("#id_listNum").append("<a href='freeboard.html?pg_num="+ v_page + "&flagMvList=1'>" + v_page + "</a>");
+                    $("#id_listNum").append("<a class='btn btn-dark' href='freeboard.html?pg_num="+ v_page + "&flagMvList=1'>" + v_page + "</a>");
                 }
-                $("#id_listNum").append("&nbsp;&nbsp;&nbsp;&nbsp;");
+                // $("#id_listNum").append("&nbsp;&nbsp;&nbsp;&nbsp;");
             }
             if (lastPage < v_totalPG) {
-                $("#id_listNum").append("<a style='font-size:2em;color:red' href='freeboard.html?pg_num="+ (lastPage+1) + "&flagMvList=1'>뒤</a>");
+                $("#id_listNum").append("<a class='btn btn-dark' href='freeboard.html?pg_num="+ (lastPage+1) + "&flagMvList=1'>&raquo;</a>");
             }
                     
             

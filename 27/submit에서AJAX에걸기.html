@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <!--  <form id="id_fm1" onsubmit="return f_send()"> -->
+      <form id="id_fm1">
+        <input type=text name="nm_t1" value="" required><br>
+        <input type=text name="nm_t2" value="" required><br>
+        <input type=text name="nm_t3" value="" required><br>
+        <input type=text name="nm_t4" value="" required><br>
+        <input type=submit id="id_btn" value="전송">
+    </form>
+    <script>
+        var v_form = document.getElementById("id_fm1");
+        function f_send(){
+            /* required pattern 이외의 추가 체크 필요시 여기에 추가*/
+            /* 만약 여기에 AJAX를 사용한다면 무조건 return false여야 함 */
+            //return false;
+
+            event.preventDefault();
+        }
+        v_form.addEventListener("submit",f_send);
+
+
+        // var v_btn = document.getElementById("id_btn");
+        /*
+        v_btn.addEventListener("click",function(){
+            document.getElementById("id_fm1").submit();  // form의 submit 메소드를 이용한 전송
+        });
+        */
+    </script>
+</body>
+</html>
