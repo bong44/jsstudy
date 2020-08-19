@@ -16,7 +16,51 @@
         <input type=text name="nm_al5" value="이태영5"><br>
         <input type=text name="nm_al6" value="이태영6"><br>
     </form>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
 <script>
+    var randomNum = {};
+    //0~9까지의 난수
+    randomNum.random = function(n1, n2) {
+        return parseInt(Math.random() * (n2 -n1 +1)) + n1;
+    };
+    //인증번호를 뽑을 난수 입력 n 5이면 5자리
+    randomNum.authNo= function(n) {
+        var value = "";
+        for(var i=0; i<n; i++){
+            value += randomNum.random(0,9);
+        }
+        return value;
+    };
+
+
+    // var template_params = {
+    //     "to_mail": "bong4bong@naver.com",
+    //     "from_name": "정봉경의 포트폴리오",
+    //     "to_name": "유미",
+    //     "message_html": "12345"
+    // }
+
+    // var service_id = "default_service";
+    // var template_id = "template_4LWngLlV";
+
+    // (function(){
+    //      emailjs.init("user_OXYSs96qzaJjIuPjgENUI"); // 바꿀 필요 없습니다. Account 에 User ID 랑 똑같습니다.
+    //      emailjs.send(service_id,template_id,template_params)
+    //     .then(function(response) {
+    //         console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
+    //     }, function(err) {
+    //         console.log("FAILED. error=", err);
+    //     });
+ 
+    //     /*
+    //     YOUR SERVICE ID : Email Service 에서 등록한  Service ID
+    //     YOUR TEMPLATE ID : Email Template 에 들어가면 이미 하나 만들어져 있습니다. 거기 있는 Template ID 등록    
+    //     then 부터 콜백처리입니다. 성공하면 reponse 실패하면 error
+    //     */
+    // })();
+
+
+    /*
     $.ajax({
         method:"get",
         url:"../AJAX/data.json",
@@ -25,7 +69,7 @@
             console.log(p_rslt[0].lang);
         }
     });
-
+    */
     // $.ajax({
     //     method:"post",
     //     url:"../AJAX/check.php",
