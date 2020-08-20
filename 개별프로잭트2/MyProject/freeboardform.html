@@ -334,8 +334,10 @@
                 });
                 //test
 
+                        alert(verifyCode);
                 //버튼 클릭시 회원가입 로직
                 $("form[name=nm_fm1]").on("submit",function(){
+
 
                         if (!$("#id_emailChk").is(":checked")) {
                             alert("이메일을 인증해주세요!");

@@ -18,7 +18,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style type="text/css">
-            a[name=nm_a]:link { color: red; text-decoration: none;}
+            a[name=nm_a]:link { color: white; text-decoration: none;}
             a[name=nm_a]:visited { color: black; text-decoration: none;}
             a[name=nm_a]:hover { color: blue; text-decoration: underline;}
         </style>
@@ -441,7 +441,7 @@
             // v_tblStr += "<tr><th>넘버</th><th>제목</th><th>글쓴이</th><th>보유스킬</th><th>등급</th><th>삭제</th></tr>"    
             for(var i=v_startNum; i<v_endNum; i++){
                 if (v_arrDatas[i].deleteYN == "N") {
-                    var temp_td = "<td>"+(i+1)+"</td>"+"<td>"+v_arrDatas[i].tags+"</td>"+"<a name='nm_a' href='#'><td>"+v_arrDatas[i].title+"</td></a>"
+                    var temp_td = "<td>"+(i+1)+"</td>"+"<td>"+v_arrDatas[i].tags+"</td>"+"<td><a name='nm_a' href='#'>"+v_arrDatas[i].title+"</a></td>"
                                 +"<td>"+v_arrDatas[i].user+"</td>"+"<td>"+v_arrDatas[i].regdate+"</td>"+"<td>"+v_arrDatas[i].hit+"</td>";
                     $("<tr></tr>").append(temp_td).appendTo("#id_list");
                 }

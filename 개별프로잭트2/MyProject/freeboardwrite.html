@@ -123,7 +123,9 @@
             //회원가입 버튼 action
             $("form[name=nm_fm1]").on("submit",function () {
                 
+
                 // 현재날짜 계산
+                alert("1");
                 var today = new Date();
                 var todayToString = today.getFullYear()-2000;
                 todayToString += "-";
@@ -131,27 +133,30 @@
                 todayToString += "-";
                 todayToString += today.getDate() < 10 ? "0"+today.getDate() : today.getDate();
                 
+                alert("2");
                 v_tempJson = {};
-                v_tempJson.pass = $("reg_pass");
-                v_tempJson.tags = $("reg_tags");
-                v_tempJson.title = $("reg_title");
-                v_tempJson.user = $("reg_id");
+                v_tempJson.pass = $("#reg_pass").val();
+                v_tempJson.tags = $("#reg_tags").val();
+                v_tempJson.title = $("#reg_title").val();
+                v_tempJson.user = $("#reg_id").val();
                 v_tempJson.regdate = todayToString;
-                v_tempJson.content = $("reg_content");
+                v_tempJson.content = $("#reg_content").val();
                 v_tempJson.hit = 0;
                 v_tempJson.deleteYN = "N";
+                alert("3");
                 
                 
-                var v_tblDatas = localStorage.getItem(JSON.parse("exData"));
+                alert("4");
+                var v_tblDatas = JSON.parse(localStorage.getItem("exData"));
                 v_tblDatas.push(v_tempJson);
                 
+                alert("5");
                 alert(v_tempJson);
                 alert(v_tblDatas[v_tblDatas.length-1]);
                 
-                localStorage.setItem("free",v_tblDatas);
-                localStorage.setItem("exData",v_tblDatas);
+                localStorage.setItem("free",JSON.stringify(v_tblDatas));
+                localStorage.setItem("exData",JSON.stringify(v_tblDatas));
                 
-                alert("");
                 
                 location.replace("freeboard.html");
                 event.preventDefault();
