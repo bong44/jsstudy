@@ -175,7 +175,7 @@
                 todayToString += "-";
                 todayToString += today.getDate() < 10 ? "0"+today.getDate() : today.getDate();
                 
-                alert($("#reg_content").val());
+                alert(CKEDITOR.instances.reg_content.getData());
 
                 v_tempJson = {};
                 v_tempJson.pass = $("#reg_pass").val();
