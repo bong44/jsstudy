@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>정봉경 - 게시판 글쓰기</title>
+        <title>정봉경 - 게시판 글수정</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -18,6 +18,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <script src="../CKEDITOR/ckeditor4/ckeditor.js"></script>
+        <script src="../bongsLib/jsp.js"></script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -38,19 +39,19 @@
 
             <article>
                 <div class="container">
-                    <h2 style="color:floralwhite;">게시물 작성</h2>
+                    <h2 style="color:floralwhite;" id="id_formTitle">게시글 수정</h2>
                     <form name="nm_fm1">
                         <div class="mb-3" style="color:floralwhite;">
-                            <label for="title">제목</label>
-                            <input type="text" class="form-control" name="reg_title" id="reg_title" placeholder="제목을 입력해 주세요" required>
+                            <label for="title">제목<span style="color: lightskyblue; font-size: 13px; display: none;" id="id_alertSpan2">&nbsp;다른회원의 글은 열람만 가능합니다!</span></label>
+                            <input type="text" class="form-control" name="reg_title" id="reg_title" value="" required>
                         </div>
                         <div class="mb-3" style="color:floralwhite;">
                             <label for="reg_id">작성자</label>
                             <input type="text" class="form-control" name="reg_id" id="reg_id" value="" disabled>
                         </div>
-                        <div class="mb-3" style="color:floralwhite;">
-                            <label for="reg_id">게시물 비밀번호<span style="color: lightskyblue; font-size: 4px;">&nbsp;&nbsp;&nbsp;4자리 이상 입력해주세요!</span></label>
-                            <input type="password" class="form-control"  name="reg_pass" id="reg_pass" placeholder="비밀번호를 입력해주세요" required pattern="\w{4,}">
+                        <div class="mb-3" style="color:floralwhite;" id="id_passDisp">
+                            <label for="reg_id">게시물 비밀번호<span style="color: lightskyblue; font-size: 4px;" id="id_alertSpan">&nbsp;&nbsp;&nbsp;작성시 설정한 비밀번호를 입력해주세요!</span></label>
+                            <input type="password" class="form-control"  name="reg_pass" id="reg_pass" placeholder="비밀번호를 입력해주세요" required >
                         </div>
                         <div class="mb-3">
                             <label for="content" style="color:floralwhite;">내용</label>
@@ -58,11 +59,16 @@
                         </div>
                         <div class="mb-3">
                             <label for="tag" style="color:floralwhite;">TAG</label>
-                            <input type="text" class="form-control" name="reg_tags" id="reg_tags" placeholder="태그를 입력해 주세요 (검색에 이용됩니다!)" required>
+                            <input type="text" class="form-control" name="reg_tags" id="reg_tags" value="" required>
                         </div>
                         <div >
                             <button type="submit" class="btn btn-sm btn-primary" id="id_btnSave">저장</button>
                             <button type="button" class="btn btn-sm btn-primary" id="id_btnList">목록</button>
+                            <div style="height: 5px; width: 80%; display: inline-block;"></div>
+                            <label class="btn btn-primary active" id="id_deletLable">
+                                <span>글 삭제여부</span>
+                                <input id="id_delete" type="checkbox" autocomplete="off" onclick="f_del()">
+                            </label>
                         </div>
                     </form>
                 </div>
@@ -104,8 +110,8 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
             <!-- Core theme JS-->
             <script src="js/scripts.js"></script>
-            <script src="../bongsLib/jsp.js"></script>
             <script>
+
             // 로그인 상태 아닌 상태에서 접근시
             if (sessionStorage.getItem("loginflag") != "1" || !sessionStorage.getItem("loginId")) {
                 alert("잘못된 접근입니다!");
@@ -117,13 +123,50 @@
                 filebrowserUploadUrl: "./serverSide.php?type=file",
                 filebrowserImageUploadUrl: "./serverSide.php?type=image",
             });
+            
+            //delete체크시 alert
+            function f_del() {
+                if($("#id_delete").is(":checked")){
+                    alert("체크 후 저장할 시 글이 삭제됩니다");
+                }else{
+
+                }
+            }
+            /*
+                여기서 팁!
+                checked같은 속성에 바로 접근할 때에는 
+                : 콜론을 위처럼 앞에 붙여주여야함!
+            */
+           
+           //작성된 타이틀 가져와 고정
+           var v_freeTbl = JSON.parse(localStorage.getItem("exData"));
+           var v_name = request.getParameter("name");
+           
+           //해당 회원데이터 찾은 후 JSON추출 및 인덱스번호 저장
+           var v_sameData;
+           var v_sameDataIndex;
+           for (var i = 0; i < v_freeTbl.length; i++) {
+                if (v_freeTbl[i].user == v_name) {
+                    v_sameData = v_freeTbl[i];
+                    v_sameDataIndex = i;
+                    break;
+                }
+            }
             //작성자란 고정
             $("#reg_id").val(sessionStorage.getItem("loginId"));
+            //가져온 회원정보를 토대로 화면 셋팅
+            $("#reg_title").val(v_sameData.title);
+            $("#reg_tags").val(v_sameData.tags);
+            $("#reg_content").val(v_sameData.content);
             
             //회원가입 버튼 action
             $("form[name=nm_fm1]").on("submit",function () {
                 
-
+                if ($("#reg_pass").val() != v_sameData.pass) {
+                    $("#id_alertSpan").css({"color":"red","font-size":"1em"}).html("&nbsp;&nbsp;&nbsp;작성시 설정한 비밀번호와 일치하지 않습니다! (다시 입력해주세요)");
+                    return false;
+                }
+                
                 // 현재날짜 계산
                 var today = new Date();
                 var todayToString = today.getFullYear()-2000;
@@ -132,6 +175,8 @@
                 todayToString += "-";
                 todayToString += today.getDate() < 10 ? "0"+today.getDate() : today.getDate();
                 
+                alert($("#reg_content").val());
+
                 v_tempJson = {};
                 v_tempJson.pass = $("#reg_pass").val();
                 v_tempJson.tags = $("#reg_tags").val();
@@ -140,16 +185,22 @@
                 v_tempJson.regdate = todayToString;
                 v_tempJson.content = $("#reg_content").val();
                 v_tempJson.hit = 0;
-                v_tempJson.deleteYN = "N";
+                v_tempJson.deleteYN = $("#id_delete").is(":checked") ? "Y":"N";
                 
+                if (v_tempJson.deleteYN == "Y") {
+                    v_freeTbl.splice(v_sameDataIndex,1);
+                    
+                    localStorage.setItem("free",JSON.stringify(v_freeTbl));
+                    localStorage.setItem("exData",JSON.stringify(v_freeTbl));
+                    alert("글 삭제가 성공적으로 이루어졌습니다!");
+                }else{
+                    v_freeTbl.splice(v_sameDataIndex,1,v_tempJson);
+                    
+                    localStorage.setItem("free",JSON.stringify(v_freeTbl));
+                    localStorage.setItem("exData",JSON.stringify(v_freeTbl));
+                    alert("글 수정이 성공적으로 이루어졌습니다!");
+                }
                 
-                var v_tblDatas = JSON.parse(localStorage.getItem("exData"));
-                v_tblDatas.push(v_tempJson);
-                
-                
-                localStorage.setItem("free",JSON.stringify(v_tblDatas));
-                localStorage.setItem("exData",JSON.stringify(v_tblDatas));
-                alert("글 등록이 성공적으로 이루어졌습니다!");
                 
                 location.replace("freeboard.html");
                 event.preventDefault();
@@ -158,7 +209,19 @@
             $("#id_btnList").click(function () {
                 location.replace("freeboard.html");
             });
-
+            
+            //회원아이디와 이름이 다를 시 수정불가
+            if (sessionStorage.getItem("loginId") != request.getParameter("name")) {
+                $("#id_alertSpan2").css("display","flex");
+                $("#reg_title").attr("disabled","true");
+                $("#reg_tags").attr("disabled","true");
+                $("#reg_content").attr("disabled","true");
+                $("#id_passDisp").css("display","none");
+                $("#id_btnSave").css("display","none");
+                $("#id_deletLable").css("display","none");
+                $("#reg_id").val(v_sameData.user);
+                $("#id_formTitle").html(v_sameData.user+"님의 게시글")
+            }
 
                     
         </script>
