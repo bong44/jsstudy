@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>정봉경 - 게시판 글쓰기</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="../CKEDITOR/ckeditor4/ckeditor.js"></script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="./freeboard.html">
+                    자유게시판</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact" >Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+
+            <article>
+                <div class="container">
+                    <h2 style="color:floralwhite;">게시물 작성</h2>
+                    <form name="nm_fm1">
+                        <div class="mb-3" style="color:floralwhite;">
+                            <label for="title">제목</label>
+                            <input type="text" class="form-control" name="reg_title" id="reg_title" placeholder="제목을 입력해 주세요" required>
+                        </div>
+                        <div class="mb-3" style="color:floralwhite;">
+                            <label for="reg_id">작성자</label>
+                            <input type="text" class="form-control" name="reg_id" id="reg_id" value="" disabled>
+                        </div>
+                        <div class="mb-3" style="color:floralwhite;">
+                            <label for="reg_id">게시물 비밀번호<span style="color: lightskyblue; font-size: 4px;">&nbsp;&nbsp;&nbsp;4자리 이상 입력해주세요!</span></label>
+                            <input type="password" class="form-control"  name="reg_pass" id="reg_pass" placeholder="비밀번호를 입력해주세요" required pattern="\w{4,}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="content" style="color:floralwhite;">내용</label>
+                            <textarea class="form-control" name="reg_content" id="reg_content" placeholder="내용을 입력해 주세요" ></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tag" style="color:floralwhite;">TAG</label>
+                            <input type="text" class="form-control" name="reg_tags" id="reg_tags" placeholder="태그를 입력해 주세요 (검색에 이용됩니다!)" required>
+                        </div>
+                        <div >
+                            <button type="submit" class="btn btn-sm btn-primary" id="id_btnSave">저장</button>
+                            <button type="button" class="btn btn-sm btn-primary" id="id_btnList">목록</button>
+                        </div>
+                    </form>
+                </div>
+            </article>
+
+        </header>
+            <!-- Contact-->
+            <section class="page-section" id="contact">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <h2 class="mt-0">Let's Get Work Togather!</h2>
+                            <hr class="divider my-4" />
+                            <p class="text-muted mb-5">저와 같이 일하고 싶으시다고요? 전화번호나 메일에 메세지를 남겨주세요. <br><br> 가능한 빨리 연락드리겠습니다!</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                            <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+                            <div>010-3618-7055</div>
+                        </div>
+                        <div class="col-lg-4 mr-auto text-center">
+                            <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+                            <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
+                            <a class="d-block" href="">qhdrud0429@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Footer-->
+            <footer class="bg-light py-5">
+                <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>
+            </footer>
+            <!-- Bootstrap core JS-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+            <!-- Third party plugin JS-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+            <!-- Core theme JS-->
+            <script src="js/scripts.js"></script>
+            <script src="../bongsLib/jsp.js"></script>
+            <script>
+            // 로그인 상태 아닌 상태에서 접근시
+            if (sessionStorage.getItem("loginflag") != "1" || !sessionStorage.getItem("loginId")) {
+                alert("잘못된 접근입니다!");
+                location.replace("index.html");
+            }
+            //ckEditor func
+            CKEDITOR.replace( 'reg_content', {
+                height: 300,
+                filebrowserUploadUrl: "./serverSide.php?type=file",
+                filebrowserImageUploadUrl: "./serverSide.php?type=image",
+            });
+            //작성자란 고정
+            $("#reg_id").val(sessionStorage.getItem("loginId"));
+            
+            //회원가입 버튼 action
+            $("form[name=nm_fm1]").on("submit",function () {
+                
+                // 현재날짜 계산
+                var today = new Date();
+                var todayToString = today.getFullYear()-2000;
+                todayToString += "-";
+                todayToString += today.getMonth() < 10 ? "0"+today.getMonth() : today.getMonth();
+                todayToString += "-";
+                todayToString += today.getDate() < 10 ? "0"+today.getDate() : today.getDate();
+                
+                v_tempJson = {};
+                v_tempJson.pass = $("reg_pass");
+                v_tempJson.tags = $("reg_tags");
+                v_tempJson.title = $("reg_title");
+                v_tempJson.user = $("reg_id");
+                v_tempJson.regdate = todayToString;
+                v_tempJson.content = $("reg_content");
+                v_tempJson.hit = 0;
+                v_tempJson.deleteYN = "N";
+                
+                
+                var v_tblDatas = localStorage.getItem(JSON.parse("exData"));
+                v_tblDatas.push(v_tempJson);
+                
+                alert(v_tempJson);
+                alert(v_tblDatas[v_tblDatas.length-1]);
+                
+                localStorage.setItem("free",v_tblDatas);
+                localStorage.setItem("exData",v_tblDatas);
+                
+                alert("");
+                
+                location.replace("freeboard.html");
+                event.preventDefault();
+            });
+            //목록으로 돌아가기
+            $("#id_btnList").click(function () {
+                location.replace("freeboard.html");
+            });
+
+
+                    
+        </script>
+    </body>
+</html>

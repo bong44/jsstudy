@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ckEditor js-->
+    <script src="./ckeditor4/ckeditor.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="myEditor"></textarea>
+<script>
+    CKEDITOR.replace( 'myEditor', {
+        height: 300,
+        filebrowserUploadUrl: "./serverSide.php?type=file",
+        filebrowserImageUploadUrl: "./serverSide.php?type=image",
+    });
+</script>
+</body>
+</html>
