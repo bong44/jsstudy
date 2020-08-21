@@ -138,7 +138,7 @@
                 v_tempJson.title = $("#reg_title").val();
                 v_tempJson.user = $("#reg_id").val();
                 v_tempJson.regdate = todayToString;
-                v_tempJson.content = $("#reg_content").val();
+                v_tempJson.content = CKEDITOR.instances.reg_content.getData();
                 v_tempJson.hit = 0;
                 v_tempJson.deleteYN = "N";
                 

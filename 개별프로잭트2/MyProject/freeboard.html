@@ -91,7 +91,7 @@
                             <h1 class="text-white-50">검색하세요.</h1>
                             <div class="d-flex justify-content-center h-100">
                               <div class="searchbar">
-                                <input class="search_input" type="text" name="" placeholder="Search..." id="id_inputVal">
+                                <input class="search_input" type="text" name="" placeholder="Search..." id="id_inputVal" >
                                 <a href="#board" class="search_icon js-scroll-trigger" id="id_boardLink"><i class="fas fa-search"></i></a>
                               </div>
                             </div>
@@ -202,28 +202,30 @@
             if (request.getParameter("flagMvList")) {
                 $("#id_mvToBoard").trigger("click");
             }
+            var dum_content = '<div style="background:#eeeeee; border:1px solid #cccccc; padding:5px 10px">타이틀</div><p><span class="marker">주석</span>&nbsp;</p><table border="1" cellpadding="1" cellspacing="1" style="width:500px"><tbody><tr><td>11</td><td>22</td></tr><tr><td>1</td><td>1</td></tr><tr><td>2</td><td>2</td></tr></tbody></table><p>내용입력</p>';
 
             var temp_data = [
-                {"pass":"1234","tags":"인생","title":"이제 월요일이네;","user":"봉경","regdate":"20-12-15","content":"ㅁㅈㅇㅁㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"인생","title":"내일 부터 일한다;;","user":"유미","regdate":"20-12-15","content":"ㅈㅁㅇㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"사람","title":"하던말든 가든 말든 ㅎ","user":"아롱","regdate":"20-12-15","content":"ㅈㅇㅈㅁㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"너는 진짜 잘 지내니","user":"복돌이","regdate":"20-12-15","content":"ㅁㅈㅇㅁㅈ","hit":0,"deleteYN":"Y"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱1","regdate":"20-12-15","content":"ㅁㅈㅇㅁㅈ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱2","regdate":"20-12-15","content":"ㅁㅈㅇㅁㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱3","regdate":"20-12-15","content":"ㅈㅇㅁㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱4","regdate":"20-12-15","content":"ㅁㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱5","regdate":"20-12-15","content":"ㅈㅇㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱11","regdate":"20-12-15","content":"ㅁㅈㅇㅁㅈ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱12","regdate":"20-12-15","content":"ㅁㅈㅇㅁㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱13","regdate":"20-12-15","content":"ㅈㅇㅁㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱14","regdate":"20-12-15","content":"ㅁㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱15","regdate":"20-12-15","content":"ㅈㅇㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱21","regdate":"20-12-15","content":"ㅁㅈㅇㅁㅈ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱22","regdate":"20-12-15","content":"ㅁㅈㅇㅁㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱23","regdate":"20-12-15","content":"ㅈㅇㅁㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱24","regdate":"20-12-15","content":"ㅁㅈㅇ","hit":0,"deleteYN":"N"},
-                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱25","regdate":"20-12-15","content":"ㅈㅇㅈㅇ","hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"인생","title":"이제 월요일이네;","user":"봉경","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"인생","title":"내일 부터 일한다;;","user":"유미","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"사람","title":"하던말든 가든 말든 ㅎ","user":"아롱","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"너는 진짜 잘 지내니","user":"복돌이","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"Y"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱1","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱2","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱3","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱4","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱5","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱11","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱12","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱13","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱14","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱15","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱21","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱22","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱23","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱24","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
+                {"pass":"1234","tags":"강아지","title":"잘지내니?","user":"초롱25","regdate":"20-12-15","content":dum_content,"hit":0,"deleteYN":"N"},
             ];
+            var v_keyUpFlag = false;
 
             var v_trForm = [];
             if(!localStorage.getItem("free")){
@@ -354,7 +356,7 @@
             //     v_form.action = "del_action.html";
             //     v_form.submit();               //form객체의 submit메소드 호출
             // }
-                    
+            
         </script>
     </body>
 </html>

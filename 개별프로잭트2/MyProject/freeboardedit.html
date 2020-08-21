@@ -111,7 +111,7 @@
             <!-- Core theme JS-->
             <script src="js/scripts.js"></script>
             <script>
-
+            
             // 로그인 상태 아닌 상태에서 접근시
             if (sessionStorage.getItem("loginflag") != "1" || !sessionStorage.getItem("loginId")) {
                 alert("잘못된 접근입니다!");
@@ -157,7 +157,7 @@
             //가져온 회원정보를 토대로 화면 셋팅
             $("#reg_title").val(v_sameData.title);
             $("#reg_tags").val(v_sameData.tags);
-            $("#reg_content").val(v_sameData.content);
+            CKEDITOR.instances.reg_content.setData(v_sameData.content);
             
             //회원가입 버튼 action
             $("form[name=nm_fm1]").on("submit",function () {
@@ -175,7 +175,6 @@
                 todayToString += "-";
                 todayToString += today.getDate() < 10 ? "0"+today.getDate() : today.getDate();
                 
-                alert(CKEDITOR.instances.reg_content.getData());
 
                 v_tempJson = {};
                 v_tempJson.pass = $("#reg_pass").val();
@@ -183,7 +182,7 @@
                 v_tempJson.title = $("#reg_title").val();
                 v_tempJson.user = $("#reg_id").val();
                 v_tempJson.regdate = todayToString;
-                v_tempJson.content = $("#reg_content").val();
+                v_tempJson.content = CKEDITOR.instances.reg_content.getData();
                 v_tempJson.hit = 0;
                 v_tempJson.deleteYN = $("#id_delete").is(":checked") ? "Y":"N";
                 

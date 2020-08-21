@@ -17,6 +17,21 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            p.typing-txt{display: none;}
+            .typing {  
+            /*       position: absolute;*/ 
+            display: inline-block; 
+                animation-name: cursor; 
+                animation-duration: 0.3s; 
+                animation-iteration-count: infinite; 
+            } 
+            @keyframes cursor{ 
+                0%{border-right: 1px solid #fff} 
+                50%{border-right: 1px solid #000} 
+                100%{border-right: 1px solid #fff} 
+            }
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -44,8 +59,11 @@
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
-                        <h1 class="text-uppercase text-white font-weight-bold">개발자 정봉경의 포트폴리오.
+                        <!-- <h1 class="text-uppercase text-white font-weight-bold typing-txt">개발자 정봉경의 포트폴리오
                         </h1>
+                        <h1 class="text-uppercase text-white font-weight-bold typing"></h1> -->
+                        <p class="typing-txt" style="font-size: 65px; font-weight: bold; color: aliceblue;"> 개발자 정봉경의 포트폴리오.</p> 
+                        <p class="typing" style="font-size: 65px; font-weight: bold; color: aliceblue;"></p>
                         <hr class="divider my-4" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
@@ -325,6 +343,28 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script>
+        //글자이벤트
+        var typingBool = false; 
+        var typingIdx=0; 
+        var typingTxt = $(".typing-txt").text(); // 타이핑될 텍스트를 가져온다 
+        typingTxt=typingTxt.split(""); // 한글자씩 자른다. 
+        if(typingBool==false){ // 타이핑이 진행되지 않았다면 
+        typingBool=true; 
+        
+        var tyInt = setInterval(typing,100); // 반복동작 
+        } 
+        
+        function typing(){ 
+        if(typingIdx<typingTxt.length){ // 타이핑될 텍스트 길이만큼 반복 
+            $(".typing").append(typingTxt[typingIdx]); // 한글자씩 이어준다. 
+            typingIdx++; 
+        } else{ 
+            clearInterval(tyInt); //끝나면 반복종료 
+        } 
+        }  
+        //확인용 아이디
+        localStorage.setItem("member",'[{"id":"bong","email":"bong4bong@naver.com","pass":"1234"}]');
+        
         //로그인
         $("form[name=nm_fm1]").on("submit",function(){
 
