@@ -1,0 +1,12 @@
+서버에 올라간 버전이 높은데 낮은버전을 수정하고 커밋하면 충돌을 야기함
+SVN 충돌시 소유자 파일일로 덮어씌우는게 후에 편함
+(mc) my side of conflict, (tc) their side of conflict
+
+사용 시 가끔 사용자 잘못없이 서버에 LOCK이 걸릴 때가 있는데
+$ sudo apt install sqlite3
+$ which sqlite3
+
+$ sqlite3 wc.db
+> delete from WC_LOCK;
+> delete from WORK_QUEUE;
+LOCK파일 안의 내용을 지움으로서 풀 수 있음

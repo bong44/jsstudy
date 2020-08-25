@@ -1,0 +1,836 @@
+    1  sudo netstat -ntpl | grep smbd
+    2  sudo apt-get install samba
+    3  pwd
+    4  export LANG=C
+    5  xdg-user-dirs-gtk-update
+    6  java -version
+    7  sudo apt-add-repository ppa:webupd8team/java
+    8  sudo apt-get update
+    9  sudo apt-get install oracle-java8-installer
+   10  java -version
+   11  sudo apt-get install alien libaio1 unixodbc
+   12  cd Disk1/
+   13  ll
+   14  sudo alien --scripts -d oracle-xe-11.2.0-1.0.x86_64.rpm 
+   15  sudo xed /sbin/chkconfig
+   16  sudo chmod 755 /sbin/chkconfig
+   17  sudo xed /etc/sysctl.d/60-oracle.conf
+   18  sudo service procps restart 
+   19  sudo sysctl -q fs.file-max
+   20  sudo xed /etc/rc2.d/S01shm_load
+   21  sudo chmod 755 /etc/rc2.d/S01shm_load
+   22  sudo ln -s /usr/bin/awk /bin/awk 
+   23  sudo reboot
+   24  sudo mkdir /var/lock/subsys
+   25  sudo touch /var/lock/subsys/listener
+   26  sudo dpkg --install oracle-xe_11.2.0-2_amd64.deb
+   27  clear
+   28  sudo xed /etc/init.d/oracle-xe
+   29  sudo /etc/init.d/oracle-xe configure
+   30  pwd
+   31  cd ~
+   32  pwd
+   33  ll
+   34  ls -al
+   35  ll
+   36  xed ~/.bashrc
+   37  source ~/.bashrc 
+   38  echo $ORACLE_HOME
+   39  sudo service oracle-xe start
+   40  sudo usermod -aG dba $USER
+   41  lsnrctl status
+   42  sqlplus system
+   43  xed
+   44  java -version
+   45  cd workspace
+   46  dir
+   47  ls
+   48  javac Sample.java
+   49  ls
+   50  java Sample
+   51  javac Sample.java 
+   52  java Sample 
+   53  ls
+   54  javac DataType.java 
+   55  ls
+   56  java DataType 
+   57  clear
+   58  java DataType 
+   59  javac DataType.java 
+   60  java DataType 
+   61  javac DataType.java 
+   62  java DataType 
+   63  exit
+   64  sudo init 0
+   65  sudo service oracle-xe start
+   66  lsnrctl status
+   67  clear
+   68  sqlplus 
+   69  sudo alien --scripts -d sqldeveloper-18.2.0.183.1748-1.noarch.rpm 
+   70  sqldeveloper 
+   71  ifconfig
+   72  sqlplus java/oracle
+   73  imp help=y
+   74  exp help=y
+   75  imp help=y
+   76  imp system/oracle file=expjava2.dmp fromuser=java touser=java
+   77  xed
+   78  xed
+   79  javac DataType.java 
+   80  java DataType 
+   81  javac DataType.java 
+   82  java DataType 
+   83  javac DataType.java 
+   84  java DataType 
+   85  javac DataType.java 
+   86  java DataType 
+   87  javac DataType.java 
+   88  java DataType 
+   89  javac DataType.java 
+   90  java DataType 
+   91  javac DataType.java 
+   92  java DataType 
+   93  javac DataType.java 
+   94  java DataType 
+   95  clear
+   96  java DataType 
+   97  clear
+   98  javac DataType.java 
+   99  java DataType 
+  100  javac DataType.java 
+  101  java DataType 
+  102  javac DataType.java 
+  103  java DataType 
+  104  sudo init 0
+  105  history 
+  106  xed
+  107  sudo init 0
+  108  imp system/oracle file=expjava2.dmp fromuser=java touser=java tables=departments
+  109  xed
+  110  sudo init 0
+  111  gedit&
+  112  sudo apt install gedit
+  113  gedit
+  114  sqlplus java/oracle
+  115  exit
+  116  sudo init 0
+  117  xkill
+  118  exit
+  119  ps -ef | grep eclipse
+  120  clear
+  121  ps -ef | grep eclipse
+  122  kill -9 9052
+  123  ps -ef | grep eclipse
+  124  sudo init 0
+  125  xed
+  126  sudo init 0
+  127  xed
+  128  sudo init 0
+  129  ls
+  130  xed
+  131  sudo init 0
+  132  cd ..
+  133  chown -R san:san .
+  134  chown -R ssam:ssam .
+  135  sudo chown -R ssam:ssam .
+  136  exit
+  137  ls
+  138  java Ex01Exception 철수 영희
+  139  java Ex01Exception 이산 설현
+  140  java Ex01Exception
+  141  java Ex01Exception 이산 설현
+  142  java Ex01Exception 철수 영희
+  143  java Ex01Exception 이산
+  144  java Ex01Exception 철수 영희
+  145  java Ex01Exception 철수
+  146  java Ex01Exception 철수 영희
+  147  java Ex01Exception 철수
+  148  java Ex01Exception 철수 영희
+  149  java Ex01Exception 철수
+  150  java Ex01Exception 철수 영희
+  151  java Ex01Exception 철수
+  152  clear
+  153  sudo init 0
+  154  exit
+  155  java Ex03Class Member
+  156  java Ex03Class java.io.InputStream
+  157  java Ex03Class java.io.PrintStream
+  158  sudo init 0
+  159  history
+  160  sudo init 0
+  161  ps -eo user,pid,ppid,rss,size,vsize,pmem,pcpu,time,cmd --sort -rss | head -n 11
+  162  top -b -n 1 -u batch
+  163  top -n 1 | grep -i cpu\(s\)| awk '{print $5}'
+  164  sudo init 0
+  165  ps -ef | grep SQL
+  166  ps -ef | grep sql
+  167  ps -ef | grep sqlde
+  168  kill -9 2960
+  169  clear
+  170  ps -ef | grep sqlde
+  171  clear
+  172  history
+  173  xed
+  174  sudo init 0
+  175  exp userid=java/oracle file=export.dmp tables=EX2_1
+  176  sqlplus java/oracle
+  177  imp userid=java/oracle file=export.dmp
+  178  sqlplus java/oracle
+  179  exp userid=java/oracle file=ex2_11.dmp tables=ex2_11
+  180  sqlplus java/oracle
+  181  imp userid=java/oracle file=ex2_11.dmp
+  182  sqlplus java/oracle
+  183  clear
+  184  exp help=y
+  185  clear
+  186  exp java/oracle file=my.dmp tables=(employees,departments) rows=n
+  187  exp java/oracle file=my.dmp tables=employees,departments rows=n
+  188  exit
+  189  sudo chown -R ssam:ssam res
+  190  sudo init 0
+  191  xed
+  192  sqlplus java/oracle
+  193  exit
+  194  sudo chown ssam:ssam 076\ Shawn\ Mendes\ -\ Theres\ Nothing\ Holdin\ Me\ Back.mp3 
+  195  ll
+  196  rm *.sql
+  197  sudo -f *.sql
+  198  sudo *.sql
+  199  wsed
+  200  sudo rm *.sql
+  201  ll
+  202  sudo rm *sql
+  203  ll
+  204  exit
+  205  gedit &
+  206  sudo init 0
+  207  ifconfig
+  208  ping naver.com
+  209  ping nextit.or.kr
+  210  ping mail3.nextit.or.kr
+  211  clear
+  212  cd
+  213  pwd
+  214  mkdir jsstudy
+  215  ls
+  216  ls -l
+  217  clear
+  218  cd ./jsstudy
+  219  pwd
+  220  ls -l
+  221  chmod 700 리눅스기본명령어
+  222  ls -l
+  223  chmod 400 리눅스기본명령어
+  224  ls -l
+  225  chmod 200 리눅스기본명령어
+  226  ls -l
+  227  chmod 100 리눅스기본명령어
+  228  ls -l
+  229  clear
+  230  chmod 600 리눅스기본명령어
+  231  ls -l
+  232  chmod 500 리눅스기본명령어
+  233  ls -l
+  234  chmod 704 리눅스기본명령어
+  235  ls -l
+  236  chmod 755 리눅스기본명령어
+  237  ls -l
+  238  chown root 리눅스기본명령어
+  239  sudo chown root 리눅스기본명령어
+  240  ls -l
+  241  sudo chown root:root  리눅스기본명령어
+  242  ls -l
+  243  chown ssam:ssam 리눅스기본명령어
+  244  sudo chown ssam:ssam 리눅스기본명령어
+  245  ls -l
+  246  cd 
+  247  pwd
+  248  ls
+  249  ls -l
+  250  cd jsstudy/
+  251  ls
+  252  grep "cd" 리눅스기본명령어
+  253  cd
+  254  ls -l | grep ^d
+  255  ls -l | grep ^d | more
+  256  clear
+  257  echo "안뇽하세용"
+  258  echo "안뇽하세용" > myFile.txt
+  259  ls
+  260  more myFile.txt
+  261  man ls 
+  262  pwd
+  263  find ./ -name "*.java" 
+  264  find ./ -name "*.java"  | grep "thread" 
+  265  find ./ -name "*.java"  | xargs grep "thread" 
+  266  find ./ -name "*.java"  | xargs grep -i "thread" 
+  267  history
+  268  history > 20190226
+  269  xeyes
+  270  xeyes & 
+  271  history
+  272  xeyes & 
+  273  xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & xeyes & 
+  274  ps -ef
+  275  xeyes &
+  276  ps -ef | grep -i "xeye"
+  277  kill 5570
+  278  pwd
+  279  cd jsstudy/
+  280  ls
+  281  cp 리눅스기본명령어 리눅스기본명령어_cp1
+  282  ls
+  283  mv ./리눅스기본명령어_cp1  ..
+  284  ls
+  285  cd ..
+  286  ls
+  287  mv ./리눅스기본명령어_cp1 ./이름바꾸기 
+  288  니
+  289  ls
+  290  pwd
+  291  ls
+  292  tar -cvf myjs.tar jsstudy
+  293  ls
+  294  tar -xvf myjs.tar
+  295  ls
+  296  gzip myjs.tar
+  297  ls
+  298  gunzip myjs.tar.gz
+  299  ls
+  300  echo $PATH
+  301  alias
+  302  alias psh = 'ls -l'
+  303  alias psh='ls -l'
+  304  psh
+  305  alias
+  306  sudo init 0
+  307  apt-cache search apache
+  308  clear
+  309  apt-cache search apache
+  310  apt-cache search apache | grep -i "apache"
+  311  apt-cache search apache | grep -i "apache2"
+  312  clear
+  313  sudo apt install apache2
+  314  ascii
+  315  sudo apt install apache2
+  316  sudo su
+  317  whoami 
+  318  which cp
+  319  whereis cp
+  320  who
+  321  sudo apt update 
+  322  sudo apt upgrade
+  323  sudo apt -y upgrade
+  324  sudo apt upgrade -y
+  325  sudo service apache2 stop 
+  326  sudo service apache2 start
+  327  cd /var/www
+  328  ls
+  329  ls -l
+  330  sudo chmod -R 777 html 
+  331  ls -l
+  332  ifconfig
+  333  cd /etc
+  334  ls
+  335  pwd
+  336  sudo cp hosts hosts_org
+  337  sudo chmod 777 hosts
+  338  cd apache2
+  339  ls
+  340  cd sites-enabled
+  341  ls
+  342  vi 000-default.conf
+  343  cd ..
+  344  ls
+  345  vi apache2.conf
+  346  sudo cp apache2.conf apache2.conf_org
+  347  sudo chmod 777 apache2.conf
+  348  ls
+  349  cd sites-enabled
+  350  ls
+  351  sudo cp 000-default.conf 000-default.conf_org
+  352  sudo chmod 777 000-default.conf
+  353  sudo servive apache2 restart
+  354  sudo service apache2 restart
+  355  ls
+  356  sudo cp 000-default.conf ~/jsstudy/
+  357  cd ..
+  358  ls
+  359  sudo cp apache2.conf ~/jsstudy/
+  360  ls
+  361  sudo mv envvars ~/jsstudy
+  362  sudo mv ports.conf ~/jsstudy
+  363  sudo cp magic ~/jsstudy
+  364  ls
+  365  cd ~
+  366  ls
+  367  cd jsstudy/
+  368  ls
+  369  sudo mv ports.conf /etc/apache2/
+  370  sudo mv envvars /etc/apache2/
+  371  ls
+  372  sudo mv apache2.conf /etc/apache2/
+  373  sudo mv 000-default.conf /etc/apache2/sites-enabled/
+  374  ls
+  375  sudo mv magic /etc/apache2/
+  376  sudo service apache2 restart
+  377  sudo chown ssam:ssam *.*
+  378  sudo init 0
+  379  sudo chown ssam:ssam *
+  380  exit
+  381  sudo init 0
+  382  sudo chown -R ssam:ssam 자바\ 평가\ 관련/
+  383  xed
+  384  java -version
+  385  sudo init 0
+  386  ifconfig -a
+  387  java Ex03TCPServer 
+  388  clear
+  389  java Ex03TCPServer 
+  390  clear
+  391  java Ex03TCPServer 
+  392  clear
+  393  ls
+  394  clear
+  395  java Ex04TCPChatServer 
+  396  exit
+  397  java Ex03TCPClient 
+  398  clear
+  399  java Ex03TCPClient 
+  400  clear
+  401  java Ex03TCPClient 
+  402  clear
+  403  java Ex04TCPChatClient 
+  404  exit
+  405  sudo init 0
+  406  ifconfig -a
+  407  java Ex05MultiChatClient 
+  408  clear
+  409  java Ex05MultiChatClient 
+  410  clear
+  411  java Ex06UDPServer 
+  412  clear
+  413  java Ex06UDPServer 
+  414  clear
+  415  java Ex07MulticastServer 
+  416  java Ex05MultiChatServer 
+  417  clear
+  418  java Ex05MultiChatServer 
+  419  clear
+  420  java Ex06UDPClient
+  421  clear
+  422  java Ex06UDPClient
+  423  clear
+  424  java Ex07MulticastClient 
+  425  sudo init 0
+  426  sudo vi /etc/hosts
+  427  exit
+  428  sudo apt update
+  429  sudo apt upgrade
+  430  sudo chown ssam:ssam *
+  431  ls
+  432  ll
+  433  cd share/
+  434  cd JAVA/
+  435  ls
+  436  cd PDF
+  437  ls
+  438  sudo chown ssam:ssam *
+  439  ll
+  440  exit
+  441  sudo init 0
+  442  sudo apt update
+  443  sudo service apache2 restart
+  444  sudo service apache2 stop
+  445  sudo service apache2 start
+  446  apt-cache search php7
+  447  clear
+  448  sudo apt install libapache2-mod-php7.0
+  449  sudo apt install php7.0*
+  450  sudo init 0
+  451  java -jar Untitled.jar 
+  452  java -jar Media.jar 
+  453  java -jar 홍길동.jar 
+  454  sudo init 0
+  455  xed
+  456  ls
+  457  mkdir sample
+  458  ls
+  459  ll
+  460  chmod sample 755
+  461  chmod 755 sample
+  462  ll
+  463  rm sample
+  464  rm -d sample
+  465  ll
+  466  ls
+  467  exit
+  468  sudo apt install samba
+  469  sudo smbpasswd ssam
+  470  java -jar 방권호.jar 
+  471  java -jar 한태희.jar
+  472  java -jar 박소희희.jar
+  473  java -jar 박소희.jar
+  474  sudo chown -R ssam:ssam *
+  475  exit
+  476  sudo init 0
+  477  ifconfig
+  478  exit
+  479  java -version
+  480  ifconfig
+  481  sudo service apache2 stop
+  482  sudo service apache2 start
+  483  sudo init 0
+  484  sudo apt-get -y update 
+  485  sudo apt-get -y upgrade 
+  486  sudo apt-get -y update 
+  487  sudo apt-get -y upgrade 
+  488  sudo apt-get -y update 
+  489  sudo apt-get -y autoremove --purge
+  490  sudo apt-get -y clean 
+  491  exit
+  492  cd /etc/apache2
+  493  ls
+  494  cd sites-enabled
+  495  ls
+  496  sudo vi 000-default.conf
+  497  sudo service apache2 restart
+  498  sudo vi 000-default.conf
+  499  pwd
+  500  ls
+  501  sudo chmod 777 jsProj
+  502  ld
+  503  ls -al
+  504  cd jsProj
+  505  ls
+  506  ls -al
+  507  sudo chmod 777 *
+  508  ls
+  509  ls -al
+  510  ㄷ턋
+  511  exit
+  512  sudo apt-get -y update 
+  513  sudo apt-get -y upgrade 
+  514  sudo apt-get -y autoremove --purge
+  515  sudo apt-get -y autoclean 
+  516  exit
+  517  sudo init 0
+  518  cd jsstudy/
+  519  ls
+  520  grep -i onsubmit *
+  521  ifconfig -a
+  522  sudo init 0
+  523  cd jsstudy/
+  524  ls
+  525  grep -i clearTime *.*
+  526  cd jsstudy/
+  527  ls
+  528  grep -i pdf *.html
+  529  ls
+  530  cd gesi/
+  531  ls
+  532  grep -i pdf *.html
+  533  ifconfig
+  534  pwd
+  535  cd jsstudy/
+  536  ls
+  537  cd AJAX/
+  538  ls
+  539  sudo chmod 777 uploads
+  540  cd Downloads/
+  541  ls -alrt
+  542  sudo mv dokuwiki-stable.tgz /var/www/html/
+  543  ls
+  544  apt-cache search php7
+  545  sudo apt install php7*
+  546  apt-cache search php7
+  547  sudo apt install php7*
+  548  sudo apt update
+  549  sudo apt upgrade
+  550  cd /var/www/html
+  551  ls
+  552  pwd
+  553  ls
+  554  sudo tar xvf dokuwiki-stable.tgz
+  555  ls
+  556  rm dokuwiki-stable.tgz
+  557  ls
+  558  ls -l
+  559  mv dokuwiki-2018-04-22b dokuwiki
+  560  ls
+  561  cd ..
+  562  ls
+  563  ls -l
+  564  cd html
+  565  ls
+  566  ls -l
+  567  sudo chown www-data:www-data dokuwiki
+  568  ls -l
+  569  ls
+  570  cd dokuwiki/
+  571  ls
+  572  cd ..
+  573  ls -l
+  574  sudo chmod -R 777 dokuwiki 
+  575  cd dokuwiki
+  576  ls
+  577  ls -l
+  578  cd ..
+  579  sudo chown -R www-data:www-data dokuwiki
+  580  cd dokuwiki
+  581  ls
+  582  ls -l
+  583  sudo init 0
+  584  cd jsstudy/
+  585  ls
+  586  cd AJAX
+  587  ls
+  588  grep -i flikr *.html
+  589  grep -i flickr *.html
+  590  cd ..
+  591  find ./ -name "*.html" | xargs grep -i "flickr"
+  592  cd /var/www/html
+  593  ls
+  594  sudo rm -fR dokuwiki
+  595  ls
+  596  sudo tar xvf dokuwiki.tar.gz
+  597  ls
+  598  clear
+  599  ls -l
+  600  cd dokuwiki
+  601  ls -l
+  602  cd ..
+  603  clear
+  604  ls
+  605  sudo mv dokuwiki.tar.gz /home/ssam/jsstudy/
+  606  ls
+  607  clear
+  608  ls -l
+  609  ls
+  610  cd dokuwiki
+  611  ls
+  612  cd data
+  613  ls
+  614  cd pages
+  615  ls
+  616  cd %EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8
+  617  ls
+  618  more %EB%B3%80%EC%88%98.txt
+  619  cd ..
+  620  cd
+  621  clear
+  622  cd /etc
+  623  sudo find ./ -name "php.ini" -print
+  624  cd ./php/7.0/apache2/
+  625  ls
+  626  ls -l
+  627  sudo gedit php.ini
+  628  clear
+  629  sudo apt install gedit
+  630  sudo gedit php.ini
+  631  sudo service apache2 restart
+  632  cd jsstudy/
+  633  ls
+  634  ls *.tar.gz
+  635  clear
+  636  ls *.tar.gx
+  637  ls *.tar.gz
+  638  sudo mv dokuwiki.tar.gz /var/www/html/
+  639  ls doku*
+  640  pwd
+  641  ls
+  642  ls doku*
+  643  sudo rm -fR dokuwiki-stable.tgz
+  644  cd /media
+  645  ls
+  646  cd ssam
+  647  ls
+  648  ls -l
+  649  cd "53F1-F294"
+  650  ls
+  651  ls -al
+  652  cd window
+  653  ls
+  654  cd ..
+  655  cd study
+  656  ls
+  657  l s-l
+  658  ls
+  659  ls -al
+  660  cd ..
+  661  ls
+  662  sudo chmod -R 777 *
+  663  sudo init 0
+  664  pwd
+  665  cd js
+  666  cd jsstudy/
+  667  ls
+  668  find ./ -name "*.html" | xargs grep -i ran
+  669  nmcli device show
+  670  ifconfig -a
+  671  clear
+  672  nmcli device show
+  673  cd /etc/apache2
+  674  ls
+  675  cd sites-enabled
+  676  ls
+  677  vi 000-default.conf
+  678  sudo vi 000-default.conf
+  679  sudo service apache2 restart
+  680  cd
+  681  ls
+  682  cd jsProj/
+  683  ls
+  684  ls -l
+  685  cd ..
+  686  sudo chmod -R 777 jsProj
+  687  ls
+  688  cd jsProj/
+  689  ls
+  690  ls -l
+  691  cd 강정현
+  692  ls -l
+  693  cd ..
+  694  ls
+  695  ifconfig -a
+  696  sudo apt install subversion
+  697  clear
+  698  svn -version
+  699  svn -v
+  700  svn
+  701  svn --version
+  702  clear
+  703  sudo apt install libapache2-
+  704  clear
+  705  sudo apt install libapache2-svn
+  706  cd /opt
+  707  sudo mkdir svn
+  708  ls
+  709  ll
+  710  sudo chown -
+  711  sudo chown -R ssam:ssam svn
+  712  ll
+  713  cd svn
+  714  clear
+  715  svnadmin create /opt/svn/repos
+  716  ls
+  717  cd repos
+  718  ls
+  719  cd conf
+  720  ls
+  721  xed svnserve.conf 
+  722  cd ..
+  723  cd..
+  724  cd ..
+  725  ls
+  726  clear
+  727  svnserve -d -r /opt/svn/repos
+  728  svn list svn://127.0.0.1:3690/repos
+  729  clear
+  730  ps -ef | grep svnserve
+  731  kill 7252
+  732  ps -ef | grep svnserve
+  733  svnserve -d -r /opt/svn/repos
+  734  ps -ef | grep svnserve
+  735  kill 7644
+  736  svnserve -d -r /opt/svn/repos
+  737  sudo init 0
+  738  svnserve -d -r /opt/svn/repos
+  739  sudo a2enmod dav_svn
+  740  sudo htpasswd -cm /etc/apache2/dev_svn.passwd admin
+  741  sudo apache2 restart
+  742  sudo service apache2 restart
+  743  clear
+  744  sudo apt-get install git
+  745  git --version
+  746  git config --list
+  747  git config --global user.name "ssam"
+  748  git config --global user.email "ssam@nextit.or.kr"
+  749  git config --global core.editor xed
+  750  git config --list
+  751  cd /opt
+  752  clear
+  753  ls
+  754  sudo mkdir git
+  755  ls
+  756  ll
+  757  sudo chown -
+  758  sudo chown -R ssam:ssam git
+  759  ll
+  760  clear
+  761  cd git
+  762  mkdir repos
+  763  ls
+  764  cd repos
+  765  git init
+  766  xed README.txt
+  767  clear
+  768  git status
+  769  git add *
+  770  git status
+  771  clear
+  772  git commit -m "README.txt 파일 추가"
+  773  cd ..
+  774  mkdir remote_repos.git
+  775  cd remote_repos.git/
+  776  git --bare init
+  777  cd ..
+  778  clear
+  780  git daemon --base-path=/opt/git --export-all --reuseaddr --informative-errors --verbose --enable=receive-pack &
+  781  cd git
+  782  ls
+  783  cd repos
+  784  git push origin master
+  785  git remote
+  786  git remote -l
+  787  git remote --help
+  788  git remote get-url
+  789  ls
+  790  git push
+  791  git push --set-upstream origin master
+  792  ls
+  793  cd ..
+  794  ls
+  795  clear
+  796  git clone git://127.0.0.1/remote_repos.git sample
+  797  clear
+  798  git clone https://github.com/ilmare0515/nextit.git
+  799  mvn -v
+  800  mvn --version
+  801  mvn -v
+  802  mvn -version
+  803  exit
+  804  history
+  805  netstat -aux | grep 8088
+  806  netstat -aux
+  807  ps -au | grep 8088
+  808  netstat -au | grep 8088
+  809  netstat --help
+  810  netstat -tx
+  811  ls
+  812  chmod 755 *.sh
+  813  ll
+  814  clear
+  815  ./startup.sh 
+  816  ./shutdown.sh 
+  817  ./startup.sh 
+  818  ./shutdown.sh 
+  819  ./startup.sh 
+  820  ./shutdown.sh 
+  821  clear
+  822  ./startup.sh 
+  823  ll
+  824  cd ..
+  825  cd bin
+  826  clear
+  827  chmod 755 *.sh
+  828  ll
+  829  clear
+  830  ./startup.sh 
+  831  ./shutdown.sh 
+  832  ./startup.sh 
+  833  svnserve -d -r /opt/svn/repos
+  834  sudo init 0
+  835  ./startup.sh 
+  836  ./shutdown.sh 
+  837  history > history.txt

@@ -1,0 +1,7 @@
+====== MVN ======
+bashrc < -- 로그인 할 때 자동으로 한번 실행되는 파일
+
+MVN환경변수로 설정해주어 터미널에서 바로 쓸 수 있게 해줌
+export M2_HOME=/home/pc42/tools/mvn363
+export PATH=$PATH:$M2_HOME/bin
+

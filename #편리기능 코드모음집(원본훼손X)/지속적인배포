@@ -1,0 +1,5 @@
+SVN -> SPRING -> Jenkins(CI / CD Tool, 지속적 통합/ 배포(배치))
+
+Jenkins 는 SVN 저장소에서 소스를 가져온 뒤 컴파일 해서 WAR파일로 묶어서 Tomcat의 Web-App폴더 밑에 가져다 놓음
+Jenkins 는 svn의 유저권환과 Tomcat의 manager권한이 필요함
+

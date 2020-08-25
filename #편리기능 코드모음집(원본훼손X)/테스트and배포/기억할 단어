@@ -1,0 +1,28 @@
+테스트 & 배포 (테스트는 PM이 됬을 때만 중요) (우리나라는 QA/QC가 형식적이기 때문에 능력향상에 도움이 안 됨) (테스트 전문 회사는 괜찮음 [반도체])
+
+CI : continuouse integration (지속적 통합)
+
+CD : continuouse deploy (지속적 배포)
+
+GIT (분산관리) , SVN(중앙관리) 우리나라는 SVN이 많이 깔려있음
+
+필수 명령어
+svn checkout   ## 작업사본 만들기, 곧 저장소의 소스를 가져오기 
+svn update     ## 서버에 업데이트된 내용이 있으면 내 작업사본을 업데이트하기
+svn commit     ## 내가 고친 내용을 저장소에 반영하기
+
+//저장소에 저장 (PM이나 서버관리자가 해줌)
+sudo svn import /home/pc42/mySvn/ file:///home/pc42/LTY/myLty -m "최초추가"
+
+//개발자가 하는 부분
+//저장소에서 추출 (추출해온 디렉토리안에는 .svn 디렉토리가 있음) == working copy라 함
+svn checkout file:///home/pc42/LTY/myLty CSJ
+
+//저장소에 변경내용 있다고 알려줌
+svn add 파일이름
+//저장소에 변경내용 반영
+svn commit -m "커밋 메세지"
+
+
+
+
