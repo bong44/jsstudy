@@ -74,7 +74,7 @@
             </div>
         </header>
         <!-- 로그인 창 -->
-            <form action="" name="nm_fm1">
+            <form name="nm_fm1">
                 <div class="container">
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                         <div class="modal-dialog">
@@ -102,7 +102,7 @@
                     </div>
                 </form>
         <!-- 로그아웃 창 -->
-            <form action="" name="nm_fm2">
+            <form name="nm_fm2">
                 <div class="container">
                     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" >
                         <div class="modal-dialog">
@@ -365,6 +365,11 @@
         
         //로그인
         $("form[name=nm_fm1]").on("submit",function(){
+
+            if (!localStorage.getItem("member")) {
+                alert("아이디나 비밀번호가 일치하지 않습니다");
+                return false;
+            }
 
             var v_getMemberList = JSON.parse(localStorage.getItem("member"));
 
