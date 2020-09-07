@@ -368,6 +368,8 @@
 
             if (!localStorage.getItem("member")) {
                 alert("아이디나 비밀번호가 일치하지 않습니다");
+                $("#inputPassword").val("");
+                $("#inputName").focus();
                 return false;
             }
 
@@ -388,6 +390,8 @@
                         return false;
                     }else{
                         alert("아이디나 비밀번호가 일치하지 않습니다");
+                        $("#inputPassword").val("");
+                        $("#inputName").focus();
                         return false;
                     }
                 }
